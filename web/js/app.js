@@ -442,6 +442,8 @@
       ]);
     },
     "dismiss-warning"() {
+      // 경고 화면(높이 800px)은 아래 설정이 화면 밖이라, 확인 뒤 전체 설정 화면으로 간다
+      if(type==="mobile"){flash("배터리 경고를 확인했어요. 난방부터 줄이고 환기는 유지해요.");goLocal("cabin-settings");return;}
       root.querySelector('[data-overlay="battery"]')?.setAttribute("hidden","");
       setAlertOverlay(false);
     },
@@ -451,6 +453,8 @@
       const overlay=root.querySelector('[data-overlay="overheat"]');
       const acknowledge=overlay?async()=>{
         await request("safety.acknowledge",{type:"v2l-overheat"});
+        // 모바일 과열 화면은 저장 버튼이 없고 아래 설정이 화면 밖 → 확인 뒤 전체 설정 화면으로
+        if(type==="mobile"){flash("과열 경고를 확인했어요. 해당 포트 전원은 차단된 상태예요.");goLocal("cabin-settings");return;}
         overlay.hidden=true;
         setAlertOverlay(false);
       }:screen==="cid-cabin-overheat"?async()=>{
