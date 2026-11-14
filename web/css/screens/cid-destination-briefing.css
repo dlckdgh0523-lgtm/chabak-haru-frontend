@@ -114,7 +114,11 @@
 /* Figma: 기본 자간 0, 2·4·6번째 span('그', '’  ', '자세'…)만 -1px (변환 때 span 자간이 합쳐졌음) */
 .ch-layer-3470ff1d77 > span:nth-child(even) { letter-spacing: -1px; }
 /* pane 4 0.5px 재측정 값만큼 글자 묶음만 이동(레이아웃 영향 없음). 카드 테두리는 Figma와 같은 border 유지 */
-[data-figma-node="2005:1527"] { translate: -2px -1.5px; } /* 제목 행 중 글자 묶음만(옆 하트는 원래 맞음) */
-[data-figma-node="2005:1610"], [data-figma-node="2005:1615"] { translate: 2px 2px; } /* 후기 '인'·'경유차'만('10월'은 원래 맞음) */
-[data-figma-node="2011:1681"] { translate: 4px 3.5px; }
-[data-figma-node="2011:1631"] { translate: -2px 0; }
+[data-figma-node="2005:1527"] { translate: -2px -1.5px; } /* 제목 행 글자 묶음 */
+[data-figma-node="2005:1535"] { translate: 2px -2px; } /* 북마크 하트 */
+[data-figma-node="2005:1607"], [data-figma-node="2005:1612"] { translate: 2px 2px; } /* 후기 '1인'·'경유차' 아이콘+글자 묶음 */
+[data-figma-node="2011:1678"], [data-figma-node="2011:1681"] { translate: 2px 2px; } /* 등대 사진 본체와 위 사본을 함께 */
+/* 왼쪽 카드: Figma는 안쪽 선을 사진 위에 그림. 레이아웃은 border로 두고 선은 투명하게, 같은 선을 outline으로 위에 그리고
+   사진이 선 아래까지 오도록 잘림 영역을 2px 넓힌 뒤 사진 묶음을 -2px */
+[data-figma-node="2005:1519"] { border-color: transparent; outline: 2px solid rgba(249,252,255,0.2); outline-offset: -2px; overflow-clip-margin: 2px; }
+[data-figma-node="2011:1627"], [data-figma-node="2011:1631"] { translate: -2px 0; } /* 감싸는 29325:14533·2011:1633은 display:contents라 사진 레이어 자체를 옮김 */
