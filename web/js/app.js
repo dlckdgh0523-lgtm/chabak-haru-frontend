@@ -240,8 +240,14 @@
   };
   const links=(pairs)=>pairs.map(([id,title])=>make("a",{href:prefix+id+".html"+params},title));
   // 데모 이벤트(D1 데모 패널): 밤사이 모의 경보·기상으로 들어가는 진입점
-  const demoEvents=()=>panel("데모 이벤트",links([["approach-alert","차량 접근 경보"],["weather-alert","호우 경보"],
-    [type==="cid"?"cabin-overheat":"v2l-overheat","V2L 과열"],...(type==="cid"?[]:[["battery-warning","배터리 잔량 경고"]]),["sunrise-alarm","기상 알람"]]));
+  // live에서는 접근·호우·CO₂·CO 경보를 서버에 모의로 올려 실제 경보 경로(WS)로 화면이 바뀌게 한다
+  const serverEvent=(event,title)=>make("button",{type:"button",onclick:async()=>{
+    try{await request("demo.event",{event});message("서버에 모의 경보를 보냈어요: "+title);}catch(error){message(error.message);}
+  }},title+" (서버)");
+  const demoEvents=()=>panel("데모 이벤트",[
+    ...(integration.demo?links([["approach-alert","차량 접근 경보"],["weather-alert","호우 경보"]])
+      :[serverEvent("approach","차량 접근 경보"),serverEvent("weather","호우 경보"),...(type==="cid"?[serverEvent("co2","이산화탄소 위험"),serverEvent("co","일산화탄소 감지")]:[])]),
+    ...links([[type==="cid"?"cabin-overheat":"v2l-overheat","V2L 과열"],...(type==="cid"?[]:[["battery-warning","배터리 잔량 경고"]]),["sunrise-alarm","기상 알람"]])]);
   const handlers={
     async "menu-open"() {
       panel("차박 내비게이션",[...links([["destination-briefing","차박지 브리핑"],["destination-comparison","근처 차박지 비교"],
@@ -502,6 +508,9 @@
       }
       if(screen.endsWith("-scan")) {
         if(integration.demo){nextOnboarding();return;}
+        // 이미 차량과 연결된 계정이면 스캔 없이 넘어간다(CID와 같게)
+        const linked=await request("pairing.current",{}).catch(()=>({}));
+        if(linked.status==="paired"){flash("이미 차량과 연결돼 있어요.");nextOnboarding();return;}
         await startScan();
         return;
       }
@@ -539,15 +548,17 @@
   function contactRows() {return [...root.querySelectorAll("[data-contact-card]")];}
   const contactIds={first:"first",second:"second"};
   const testsByRow={first:"이차박",second:"이하루"};
+  // 화면에 보이는 순서(순서 변경 뒤에도)대로 1번·2번을 맞춘다
+  const contactOrder=()=>contactRows().map(c=>c.dataset.contactCard);
   function contactFields() {
-    return ["first","second"].flatMap((key,i)=>[
+    return contactOrder().flatMap((key,i)=>[
       textField((i+1)+"번 연락처 이름",{type:"text",maxLength:24,value:testsByRow[key],autocomplete:"off"}),
       textField((i+1)+"번 전화번호",{type:"tel",inputMode:"tel",maxLength:16,autocomplete:"off",placeholder:"01012345678"}),
     ]);
   }
   function applyContacts(items) {
     if(!Array.isArray(items))return;
-    for(const [i,key] of ["first","second"].entries()) {
+    for(const [i,key] of contactOrder().entries()) {
       const item=items[i];
       const card=contactRows().find(c=>c.dataset.contactCard===key);
       if(!item||!card)continue;
@@ -562,8 +573,9 @@
     const fields=contactFields();
     panel("비상연락처 입력",fields.map(f=>f.wrapper),[{label:"저장",run:async()=>{
       const items=[];
+      const order=contactOrder();
       for(let i=0;i<fields.length;i+=2) {
-        const key=i===0?"first":"second";
+        const key=order[i/2];
         const name=fields[i].input.value.trim();
         const phone=fields[i+1].input.value.replace(/[ -]/g,"");
         if(phone&&!/^\+?[0-9]{8,15}$/.test(phone)) {message("전화번호를 확인해 주세요.");return false;}
@@ -614,6 +626,14 @@
   if(screen.endsWith("-contacts")&&!fixed&&!integration.demo)request("contacts.list",{}).then(x=>applyContacts(x.contacts)).catch(e=>message(e.message));
 
   let scannerActive=false;
+  // 카메라 권한 거부 등: 영어 오류 대신 다시 시도 / 나중에 연결
+  function scanFailed(error) {
+    scannerActive=false;
+    const denied=error?.name==="NotAllowedError"||/permission|denied/i.test(error?.message||"");
+    panel(denied?"카메라 권한이 필요해요":"카메라를 열 수 없어요",
+      denied?"QR을 스캔하려면 브라우저 설정에서 카메라를 허용해 주세요. 나중에 연결해도 돼요.":"잠시 뒤 다시 시도하거나 나중에 연결해 주세요.",
+      [{label:"다시 시도",run:()=>{startScan();}},{label:"나중에 연결할게요",run:()=>{nextOnboarding();save("paired",false);}}]);
+  }
   async function startScan() {
     if(scannerActive)return;
     if(integration.demo){panel("휴대폰 카메라","미리보기에서는 ‘다음’으로 비상연락처 화면을 볼 수 있어요.");return;}
@@ -626,8 +646,8 @@
         const result=await request("pairing.confirm",{code});
         if(result.status==="paired")nextOnboarding();
         else message("차량 연결이 완료되지 않았어요.");
-      },error=>{scannerActive=false;message(error.message);});
-    }catch(error) {scannerActive=false;throw error;}
+      },scanFailed);
+    }catch(error) {scanFailed(error);}
   }
   document.addEventListener("visibilitychange",()=>{if(document.hidden)scannerActive=false;});
   const qr=root.querySelector("[data-pair-qr]");
@@ -781,7 +801,7 @@
   }
 
   // 수면 화면 길게 누르기(0.7초) → 데모 이벤트. 화면에 버튼을 더하지 않으려고 제스처로 둔다
-  if(screen.endsWith("sleep-mode")&&integration.demo&&!fixed){
+  if(screen.endsWith("sleep-mode")&&!fixed){
     let press=0;
     root.addEventListener("pointerdown",e=>{if(!e.target.closest("[data-action]"))press=setTimeout(demoEvents,700);});
     for(const name of ["pointerup","pointercancel","pointerleave"])root.addEventListener(name,()=>clearTimeout(press));

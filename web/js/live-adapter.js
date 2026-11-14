@@ -5,6 +5,8 @@
 (() => {
   const integration = window.ChabakIntegration;
   if (!integration || integration.demo) return;
+  const kind = document.body.dataset.kind; // cid=차량, mobile=휴대폰
+  const screen = document.body.dataset.screen;
 
   const query = new URLSearchParams(location.search);
   // 설정은 주소 쿼리로 한 번 넘기면 localStorage에 남는다. 예: ?mode=live&api=http://localhost:3000/v1&vehicleId=…&vehicleToken=…
@@ -165,11 +167,29 @@
     },
     "vehicle.sleep.stop": () => http("POST", `/sleep-sessions/${need("sessionId")}/stop`, { reason: "USER_STOP" }),
     async "safety.acknowledge"({ type }) {
+      const known = sessionStorage.getItem("chabak-live:alertId");
+      if (known) {
+        sessionStorage.removeItem("chabak-live:alertId");
+        return http("POST", `/alerts/${known}/acknowledgements`, { action: "OK" }, { auth: kind === "cid" && config.carToken ? "vehicle" : "user" });
+      }
       const alerts = await http("GET", `/sleep-sessions/${need("sessionId")}/alerts`);
       const list = Array.isArray(alerts) ? alerts : alerts.items || [];
       const target = list.find(a => a.status !== "ACKED" && (type !== "approach" || a.kind === "ACCESS_DETECTED")) || list[0];
       if (!target) return { mode: "local" }; // 서버에 경보가 없으면 화면만 닫는다(모의 경보)
-      return http("POST", `/alerts/${target.id || target.alertId}/acknowledgements`, { action: "OK" }, { auth: document.body.dataset.kind === "cid" && config.carToken ? "vehicle" : "user" });
+      return http("POST", `/alerts/${target.id || target.alertId}/acknowledgements`, { action: "OK" }, { auth: kind === "cid" && config.carToken ? "vehicle" : "user" });
+    },
+    "pairing.current": () => ({ status: config.linkId ? "paired" : "none" }),
+    // live 데모 이벤트: 서버에 모의 경보를 올려 WS 경로로 화면이 바뀌게 한다
+    async "demo.event"({ event }) {
+      const raise = (alertKind, severity, evidence) => http("POST", "/alerts", { sessionId: need("sessionId"), kind: alertKind, severity,
+        sourceEventId: "demo-" + crypto.randomUUID(), evidence, executionMode: "MOCK" });
+      if (event === "approach") return raise("ACCESS_DETECTED", "CRITICAL", { zone: "REAR_LEFT", dwellSec: 14 });
+      if (event === "weather") return raise("HEAVY_RAIN", "CRITICAL", { warning: "호우경보", source: "DEMO" });
+      if (event === "co2" || event === "co") {
+        if (!config.carToken) throw new Error("CO₂·CO 시나리오는 차량 화면(carToken)에서만 보낼 수 있어요.");
+        return http("POST", "/demo/scenarios", { vehicleId: need("vehicleId"), sessionId: need("sessionId"), scenario: event === "co" ? "CO_DETECTED" : "CO2_CRITICAL" }, { auth: "vehicle" });
+      }
+      return { mode: "local" };
     },
     async "reviews.create"({ text }) {
       // 화면에 별점 입력이 없어 중립값 3으로 보낸다(서버는 1–5 필수)
@@ -224,9 +244,51 @@
   // 실시간: WS /v1/ws?token=…&vehicleId=… → 화면 이벤트로 전달
   const seen = new Set();
   let lastSeen = "";
+  const prefix = kind === "cid" ? "cid-" : "mobile-";
+  const flash = (text) => { try { if (text) sessionStorage.setItem("chabak-haru:flash", JSON.stringify(text)); } catch { /* 안내만 생략 */ } };
+  const goTo = (target, text) => { flash(text); location.assign(prefix + target + ".html" + location.search); };
+  const SCREENS = { ACCESS_DETECTED: "approach-alert", HEAVY_RAIN: "weather-alert" };
+  const NOTICE = {
+    CO_DETECTED: ["일산화탄소 경보", "실내 일산화탄소가 위험 수준이에요. 바로 차 밖으로 나가세요."],
+    CO2_CRITICAL: ["이산화탄소 경보", "실내 이산화탄소가 매우 높아요. 머리가 아프거나 답답하면 잠시 밖으로 나가세요."],
+    CO_ELEVATED: ["", "실내 일산화탄소가 올라가고 있어요."],
+    CO2_HIGH: ["", "실내 이산화탄소가 높아요. 외기 유입을 늘리고 있는지 확인해 주세요."],
+    SENSOR_DISCONNECTED: ["", "CO·CO₂ 측정기 연결이 끊겼어요. 측정기를 확인해 주세요."],
+  };
+  const pendingAlerts = new Map(); // alertId → 휴대폰 지연 타이머(D9)
+  function onAlert(alert) {
+    const target = SCREENS[alert.kind];
+    if (target) {
+      const open = () => {
+        pendingAlerts.delete(alert.alertId);
+        try { sessionStorage.setItem("chabak-live:alertId", alert.alertId); } catch { /* 확인 시 목록에서 찾음 */ }
+        if (!screen.endsWith(target)) goTo(target);
+      };
+      // D9: 접근 경보는 차 화면 먼저, 응답이 없을 때만 휴대폰(기본 30초)
+      if (alert.kind === "ACCESS_DETECTED" && kind === "mobile") pendingAlerts.set(alert.alertId, setTimeout(open, (alert.userResponseTimeoutSec || 30) * 1000));
+      else open();
+      return;
+    }
+    const [title, text] = NOTICE[alert.kind] || ["", "경보가 발생했어요: " + alert.kind];
+    const widgets = window.ChabakWidgets;
+    if (alert.severity === "CRITICAL" && title && widgets) {
+      widgets.panel(title, text, [{ label: "확인했어요", run: () => http("POST", `/alerts/${alert.alertId}/acknowledgements`, { action: "OK" },
+        { auth: kind === "cid" && config.carToken ? "vehicle" : "user" }).catch(error => widgets.message(error.message)) }]);
+    } else widgets?.message(text);
+  }
+  function onAcked(ack) {
+    const timer = pendingAlerts.get(ack.alertId);
+    if (timer) { clearTimeout(timer); pendingAlerts.delete(ack.alertId); return; } // 차에서 확인 → 휴대폰은 울리지 않음
+    let current = "";
+    try { current = sessionStorage.getItem("chabak-live:alertId") || ""; } catch { /* 없음 */ }
+    if (/approach-alert|weather-alert/.test(screen) && (!current || current === ack.alertId)) {
+      try { sessionStorage.removeItem("chabak-live:alertId"); } catch { /* 무시 */ }
+      goTo("sleep-mode", "다른 기기에서 경보를 확인했어요.");
+    }
+  }
   async function connect(attempt = 0) {
     if (!config.vehicleId) return;
-    const token = document.body.dataset.kind === "cid" && config.carToken ? config.carToken : await userAuth().catch(() => "");
+    const token = kind === "cid" && config.carToken ? config.carToken : await userAuth().catch(() => "");
     if (!token) return;
     const url = new URL(base.replace(/^http/, "ws") + "/ws");
     url.searchParams.set("token", token);
@@ -250,14 +312,16 @@
         if (v("co2Ppm") != null) values["cabin-co2"] = Math.round(v("co2Ppm")) + "ppm";
         if (Object.keys(values).length) integration.publish("ui.state", { values });
       }
-      if (message.type === "ALERT_RAISED" && payload.kind === "ACCESS_DETECTED" && !/approach-alert/.test(document.body.dataset.screen))
-        location.assign((document.body.dataset.kind === "cid" ? "cid-" : "mobile-") + "approach-alert.html" + location.search);
+      if (message.type === "ALERT_RAISED") onAlert(payload);
+      if (message.type === "ALERT_ACKED") onAcked(payload);
+      if (message.type === "PLAN_UPDATED" && payload.status === "STOPPED" && screen.endsWith("sleep-mode"))
+        goTo("sunrise-alarm", "수면 모드가 끝났어요.");
       if (message.type === "LINK_HEALTH_CHANGED" && payload.status === "ACTIVE") integration.publish("pairing.paired", payload);
       integration.publish("server." + (message.type || "event"), message);
     };
     socket.onclose = ({ code }) => {
       if (code === 4403 || code === 4400) return; // 연결 없음·잘못된 요청은 재시도하지 않음
-      if (code === 4401 && document.body.dataset.kind !== "cid") { userToken = ""; try { sessionStorage.removeItem(tokenKey); } catch { /* 무시 */ } }
+      if (code === 4401 && kind !== "cid") { userToken = ""; try { sessionStorage.removeItem(tokenKey); } catch { /* 무시 */ } }
       setTimeout(() => connect(attempt + 1), Math.min(30000, 1000 * 2 ** attempt));
     };
     socket.onopen = () => { attempt = 0; };
