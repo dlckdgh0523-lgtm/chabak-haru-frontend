@@ -101,7 +101,37 @@
   function nextOnboarding() {
     const current=screen.split("-").at(-1);
     const following=sequence[sequence.indexOf(current)+1];
+    if(current==="pair"||current==="scan")save("paired",true);
     if(following)goLocal("onboarding-"+following);
+  }
+
+  // 화면 흐름 상태(데모 세션). ?qa는 Figma 비교용이라 적용하지 않는다
+  const flash=text=>save("flash",text); // 다음 화면에서 한 번 보여줄 안내
+  if(!fixed){
+    const pending=load("flash",null);
+    if(pending){save("flash",null);setTimeout(()=>message(pending),300);}
+    // 경로 확인 질문은 한 번만 묻는다(S1a)
+    if(screen.endsWith("route-confirmation")&&load("route-answered",false)){
+      root.querySelector("[data-route-overlay]")?.setAttribute("hidden","");
+      for(const timer of bindings.get("route-countdown")||[])timer.hidden=true;
+    }
+    // 비교에서 바꾼 목적지를 브리핑에 반영(S1b → S1). 후기·사진은 Figma에 솔내 해변 노지만 있음
+    const destination=load("destination",null);
+    if(screen.endsWith("destination-briefing")&&destination?.name&&destination.id!=="solnae"){
+      const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      for(let node=walker.nextNode();node;node=walker.nextNode())
+        if(node.nodeValue.includes("솔내 해변 노지"))node.nodeValue=node.nodeValue.replace("솔내 해변 노지",destination.name);
+    }
+    // 일출 모드를 끈 경우 기상 화면에서 일출 안내를 뺀다(S5a 아니요)
+    if(screen.endsWith("sunrise-alarm")&&load("sunrise",true)===false){
+      const note=root.querySelector('[data-figma-node="29262:7562"]');
+      if(note)note.innerHTML="일출 모드를 꺼 두었어요.<br>설정한 시각에 맞춰 깨워드려요.";
+      for(const timer of bindings.get("sunrise-remaining")||[])timer.parentElement.style.visibility="hidden";
+      root.querySelector('[data-figma-node="29396:5498"]')?.parentElement?.parentElement?.style.setProperty("visibility","hidden");
+    }
+    // 휴대폰 연결을 건너뛰었으면 밤 화면에서 알린다(O4)
+    if(load("paired",true)===false&&/cabin|sleep-mode/.test(screen))
+      setTimeout(()=>message("휴대폰이 연결돼 있지 않아요. 밤사이 경보가 휴대폰으로 가지 않아요."),pending?4000:900);
   }
   const agreements=[...root.querySelectorAll('[data-action="consent-toggle"]')];
   const consentAll=root.querySelector('[data-action="consent-all"]');
@@ -204,24 +234,61 @@
   const request=(event,payload)=>integration.request(event,payload);
   const previewMessage=text=>message(integration.demo?"미리보기 · "+text:text);
   const simpleNavigation={
-    "route-accept":["route.accept","destination-briefing"],
-    "route-start":["route.start","destination-briefing"],"detour-accept":["route.detour","sunrise-parking",true],
-    "detour-skip":["route.detour","sunrise-parking",false],"sunrise-confirm":["parking.sunrise","utility-mode",true],
-    "sunrise-skip":["parking.sunrise","utility-mode",false],"utility-enable":["vehicle.utility.enable",type==="cid"?"cabin-ready":"cabin-settings"],
-    "sleep-stop":["vehicle.sleep.stop",type==="cid"?"cabin-ready":"cabin-settings"],
+    "utility-enable":["vehicle.utility.enable",type==="cid"?"cabin-ready":"cabin-settings"],
   };
+  const links=(pairs)=>pairs.map(([id,title])=>make("a",{href:prefix+id+".html"+params},title));
+  // 데모 이벤트(D1 데모 패널): 밤사이 모의 경보·기상으로 들어가는 진입점
+  const demoEvents=()=>panel("데모 이벤트",links([["approach-alert","차량 접근 경보"],["weather-alert","호우 경보"],
+    [type==="cid"?"cabin-overheat":"v2l-overheat","V2L 과열"],...(type==="cid"?[]:[["battery-warning","배터리 잔량 경고"]]),["sunrise-alarm","기상 알람"]]));
   const handlers={
     async "menu-open"() {
-      const links=["destination-briefing","destination-comparison","sunrise-parking","utility-mode"];
-      const titles=["차박지 브리핑","근처 차박지 비교","일출 주차","유틸리티 모드"];
-      panel("차박 내비게이션",links.map((id,i)=>make("a",{href:prefix+id+".html"+params},titles[i])));
+      panel("차박 내비게이션",[...links([["destination-briefing","차박지 브리핑"],["destination-comparison","근처 차박지 비교"],
+        ["charging-detour","충전 경유"],["sunrise-parking","일출 주차"],["utility-mode","유틸리티 모드"],["cabin-ready","차량 설정(취침 확인)"],
+        ["sleep-mode","수면 모드"]]),make("button",{type:"button",onclick:demoEvents},"데모 이벤트…")]);
+    },
+    async "route-accept"() {
+      await request("route.accept",{});
+      save("route-answered",true);
+      goLocal("destination-briefing");
+    },
+    async "route-start"() {
+      await request("route.start",{});
+      save("route-answered",true);
+      goLocal("destination-briefing");
     },
     async "route-dismiss"() {
       await request("route.dismiss",{});
+      save("route-answered",true);
       root.querySelector("[data-route-overlay]")?.setAttribute("hidden","");
       for(const timer of bindings.get("route-countdown")||[])timer.hidden=true;
     },
-    "place-briefing":()=>goLocal("destination-briefing"),
+    async "detour-accept"() {
+      await request("route.detour",{enabled:true});
+      flash("고속도로 휴게소 급속충전을 경유지로 등록했어요.");
+      goLocal("sunrise-parking");
+    },
+    async "detour-skip"() {
+      await request("route.detour",{enabled:false});
+      flash("충전 없이 가요. 오늘 밤 전력이 10% 모자랄 수 있어요.");
+      goLocal("sunrise-parking");
+    },
+    async "sunrise-confirm"() {
+      await request("parking.sunrise",{enabled:true});
+      save("sunrise",true);
+      goLocal("utility-mode");
+    },
+    async "sunrise-skip"() {
+      await request("parking.sunrise",{enabled:false});
+      save("sunrise",false);
+      flash("일출 모드를 껐어요. 기상 알람만 울려요.");
+      goLocal("utility-mode");
+    },
+    async "sleep-stop"() {
+      await request("vehicle.sleep.stop",{});
+      goLocal("sunrise-alarm"); // S7 "수면 모드 끝내기" → 바로 S9 기상 요약
+    },
+    // 모바일 "후기보기"는 후기를 바로 연다
+    "place-briefing":()=>handlers["reviews-open"](),
     "place-comparison":()=>goLocal("destination-comparison"),
     async "place-call"() {
       const result=await request("place.phone",{placeId:"solnae"});
@@ -235,7 +302,8 @@
       const reviews=Array.isArray(result.reviews)?result.reviews:[];
       panel("전체 후기",reviews.length?reviews.filter(x=>typeof x==="string").map(x=>make("p",{},x)):"등록된 후기가 없어요.");
     },
-    "screen-close":()=>goLocal("route-confirmation"),
+    // 비교의 닫기는 왔던 브리핑으로, 브리핑의 닫기는 주행 계속 → 다음 단계인 전력 확인(PRD S1→S3)
+    "screen-close":()=>goLocal(screen.endsWith("comparison")?"destination-briefing":"charging-detour"),
     "map-open":()=>goLocal("route-confirmation"),
     "filters-open":filterPanel,
     async "filter-toggle"(button,value) {
@@ -312,9 +380,13 @@
     },
     "utility-help":()=>panel("유틸리티 모드 안내","차량에 따라 유틸리티 모드를 켜는 방법이 달라요. 차량의 설정에서 유틸리티 모드 메뉴를 확인해 주세요."),
     async "toggle-setting"(button,key) {
+      // D6: 창문은 항상 닫힘 고정. 끌 수 없음
+      if(key==="doors-locked"){message("문과 창문은 항상 닫혀 있어요. 환기는 공조 외기 유입으로 해요.");return;}
       const enabled=button.getAttribute("aria-checked")!=="true";
       const result=await request("vehicle.setting",{key,value:enabled});
       setSetting(key,typeof result.value==="boolean"?result.value:enabled);
+      // D7: 환기는 끌 수 없음. 공조를 꺼도 외기 유입은 유지
+      if(key==="climate-enabled"&&!settings[key])message("공조를 꺼도 환기(외기 유입)는 계속 켜져 있어요.");
     },
     async step(button,value) {
       const [key,direction]=value.split(":");
@@ -355,7 +427,17 @@
     },
     async "alarm-stop"() {
       await request("alarm.stop",{});
-      goLocal("route-confirmation");
+      // 아침 요약 + 한 줄 후기(S9→S10, prompts/07). 여정을 마치면 지도(경로 질문 없이)로
+      const review=textField("어젯밤 어땠어요? (선택)",{type:"text",maxLength:80,placeholder:"예: 조용했는데 좀 추웠어요"});
+      const finish=()=>{save("route-answered",true);goLocal("route-confirmation");};
+      panel("좋은 아침이에요",[make("p",{},"밤사이 실내 온도 15.2°C~25°C를 유지했고, 환기 3번, 결로 제거를 마쳤어요."),review.wrapper],[
+        {label:"후기 남기고 마치기",run:async()=>{
+          const text=review.input.value.trim();
+          if(text)await request("reviews.create",{placeId:load("destination",{id:"solnae"}).id,text});
+          flash(text?"후기를 남겼어요. 다음 차박에 도움이 돼요.":"여정을 마쳤어요.");
+          finish();
+        }},
+      ]);
     },
     "dismiss-warning"() {
       root.querySelector('[data-overlay="battery"]')?.setAttribute("hidden","");
@@ -364,15 +446,24 @@
     async "v2l-details"() {
       const result=await request("vehicle.v2l.details",{normal:screen.endsWith("cabin-ready")});
       const parts=[result.label,result.temperature==null?"":("온도 "+result.temperature+"°C"),result.observedAt&&("감지 시각 "+result.observedAt)].filter(Boolean);
-      panel("V2L 연결 기기",parts.join("\n")||"기기 상태를 불러올 수 없어요.",root.querySelector('[data-overlay="overheat"]')?[{label:"경고 확인",run:async()=>{
+      const overlay=root.querySelector('[data-overlay="overheat"]');
+      const acknowledge=overlay?async()=>{
         await request("safety.acknowledge",{type:"v2l-overheat"});
-        root.querySelector('[data-overlay="overheat"]').hidden=true;
+        overlay.hidden=true;
         setAlertOverlay(false);
-      }}]:[]);
+      }:screen==="cid-cabin-overheat"?async()=>{
+        await request("safety.acknowledge",{type:"v2l-overheat"});
+        flash("과열 경고를 확인했어요. 해당 포트 전원은 차단된 상태예요.");
+        goLocal("cabin-ready");
+      }:null;
+      panel("V2L 연결 기기",parts.join("\n")||"기기 상태를 불러올 수 없어요.",acknowledge?[{label:"경고 확인",run:acknowledge}]:[]);
     },
     async "evacuation-route"() {
       const result=await request("safety.evacuation.route",{});
-      if(typeof result.instructions==="string")panel("대피 경로",result.instructions);
+      const guide=typeof result.instructions==="string"?result.instructions:"하천에서 멀리, 높은 곳으로 이동하세요.";
+      // D10: 휴대폰 호우 경보는 119. Figma에 버튼 자리가 없어 대피 안내 창에 둔다(다이얼만)
+      if(type==="mobile")panel("대피 안내",[make("p",{},guide),make("a",{href:"tel:119"},"119에 전화 걸기")]);
+      else if(typeof result.instructions==="string")panel("대피 경로",result.instructions);
       else previewMessage("대피 경로를 요청했어요.");
     },
     async "alert-acknowledge"() {
@@ -386,6 +477,8 @@
       }}]);
     },
     "sos-open"() {
+      // D10: 휴대폰 접근 경보는 112(다이얼만). 차량은 기존 SOS 연결(prompts/08)
+      if(type==="mobile"){panel("112 신고",[make("p",{},"차 주변 위협이 계속되면 112에 신고하세요."),make("a",{href:"tel:112"},"112에 전화 걸기")]);return;}
       panel("긴급 호출","차량 또는 앱의 긴급 호출 서비스를 열어요.",[{label:"긴급 호출 열기",run:async()=>{
         await request("safety.sos",{});
         previewMessage("긴급 호출을 요청했어요.");
@@ -425,6 +518,7 @@
     async "pair-skip"() {
       await request("pairing.skip",{});
       nextOnboarding();
+      save("paired",false); // nextOnboarding이 연결됨으로 저장한 뒤 덮어쓴다
     },
     "contacts-edit":()=>editContacts(),
     "contacts-reorder":()=>reorderContacts(),
@@ -678,6 +772,25 @@
       }
     },1000);
     window.addEventListener("pagehide",()=>clearInterval(timer),{once:true});
+  }
+
+  // 수면 화면 길게 누르기(0.7초) → 데모 이벤트. 화면에 버튼을 더하지 않으려고 제스처로 둔다
+  if(screen.endsWith("sleep-mode")&&integration.demo&&!fixed){
+    let press=0;
+    root.addEventListener("pointerdown",e=>{if(!e.target.closest("[data-action]"))press=setTimeout(demoEvents,700);});
+    for(const name of ["pointerup","pointercancel","pointerleave"])root.addEventListener(name,()=>clearTimeout(press));
+  }
+  // D5: 취침 확인은 30초 동안 손대지 않으면 화면을 끄고 수면 모드로. 무엇이든 만지면 30초 다시
+  if(screen==="cid-cabin-ready"&&integration.demo&&!fixed){
+    let left=30;
+    for(const name of ["pointerdown","keydown"])document.addEventListener(name,()=>{left=30;},{capture:true});
+    const idle=setInterval(()=>{
+      if(document.querySelector("dialog[open]")){left=30;return;}
+      left-=1;
+      if(left===10)message("10초 뒤 화면을 끄고 수면 모드로 들어가요.");
+      if(left<=0){clearInterval(idle);handlers["sleep-start"]();}
+    },1000);
+    window.addEventListener("pagehide",()=>clearInterval(idle),{once:true});
   }
 
   const publicFields=new Set([
