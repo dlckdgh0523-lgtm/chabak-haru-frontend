@@ -149,3 +149,5 @@
 [data-figma-node="2018:2456"] { min-width: 181px; }
 [data-figma-node="2018:2534"] { min-width: 113px; }
 [data-figma-node="2018:2459"] { min-width: 165px; }
+/* 알약 안내문 폭 Figma 638px(웹 639.7) → 알약이 1.7px 넓어 글자·파형이 왼쪽으로 밀리던 것 */
+[data-figma-node="2018:1896"] { width: 638px; }

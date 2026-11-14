@@ -71,3 +71,4 @@
 .ch-layer-0b0ed2a2db { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 38px; font-style: normal; position: relative; flex-shrink: 0; font-size: 26px; color: white; width: 24px; display: block; }
 .ch-응답-버튼-d0bef5a482 { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex: 1 0 0; height: 66px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 16px; outline: 2px solid #1b54c2; outline-offset: -2px; }
 .ch-layer-340efc404f { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 38px; font-style: normal; position: relative; flex-shrink: 0; color: #080f32; font-size: 26px; width: 68px; display: block; }
+.ch-layer-68a78949f1 > .ch-layer-ebfa387d19 { letter-spacing: 0; } /* Figma: "초 뒤 기본 화면" 자간 0, 부모 <p>의 -0.32px를 물려받아 2.5px 좁아졌음 */

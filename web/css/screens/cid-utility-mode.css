@@ -69,3 +69,5 @@
 .ch-layer-7b25a28ae4 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; height: 48px; line-height: var(--typography-line-48,48px); font-style: normal; position: relative; flex-shrink: 0; color: var(--text-primary,#070e30); font-size: var(--typography-size-36,36px); width: 204px; display: block; }
 .ch-layer-afd2d5a7e1 { align-content: stretch; display: flex; flex: 1 0 0; height: 100%; align-items: flex-end; justify-content: flex-end; min-width: 1px; padding-bottom: 24px; position: relative; }
 .ch-layer-62def9cf16 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 400; line-height: 44px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; text-shadow: 0px 2px 4px rgba(31,11,0,0.2); color: white; letter-spacing: -0.56px; white-space: nowrap; display: block; margin-right: 0.56px; }
+/* 알약 안내문 폭 Figma 400px(자간 4%·-1px 혼합, Chrome이 2.5px 좁게 그림) → 알약 폭·파형 위치 Figma와 같게 */
+[data-figma-node="2025:3888"] { min-width: 400px; }

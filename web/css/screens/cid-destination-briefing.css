@@ -29,7 +29,7 @@
 .ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: 0; white-space: pre; display: block; margin-right: 1px; }
 .ch-layer-15e2ddbb8e { line-height: 1.35; }
 .ch-차박지와-후기-dcb912b72c { position: absolute; align-content: stretch; display: flex; gap: 20px; height: 768px; align-items: flex-end; left: 50%; top: 178px; translate: -50% 0; }
-.ch-오늘-밤-차박지-9d3e2c6649 { border-width: 2px; border-color: rgba(249,252,255,0.2); border-style: solid; align-content: stretch; display: flex; flex-direction: column; height: 768px; align-items: flex-start; overflow: clip; padding-bottom: 26px; padding-left: 48px; padding-right: 30px; padding-top: 30px; position: relative; border-radius: 48px; flex-shrink: 0; width: 720px; }
+.ch-오늘-밤-차박지-9d3e2c6649 { align-content: stretch; display: flex; flex-direction: column; height: 768px; align-items: flex-start; overflow: clip; padding-bottom: 26px; padding-left: 48px; padding-right: 30px; padding-top: 30px; position: relative; border-radius: 48px; flex-shrink: 0; width: 720px; outline: 2px solid rgba(249,252,255,0.2); outline-offset: -2px; }
 .ch-layer-983ce04bb1 { position: absolute; bottom: 76px; display: contents; left: -2px; }
 .ch-ssfb-1-630603ca48 { position: absolute; height: 1200px; left: -2px; width: 836px; top: -512px; display: block; }
 .ch-layer-4edc552e50 { position: absolute; inset: 0; max-width: none; object-fit: cover; pointer-events: none; width: 100%; height: 100%; }
