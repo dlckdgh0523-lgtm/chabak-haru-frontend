@@ -29,6 +29,9 @@
   let provider;
   let serial = 0;
   const bridge = window.ChabakNative;
+  const webLive = !demo && !(bridge && typeof bridge.postMessage === "function");
+  let adapterReady;
+  const adapterLoaded = new Promise(resolve => adapterReady = resolve);
 
   if (bridge && typeof bridge.postMessage === "function") {
     bridge.onmessage = ({data}) => {
@@ -56,6 +59,9 @@
       const data = mock[event]?.(payload) ?? {};
       return { ...data, mode:"demo", accepted:true };
     }
+    if (!provider && webLive) {
+      await Promise.race([adapterLoaded, new Promise(resolve => setTimeout(resolve, timeoutMs))]);
+    }
     if (provider) {
       let timeout;
       try {
@@ -80,9 +86,12 @@
 
   window.ChabakIntegration = Object.freeze({
     demo, request,
+    // 서버에 없는 기능을 live에서도 미리보기와 같은 값으로 처리할 때 쓴다(live-adapter.js)
+    local(event, payload = {}) { return mock[event]?.(payload) ?? {}; },
     configure(adapter) {
       if (typeof adapter !== "function") throw new TypeError("adapter는 함수여야 합니다.");
       provider = adapter;
+      adapterReady();
       window.dispatchEvent(new Event("chabak-adapter-ready"));
     },
     subscribe(handler) {
@@ -95,4 +104,11 @@
       for (const handler of handlers) handler(event,payload);
     },
   });
+
+  // ?mode=live 이고 Android 브리지가 없으면 웹 live 어댑터(백엔드 REST·WS)를 불러온다
+  if (webLive) {
+    const script = document.createElement("script");
+    script.src = new URL("live-adapter.js", document.currentScript.src).href;
+    document.head.append(script);
+  }
 })();
