@@ -30,13 +30,14 @@
   ]);
 
   let userToken = "";
+  const tokenKey = "chabak-live:userToken:" + base + ":" + (config.user || "demo-user"); // 사용자·서버가 바뀌면 다른 토큰
   async function userAuth() {
     if (userToken) return userToken;
-    try { userToken = sessionStorage.getItem("chabak-live:userToken") || ""; } catch { /* 없으면 새로 로그인 */ }
+    try { userToken = sessionStorage.getItem(tokenKey) || ""; } catch { /* 없으면 새로 로그인 */ }
     if (userToken) return userToken;
     const session = await http("POST", "/auth/sessions", { provider: "DEV", credential: config.user || "demo-user" }, { auth: false });
     userToken = session.accessToken;
-    try { sessionStorage.setItem("chabak-live:userToken", userToken); } catch { /* 메모리로만 유지 */ }
+    try { sessionStorage.setItem(tokenKey, userToken); } catch { /* 메모리로만 유지 */ }
     return userToken;
   }
 
@@ -58,7 +59,7 @@
     if (response.status === 401 && auth === "user" && userToken) {
       // 토큰 만료: 한 번만 다시 로그인
       userToken = "";
-      try { sessionStorage.removeItem("chabak-live:userToken"); } catch { /* 무시 */ }
+      try { sessionStorage.removeItem(tokenKey); } catch { /* 무시 */ }
       return http(method, path, body, { auth, idempotent });
     }
     const text = await response.text();
@@ -86,8 +87,9 @@
       const current = await contacts();
       const next = current.map(c => ({ id: c.id, name: c.name }));
       for (const item of items) {
-        const index = next.findIndex(c => c.id === item.id);
-        const row = { id: item.id, name: item.name, ...(item.phone ? { phone: item.phone } : {}) };
+        // 화면의 임시 id("first" 등)는 서버 id가 아니다. 서버에 있는 id일 때만 그 연락처를 고친다
+        const index = item.id ? next.findIndex(c => c.id === item.id) : -1;
+        const row = { ...(index >= 0 ? { id: item.id } : {}), name: item.name, ...(item.phone ? { phone: item.phone } : {}) };
         if (index >= 0) next[index] = row; else next.push(row);
       }
       const saved = await http("PUT", "/emergency-contacts", { contacts: next.slice(0, 3), expectedVersion: contactsVersion });
@@ -96,7 +98,8 @@
     },
     async "contacts.reorder"({ contactIds }) {
       const current = await contacts();
-      const ordered = contactIds.map(id => current.find(c => c.id === id)).filter(Boolean).map(c => ({ id: c.id, name: c.name }));
+      const ordered = [...contactIds.map(id => current.find(c => c.id === id)).filter(Boolean),
+        ...current.filter(c => !contactIds.includes(c.id))].map(c => ({ id: c.id, name: c.name })); // 목록에 없는 연락처는 뒤에 유지
       // 서버는 PUT마다 연락처 id를 다시 발급한다(명세 "전부 삭제 후 생성")
       const saved = await http("PUT", "/emergency-contacts", { contacts: ordered, expectedVersion: contactsVersion });
       contactsVersion = saved.version;
