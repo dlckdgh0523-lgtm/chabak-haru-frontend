@@ -26,7 +26,7 @@
 .ch-layer-6d56660a12 { align-content: stretch; display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; position: relative; flex-shrink: 0; color: #070d2a; font-size: 28px; white-space: nowrap; }
 .ch-layer-11d330663d { font-family: Pretendard, sans-serif; font-weight: 700; position: relative; flex-shrink: 0; letter-spacing: -1px; display: block; margin-right: 1px; }
 .ch-layer-efee06d8ba { font-family: Pretendard, sans-serif; font-weight: 800; position: relative; flex-shrink: 0; display: block; }
-.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: -1px; white-space: pre; display: block; margin-right: 1px; }
+.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: 0; white-space: pre; display: block; margin-right: 1px; }
 .ch-layer-15e2ddbb8e { line-height: 1.35; }
 .ch-차박지와-후기-dcb912b72c { position: absolute; align-content: stretch; display: flex; gap: 20px; height: 768px; align-items: flex-end; left: 50%; top: 178px; translate: -50% 0; }
 .ch-오늘-밤-차박지-9d3e2c6649 { border-width: 2px; border-color: rgba(249,252,255,0.2); border-style: solid; align-content: stretch; display: flex; flex-direction: column; height: 768px; align-items: flex-start; overflow: clip; padding-bottom: 26px; padding-left: 48px; padding-right: 30px; padding-top: 30px; position: relative; border-radius: 48px; flex-shrink: 0; width: 720px; }
@@ -111,3 +111,5 @@
 .ch-하단-버튼-7d98b9a39d { align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); outline: 2px solid white; outline-offset: -2px; }
 .ch-layer-2180f626f6 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 1.35; font-style: normal; position: relative; flex-shrink: 0; font-size: 40px; color: white; letter-spacing: -1px; white-space: nowrap; display: block; }
 .ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; outline: 2px solid #1b54c2; outline-offset: -2px; }
+/* Figma: 기본 자간 0, 2·4·6번째 span('그', '’  ', '자세'…)만 -1px (변환 때 span 자간이 합쳐졌음) */
+.ch-layer-3470ff1d77 > span:nth-child(even) { letter-spacing: -1px; }

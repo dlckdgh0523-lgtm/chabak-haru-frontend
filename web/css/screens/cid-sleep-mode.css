@@ -23,7 +23,7 @@
 .ch-layer-07730f83a2 { position: relative; flex-shrink: 0; width: 44px; height: 44px; display: block; }
 .ch-layer-a76a9225e2 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 0; font-style: normal; position: relative; flex-shrink: 0; font-size: 36px; color: rgba(255,255,255,0.8); letter-spacing: -1px; white-space: nowrap; display: block; margin-right: 1px; }
 .ch-layer-df1d45cb81 { line-height: var(--typography-line-56,56px); }
-.ch-음성-브리핑-fff15f3ceb { backdrop-filter: blur(400px); background-color: rgba(0,0,0,0.6); border-width: 2px; border-color: rgba(0,0,0,0.2); border-style: solid; align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; flex-shrink: 0; }
+.ch-음성-브리핑-fff15f3ceb { backdrop-filter: blur(400px); background-color: rgba(0,0,0,0.6); align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; flex-shrink: 0; outline: 2px solid rgba(0,0,0,0.2); outline-offset: -2px; }
 .ch-음성-파형-6e60c87c6a { align-content: stretch; display: flex; gap: 4px; height: 44px; align-items: center; overflow: clip; position: relative; flex-shrink: 0; }
 .ch-음성-막대-2cc8af3598 { background-color: #1992ff; height: 12px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
 .ch-음성-막대-49f3a05ad6 { background-color: #1992ff; height: 28px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }

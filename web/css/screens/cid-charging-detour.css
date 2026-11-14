@@ -143,3 +143,9 @@
 .ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; outline: 2px solid #1b54c2; outline-offset: -2px; }
 /* Figma: 안내문 기본 자간 0, '’ 처럼 말해도…' 구간만 -1px (변환 때 span 자간이 합쳐져 문장 전체가 -1px였음) */
 [data-figma-node="2018:1896"] > span:last-child { letter-spacing: -1px; }
+/* 범례 항목 폭을 Figma 값으로: Chrome 글자 폭이 항목당 0.4~0.9px 좁아 뒤로 갈수록 왼쪽으로 밀림 */
+[data-figma-node="2018:2450"] { min-width: 142px; }
+[data-figma-node="2018:2453"] { min-width: 171px; }
+[data-figma-node="2018:2456"] { min-width: 181px; }
+[data-figma-node="2018:2534"] { min-width: 113px; }
+[data-figma-node="2018:2459"] { min-width: 165px; }

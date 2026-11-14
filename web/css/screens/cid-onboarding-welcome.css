@@ -26,7 +26,7 @@
 .ch-layer-6d56660a12 { align-content: stretch; display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; position: relative; flex-shrink: 0; color: #070d2a; font-size: 28px; white-space: nowrap; }
 .ch-layer-11d330663d { font-family: Pretendard, sans-serif; font-weight: 700; position: relative; flex-shrink: 0; letter-spacing: -1px; display: block; margin-right: 1px; }
 .ch-layer-efee06d8ba { font-family: Pretendard, sans-serif; font-weight: 800; position: relative; flex-shrink: 0; display: block; }
-.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: -1px; white-space: pre; display: block; margin-right: 1px; }
+.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: 0; white-space: pre; display: block; margin-right: 1px; }
 .ch-layer-15e2ddbb8e { line-height: 1.35; }
 .ch-layer-e111106209 { position: absolute; align-content: stretch; display: flex; flex-direction: column; gap: 64px; align-items: flex-start; left: 64px; top: 202px; width: 592px; }
 .ch-layer-662835f343 { word-break: break-word; align-content: stretch; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; font-style: normal; padding-left: 8px; position: relative; flex-shrink: 0; width: 100%; }
@@ -76,3 +76,5 @@
 .ch-온보딩-기능-요약-기상-일출-밤사이-요약-b12da8610e { background-color: var(--surface-chip,#d8e9ff); align-content: stretch; display: flex; gap: var(--spacing-12,12px); height: 48px; align-items: center; justify-content: center; overflow: clip; padding-left: 20px; padding-right: 20px; padding-top: var(--spacing-8,8px); padding-bottom: var(--spacing-8,8px); position: relative; border-radius: var(--radius-24,24px); flex-shrink: 0; width: 310px; }
 .ch-온보딩-icon-bell-34edc657f9 { position: relative; flex-shrink: 0; width: 32px; height: 32px; display: block; }
 .ch-bell-패스-87a95daccd { position: absolute; left: 0; width: 32px; height: 32px; top: 0; display: block; }
+/* Figma: 기본 자간 0, 2·4·6번째 span('그', '’  ', '자세'…)만 -1px (변환 때 span 자간이 합쳐졌음) */
+.ch-layer-3470ff1d77 > span:nth-child(even) { letter-spacing: -1px; }

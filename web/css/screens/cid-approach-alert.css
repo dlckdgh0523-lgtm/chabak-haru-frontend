@@ -28,7 +28,7 @@
 .ch-layer-603d77105b { word-break: break-word; align-content: stretch; display: flex; gap: 12px; align-items: center; line-height: 44px; font-style: normal; position: relative; flex-shrink: 0; text-shadow: 0px 2px 4px rgba(31,11,0,0.2); color: white; white-space: nowrap; }
 .ch-layer-ce73524587 { font-family: Pretendard, sans-serif; font-weight: 600; position: relative; flex-shrink: 0; font-size: 32px; display: block; }
 .ch-layer-e897055cd7 { font-family: Pretendard, sans-serif; font-weight: 500; position: relative; flex-shrink: 0; font-size: 28px; letter-spacing: -0.56px; display: block; margin-right: 0.56px; }
-.ch-음성-브리핑-c7c568e2f1 { backdrop-filter: blur(400px); background-color: rgba(0,0,0,0.4); border-width: 2px; border-color: rgba(0,0,0,0.2); border-style: solid; align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; flex-shrink: 0; }
+.ch-음성-브리핑-c7c568e2f1 { backdrop-filter: blur(400px); background-color: rgba(0,0,0,0.4); align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; flex-shrink: 0; outline: 2px solid rgba(0,0,0,0.2); outline-offset: -2px; }
 .ch-음성-파형-6e60c87c6a { align-content: stretch; display: flex; gap: 4px; height: 44px; align-items: center; overflow: clip; position: relative; flex-shrink: 0; }
 .ch-음성-막대-2cc8af3598 { background-color: #1992ff; height: 12px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
 .ch-음성-막대-49f3a05ad6 { background-color: #1992ff; height: 28px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
@@ -78,3 +78,6 @@
 .ch-현재-위치-7a230120a8 { position: absolute; backdrop-filter: blur(200px); background-color: rgba(29,42,61,0.4); align-content: stretch; display: flex; gap: var(--spacing-12,12px); height: 56px; align-items: center; left: 228px; overflow: clip; padding-left: var(--spacing-20,20px); padding-right: var(--spacing-20,20px); padding-top: var(--spacing-0,0px); padding-bottom: var(--spacing-0,0px); border-radius: var(--radius-24,24px); top: 124px; }
 .ch-icon-pin-34edc657f9 { position: relative; flex-shrink: 0; width: 32px; height: 32px; display: block; }
 .ch-layer-9572c2876d { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 40px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: var(--text-primary,#f3f6ff); white-space: pre; display: block; }
+/* 헤더 글자 폭을 Figma 값으로(Chrome이 약 1.5px 좁아 부제가 왼쪽으로 밀림) */
+[data-figma-node="29260:5568"] { min-width: 209px; }
+[data-figma-node="29260:5569"] { min-width: 13px; }

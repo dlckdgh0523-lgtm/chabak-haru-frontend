@@ -84,3 +84,6 @@
 .ch-mobile-icon-audio-b07faa0add { position: relative; flex-shrink: 0; width: 24px; height: 24px; display: block; }
 .ch-layer-d6be1878a2 { align-content: stretch; display: flex; align-items: center; justify-content: center; padding-top: 20px; padding-left: 24px; padding-right: 24px; position: relative; flex-shrink: 0; width: 100%; }
 .ch-layer-5d0d5950df { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 36px; min-width: 1px; font-style: normal; position: relative; font-size: 28px; color: var(--text-primary,#070e30); white-space: pre-wrap; display: block; }
+/* 칩 폭을 Figma 값으로(Chrome 글자 폭이 칩당 약 1px 좁아 뒤 칩이 왼쪽으로 밀림) */
+[data-figma-node="29325:15544"] { min-width: 58px; }
+[data-figma-node="29325:15564"] { min-width: 83px; }
