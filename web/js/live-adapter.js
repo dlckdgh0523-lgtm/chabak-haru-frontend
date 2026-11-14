@@ -8,7 +8,8 @@
 
   const query = new URLSearchParams(location.search);
   // 설정은 주소 쿼리로 한 번 넘기면 localStorage에 남는다. 예: ?mode=live&api=http://localhost:3000/v1&vehicleId=…&vehicleToken=…
-  const KEYS = ["api", "user", "vehicleId", "vehicleToken", "sessionId", "tripId", "placeId"];
+  // 값은 live-seed.json(커밋·공유 금지)에서 읽어 넣는다. carToken=차량 장치 토큰, sessionId=sleepSessionId
+  const KEYS = ["api", "user", "vehicleId", "carToken", "sessionId", "tripId", "linkId"];
   const config = {};
   for (const key of KEYS) {
     let value = query.get(key);
@@ -18,15 +19,27 @@
     } catch { /* 저장소를 못 쓰면 이번 페이지에서만 쓴다 */ }
     config[key] = value || "";
   }
+  config.carToken ||= query.get("vehicleToken") || "";
+  config.sessionId ||= query.get("sleepSessionId") || "";
   const base = (config.api || "http://localhost:3000/v1").replace(/\/$/, "");
+  // 장소 4곳은 seed 고정 ID(INTEGRATION-GUIDE 3장)
+  const PLACES = { solnae: "5e0d0000-0000-4000-8000-000000000001", najeong: "5e0d0000-0000-4000-8000-000000000002",
+    bukhang: "5e0d0000-0000-4000-8000-000000000003", galma: "5e0d0000-0000-4000-8000-000000000004" };
+  const placeKey = (id) => Object.keys(PLACES).find(key => PLACES[key] === id);
+  const currentPlace = () => {
+    try { return PLACES[JSON.parse(sessionStorage.getItem("chabak-haru:destination"))?.id] || PLACES.solnae; }
+    catch { return PLACES.solnae; }
+  };
 
   // 서버에 없는 기능(BACKEND-DIFF 3장): live에서도 로컬 처리
   const LOCAL = new Set([
-    "terms.document", "place.phone", "places.bookmark", "places.filters",
+    "terms.document", "place.phone", "places.bookmark",
     "alarm.set", "alarm.snooze", "alarm.stop",
     "route.accept", "route.start", "route.dismiss", "route.detour", "route.destination", "parking.sunrise",
     "voice.start", "voice.stop", "safety.vehicleSignal", "safety.sos", "safety.evacuation.route",
-    "vehicle.v2l.details", "vehicle.utility.enable", "pairing.skip", "contacts.finish", "ui.ready",
+    "vehicle.v2l.details", "vehicle.utility.enable", "pairing.skip", "pairing.confirm", "contacts.finish", "ui.ready",
+    // 서버로 옮길 수 없거나(목적지 변경은 예약 취소+새 예약이 필요) 데모에서 실제 QR 인코더가 없는 것
+    "route.destination",
   ]);
 
   let userToken = "";
@@ -46,8 +59,8 @@
     if (body !== undefined) headers["Content-Type"] = "application/json";
     if (auth === "user") headers.Authorization = "Bearer " + await userAuth();
     if (auth === "vehicle") {
-      if (!config.vehicleToken) throw new Error("차량 토큰이 설정되지 않았어요. 주소에 vehicleToken을 넣어 주세요.");
-      headers.Authorization = "Bearer " + config.vehicleToken;
+      if (!config.carToken) throw new Error("차량 토큰이 설정되지 않았어요. 주소에 carToken을 넣어 주세요.");
+      headers.Authorization = "Bearer " + config.carToken;
     }
     if (idempotent) headers["Idempotency-Key"] = crypto.randomUUID();
     let response;
@@ -64,7 +77,13 @@
     }
     const text = await response.text();
     const data = text ? JSON.parse(text) : {};
-    if (!response.ok) throw new Error(data.message || `서버 오류 (${response.status})`);
+    if (!response.ok) {
+      const messages = { VERSION_CONFLICT: "다른 곳에서 먼저 바뀌었어요. 다시 불러와 주세요.", RATE_LIMITED: "요청이 많아요. 잠시 뒤 다시 시도해 주세요.",
+        PRECONDITION_FAILED: "지금 상태에서는 할 수 없어요.", ALREADY_EXISTS: "이미 등록했어요.", NOT_FOUND: "찾을 수 없어요." };
+      const error = new Error(messages[data.code] || data.message || `서버 오류 (${response.status})`);
+      error.code = data.code; error.details = data.details;
+      throw error;
+    }
     return data;
   }
 
@@ -109,10 +128,88 @@
       return http("POST", "/emergency-contacts/test-sms", { contactId, userActionId: crypto.randomUUID() }, { idempotent: true });
     },
     async "place.reviews"() {
-      const briefing = await http("GET", `/places/${encodeURIComponent(need("placeId"))}/briefing`);
+      const briefing = await http("GET", `/places/${currentPlace()}/briefing`);
       return { reviews: (briefing.reviews?.items || []).map(item => item.text).filter(Boolean) };
     },
+    async "places.filters"({ filters = [] }) {
+      const rank = filters.includes("조용함") ? ["quiet"] : [];
+      const require = [filters.includes("야영 가능") && "camping", filters.includes("취사 가능") && "cooking"].filter(Boolean);
+      const params = new URLSearchParams({ rank: rank.join(","), require: require.join(","), maxExtraMin: "30" });
+      const result = await http("GET", `/places/${currentPlace()}/alternatives?${params}`);
+      return { placeIds: (result.candidates || []).map(c => placeKey(c.id)).filter(Boolean) };
+    },
+    async "terms.accept"({ agreed = [] }) {
+      for (const id of agreed) await http("POST", "/consents", { purpose: "TERMS", version: String(id).slice(0, 32), decision: "GRANTED" });
+      return {};
+    },
+    async "pairing.begin"() {
+      // seed는 이미 페어링된 차량이다. 실제 QR 이미지 생성(qrPayload → PNG)은 웹에 인코더가 없어 미구현
+      if (config.linkId) return { sessionId: "seed-linked", qrImageUrl: await assetDataUrl() };
+      const pairing = await http("POST", "/pairings", undefined, { auth: "vehicle" });
+      return { sessionId: pairing.id || pairing.pairingId, qrImageUrl: await assetDataUrl(), qrPayload: pairing.qrPayload };
+    },
+    async "pairing.status"({ sessionId }) { return { status: sessionId === "seed-linked" ? "paired" : "pending" }; },
+    "vehicle.setting": ({ key, value }) => savePlan({ [key]: value }),
+    "vehicle.settings.save": ({ settings }) => savePlan(settings),
+    async "vehicle.sleep.start"({ settings }) {
+      if (settings) await savePlan(settings);
+      const session = await http("GET", `/sleep-sessions/${need("sessionId")}`);
+      const state = await http("GET", `/vehicles/${need("vehicleId")}/state`);
+      const preflight = await http("POST", `/sleep-sessions/${config.sessionId}/preflight`, { stateRevision: state.revision });
+      if (preflight.status === "BLOCKED" || preflight.blockers?.length) {
+        const why = (preflight.blockers || []).map(b => b.message || b.code || b).join(", ");
+        throw new Error("지금은 수면 모드를 시작할 수 없어요" + (why ? `: ${why}` : "."));
+      }
+      return http("POST", `/sleep-sessions/${config.sessionId}/start`, {
+        preflightId: preflight.id || preflight.preflightId, planVersion: session.planVersion, userConfirmed: true, userActionId: crypto.randomUUID() });
+    },
+    "vehicle.sleep.stop": () => http("POST", `/sleep-sessions/${need("sessionId")}/stop`, { reason: "USER_STOP" }),
+    async "safety.acknowledge"({ type }) {
+      const alerts = await http("GET", `/sleep-sessions/${need("sessionId")}/alerts`);
+      const list = Array.isArray(alerts) ? alerts : alerts.items || [];
+      const target = list.find(a => a.status !== "ACKED" && (type !== "approach" || a.kind === "ACCESS_DETECTED")) || list[0];
+      if (!target) return { mode: "local" }; // 서버에 경보가 없으면 화면만 닫는다(모의 경보)
+      return http("POST", `/alerts/${target.id || target.alertId}/acknowledgements`, { action: "OK" }, { auth: document.body.dataset.kind === "cid" && config.carToken ? "vehicle" : "user" });
+    },
+    async "reviews.create"({ text }) {
+      // 화면에 별점 입력이 없어 중립값 3으로 보낸다(서버는 1–5 필수)
+      return http("POST", "/reviews", { tripId: need("tripId"), rating: 3, text });
+    },
   };
+
+  // 화면 설정 ↔ 서버 취침 계획(plan). 서버 plan에 없는 항목(조도·공조/절전 모드·화재 감지·문 잠금)은 차량 로컬
+  async function savePlan(changes) {
+    const session = await http("GET", `/sleep-sessions/${need("sessionId")}`);
+    const plan = { ...session.plan };
+    const timezone = plan.timezone || "Asia/Seoul";
+    if ("heating" in changes) plan.targetTempC = changes.heating;
+    if ("heating-enabled" in changes) plan.heatEnabled = changes["heating-enabled"];
+    if ("approach-detection" in changes) plan.accessAlertEnabled = changes["approach-detection"];
+    if ("sleep-music" in changes) plan.musicDurationMin = changes["sleep-music"];
+    if (changes["sleep-music-enabled"] === false) plan.musicDurationMin = 0;
+    if ("wake-time" in changes) plan.wakeAt = nextWakeAt(changes["wake-time"]);
+    const before = JSON.stringify(session.plan);
+    if (JSON.stringify(plan) === before) return { value: Object.values(changes)[0], mode: "local" };
+    await http("PATCH", `/sleep-sessions/${config.sessionId}/plan`, { plan: { ...plan, timezone }, expectedVersion: session.planVersion });
+    return { value: Object.values(changes)[0] };
+  }
+  // 분(0–1439) → 다음에 올 그 시각(한국 시각 기준) ISO
+  function nextWakeAt(minutes) {
+    const now = new Date();
+    const kst = new Date(now.getTime() + 9 * 3600e3);
+    const target = new Date(Date.UTC(kst.getUTCFullYear(), kst.getUTCMonth(), kst.getUTCDate(), 0, minutes) - 9 * 3600e3);
+    if (target <= now) target.setUTCDate(target.getUTCDate() + 1);
+    return target.toISOString();
+  }
+  let qrDataUrl;
+  async function assetDataUrl() {
+    // 시연용: 화면에 이미 있는 QR 그림을 data URL로(app.js는 data:image/png 또는 https만 허용)
+    if (qrDataUrl) return qrDataUrl;
+    const img = document.querySelector("[data-pair-qr] img");
+    const blob = await (await fetch(img?.getAttribute("src") ? new URL(img.getAttribute("src"), location.href) : "")).blob();
+    qrDataUrl = await new Promise(resolve => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.readAsDataURL(blob); });
+    return qrDataUrl;
+  }
 
   integration.configure(async ({ event, payload }) => {
     try {
@@ -125,22 +222,42 @@
   });
 
   // 실시간: WS /v1/ws?token=…&vehicleId=… → 화면 이벤트로 전달
+  const seen = new Set();
+  let lastSeen = "";
   async function connect(attempt = 0) {
     if (!config.vehicleId) return;
-    const token = document.body.dataset.kind === "cid" && config.vehicleToken ? config.vehicleToken : await userAuth().catch(() => "");
+    const token = document.body.dataset.kind === "cid" && config.carToken ? config.carToken : await userAuth().catch(() => "");
     if (!token) return;
     const url = new URL(base.replace(/^http/, "ws") + "/ws");
     url.searchParams.set("token", token);
     url.searchParams.set("vehicleId", config.vehicleId);
+    if (lastSeen) url.searchParams.set("since", lastSeen);
     const socket = new WebSocket(url);
     socket.onmessage = ({ data }) => {
       let message;
       try { message = JSON.parse(data); } catch { return; }
-      if (message.type === "PAIRING_CONFIRMED") integration.publish("pairing.paired", message);
+      if (message.eventId) {
+        if (seen.has(message.eventId)) return; // at-least-once 중복 제거
+        seen.add(message.eventId);
+        lastSeen = message.occurredAt || lastSeen;
+      }
+      const payload = message.payload || {};
+      if (message.type === "STATE_SNAPSHOT") {
+        const values = {};
+        const v = (metric) => payload.changed?.[metric]?.value;
+        if (v("evSocPct") != null) values["vehicle-soc"] = Math.round(v("evSocPct")) + "%";
+        if (v("cabinTempC") != null) values["cabin-temperature"] = Number(v("cabinTempC")).toFixed(1) + "°C";
+        if (v("co2Ppm") != null) values["cabin-co2"] = Math.round(v("co2Ppm")) + "ppm";
+        if (Object.keys(values).length) integration.publish("ui.state", { values });
+      }
+      if (message.type === "ALERT_RAISED" && payload.kind === "ACCESS_DETECTED" && !/approach-alert/.test(document.body.dataset.screen))
+        location.assign((document.body.dataset.kind === "cid" ? "cid-" : "mobile-") + "approach-alert.html" + location.search);
+      if (message.type === "LINK_HEALTH_CHANGED" && payload.status === "ACTIVE") integration.publish("pairing.paired", payload);
       integration.publish("server." + (message.type || "event"), message);
     };
     socket.onclose = ({ code }) => {
-      if (code === 4401 || code === 4403) return; // 인증 실패는 재시도하지 않음
+      if (code === 4403 || code === 4400) return; // 연결 없음·잘못된 요청은 재시도하지 않음
+      if (code === 4401 && document.body.dataset.kind !== "cid") { userToken = ""; try { sessionStorage.removeItem(tokenKey); } catch { /* 무시 */ } }
       setTimeout(() => connect(attempt + 1), Math.min(30000, 1000 * 2 ** attempt));
     };
     socket.onopen = () => { attempt = 0; };
