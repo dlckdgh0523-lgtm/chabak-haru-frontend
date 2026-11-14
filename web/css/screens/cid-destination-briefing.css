@@ -114,5 +114,7 @@
 /* Figma: 기본 자간 0, 2·4·6번째 span('그', '’  ', '자세'…)만 -1px (변환 때 span 자간이 합쳐졌음) */
 .ch-layer-3470ff1d77 > span:nth-child(even) { letter-spacing: -1px; }
 /* pane 4 0.5px 재측정 값만큼 글자 묶음만 이동(레이아웃 영향 없음). 카드 테두리는 Figma와 같은 border 유지 */
-[data-figma-node="2005:1526"] { translate: -2px -1.5px; }
-[data-figma-node="2005:1601"], [data-figma-node="2011:1681"] { translate: 2px 2px; }
+[data-figma-node="2005:1527"] { translate: -2px -1.5px; } /* 제목 행 중 글자 묶음만(옆 하트는 원래 맞음) */
+[data-figma-node="2005:1610"], [data-figma-node="2005:1615"] { translate: 2px 2px; } /* 후기 '인'·'경유차'만('10월'은 원래 맞음) */
+[data-figma-node="2011:1681"] { translate: 4px 3.5px; }
+[data-figma-node="2011:1631"] { translate: -2px 0; }
