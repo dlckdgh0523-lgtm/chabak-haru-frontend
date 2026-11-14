@@ -84,7 +84,10 @@
         PRECONDITION_FAILED: "지금 상태에서는 할 수 없어요.", ALREADY_EXISTS: "이미 등록했어요.", NOT_FOUND: "찾을 수 없어요." };
       // 422는 details.blockers에 이유가 온다 → 시연 중 원인을 바로 볼 수 있게 덧붙임
       const blockers = data.code === "PRECONDITION_FAILED" && Array.isArray(data.details?.blockers)
-        ? data.details.blockers.map(item => typeof item === "string" ? item : item.message || item.code).filter(Boolean).join(", ") : "";
+        ? data.details.blockers.map(item => typeof item === "string" ? item : item.message || item.code).filter(Boolean).join(", ")
+        : data.code === "PRECONDITION_FAILED" && data.message
+          ? data.message.replace(/^session is (\w+)$/, (_, state) => ({ STOPPED: "수면 세션이 이미 끝났어요", ACTIVE: "이미 수면 중이에요" })[state] || `세션 상태 ${state}`)
+          : "";
       const error = new Error((messages[data.code] || data.message || `서버 오류 (${response.status})`) + (blockers ? ` (${blockers})` : ""));
       error.code = data.code; error.details = data.details;
       throw error;
