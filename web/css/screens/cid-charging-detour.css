@@ -151,3 +151,5 @@
 [data-figma-node="2018:2459"] { min-width: 165px; }
 /* 알약 안내문이 Figma(638px)보다 1.7px 넓어 알약이 넓어지던 것 → 글자 상자는 그대로 두고 레이아웃 폭만 줄임 */
 [data-figma-node="2018:1896"] { margin-right: -1.7px; }
+/* pane 4 0.5px 재측정: 알약 안내문 글자 +3,-1px (알약 폭은 margin으로 맞춘 상태) */
+[data-figma-node="2018:1896"] { translate: -3px 1px; }

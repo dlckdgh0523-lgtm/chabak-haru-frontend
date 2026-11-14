@@ -143,3 +143,5 @@
 /* Figma: 안내문 기본 자간 0, '’취사 가능한 곳만…' 구간만 -1px (변환 때 span 자간이 합쳐져 문장 전체가 -1px였음) */
 [data-figma-node="2018:628"] > span:nth-child(n+3) { letter-spacing: -1px; }
 [data-figma-node="2018:1075"] { min-width: 58px; text-align: center; } /* Figma 58px, 웹 57px */
+/* pane 4 0.5px 재측정: 화장실·알약 안내문 글자 +2px */
+[data-figma-node="2018:1075"], [data-figma-node="2018:628"] { translate: -2px 0; }

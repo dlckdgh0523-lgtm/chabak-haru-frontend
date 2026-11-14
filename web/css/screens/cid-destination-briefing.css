@@ -113,3 +113,6 @@
 .ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; outline: 2px solid #1b54c2; outline-offset: -2px; }
 /* Figma: 기본 자간 0, 2·4·6번째 span('그', '’  ', '자세'…)만 -1px (변환 때 span 자간이 합쳐졌음) */
 .ch-layer-3470ff1d77 > span:nth-child(even) { letter-spacing: -1px; }
+/* pane 4 0.5px 재측정 값만큼 글자 묶음만 이동(레이아웃 영향 없음). 카드 테두리는 Figma와 같은 border 유지 */
+[data-figma-node="2005:1526"] { translate: -2px -1.5px; }
+[data-figma-node="2005:1601"], [data-figma-node="2011:1681"] { translate: 2px 2px; }
