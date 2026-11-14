@@ -72,6 +72,6 @@
 .ch-background-2caa62afdd { background-color: #d8e9ff; height: 6px; overflow: clip; position: relative; border-radius: var(--sg-radius-all-20,20px); flex-shrink: 0; width: 320px; display: block; }
 .ch-background-ef79f9cf13 { position: absolute; bottom: 0; left: 0; right: 50%; border-radius: var(--radius-800,800px); top: 0; background-image: linear-gradient(to bottom, #387bff, #1a57cf); display: block; }
 .ch-layer-64ff4b8062 { align-content: stretch; display: flex; align-items: center; justify-content: center; padding-top: 40px; padding-left: 24px; padding-right: 24px; position: relative; flex-shrink: 0; width: 100%; }
-.ch-layer-fc78bfa4f3 { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 0; min-width: 1px; font-style: normal; position: relative; font-size: 28px; color: var(--text-primary,#070e30); letter-spacing: -0.5px; display: block; }
+.ch-layer-fc78bfa4f3 { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 0; min-width: 1px; font-style: normal; position: relative; font-size: 28px; color: var(--text-primary,#070e30); letter-spacing: -0.5px; display: block; margin-right: 0.5px; }
 .ch-layer-4b4007c162 { line-height: 36px; }
 .ch-layer-f87e03e5dd { background-clip: text; -webkit-background-clip: text; line-height: 36px; color: transparent; background-image: linear-gradient(to bottom, #387bff, #1a57cf); }

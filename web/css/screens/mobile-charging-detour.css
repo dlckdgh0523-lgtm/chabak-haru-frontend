@@ -13,7 +13,7 @@
 .ch-layer-bc02bbb944 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 500; line-height: 22px; font-style: normal; position: relative; flex-shrink: 0; font-size: 14px; color: var(--camping-even-text-4,#34477f); width: 320px; display: block; }
 .ch-장소와-즐겨찾기-210ae5c08b { align-content: stretch; display: flex; gap: var(--spacing-12,12px); align-items: center; overflow: clip; padding: var(--spacing-0,0px); position: relative; flex-shrink: 0; width: 320px; }
 .ch-layer-a417b18228 { word-break: break-word; align-content: stretch; display: flex; gap: 4px; align-items: center; font-style: normal; position: relative; flex-shrink: 0; color: var(--text-primary,#070e30); white-space: nowrap; }
-.ch-layer-abac4b4847 { font-family: Pretendard, sans-serif; font-weight: 700; line-height: 36px; position: relative; flex-shrink: 0; font-size: 28px; letter-spacing: -0.5px; display: block; }
+.ch-layer-abac4b4847 { font-family: Pretendard, sans-serif; font-weight: 700; line-height: 36px; position: relative; flex-shrink: 0; font-size: 28px; letter-spacing: -0.5px; display: block; margin-right: 0.5px; }
 .ch-layer-30bbff817c { align-content: stretch; display: flex; align-items: flex-start; padding-top: 4px; position: relative; flex-shrink: 0; }
 .ch-layer-ee2e816e8c { font-family: Pretendard, sans-serif; font-weight: 700; line-height: 30px; position: relative; flex-shrink: 0; font-size: 30px; display: block; }
 .ch-layer-cb11db60a1 { font-family: Pretendard, sans-serif; font-weight: 900; line-height: 36px; position: relative; flex-shrink: 0; font-size: 20px; display: block; }
@@ -53,7 +53,7 @@
 .ch-layer-86d4eb55a1 { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 20px; min-width: 1px; font-style: normal; position: relative; color: #ed5000; font-size: 14px; display: block; }
 .ch-layer-680c38b098 { align-content: stretch; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; position: relative; flex-shrink: 0; }
 .ch-layer-90f13b0f99 { align-content: stretch; display: flex; align-items: center; position: relative; flex-shrink: 0; }
-.ch-layer-ed5b667911 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 36px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: var(--text-primary,#070e30); letter-spacing: -0.5px; white-space: nowrap; display: block; }
+.ch-layer-ed5b667911 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 36px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: var(--text-primary,#070e30); letter-spacing: -0.5px; white-space: nowrap; display: block; margin-right: 0.5px; }
 .ch-layer-18b38dff6d { align-content: stretch; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; position: relative; flex-shrink: 0; }
 .ch-추천-경유지-b81ef6a8ab { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; overflow: clip; padding-left: 24px; padding-right: 24px; padding-top: 28px; padding-bottom: 28px; position: relative; border-radius: var(--radius-24,24px); flex-shrink: 0; width: 320px; }
 .ch-지금-위치-ba03ee46ec { align-content: stretch; display: flex; gap: 8px; align-items: flex-start; overflow: clip; padding: var(--spacing-0,0px); position: relative; flex-shrink: 0; width: 280px; }

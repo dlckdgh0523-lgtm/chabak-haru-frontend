@@ -83,3 +83,5 @@
 .ch-layer-a17af5d657 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: var(--typography-line-48,48px); font-style: normal; position: relative; flex-shrink: 0; font-size: var(--typography-size-36,36px); color: rgba(255,255,255,0.6); white-space: nowrap; display: block; }
 .ch-layer-afd2d5a7e1 { align-content: stretch; display: flex; flex: 1 0 0; height: 100%; align-items: flex-end; justify-content: flex-end; min-width: 1px; padding-bottom: 24px; position: relative; }
 .ch-layer-67d64a0952 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 400; line-height: 44px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: rgba(255,255,255,0.8); text-shadow: 0px 2px 4px rgba(31,11,0,0.2); letter-spacing: -0.56px; white-space: nowrap; display: block; margin-right: 0.56px; }
+/* 크기 다른 span이 줄 높이를 키우지 않게(Figma는 큰 글자 기준 한 줄) */
+.ch-layer-a0e9b03ed4 > .ch-layer-c7bb2f3f08 { line-height: 0; }

@@ -32,7 +32,7 @@
 .ch-조용함-de090e6c6f { background-color: #d0d2db; height: 100%; position: relative; flex-shrink: 0; width: 1px; display: block; }
 .ch-조용함-253fc9b842 { background-color: #f4f8ff; border-color: #d0d2db; border-bottom-width: 1px; border-right-width: 1px; border-style: solid; align-content: stretch; display: flex; flex: 1 0 0; height: 100%; align-items: center; justify-content: space-between; min-width: 1px; overflow: clip; padding-left: 20px; padding-right: 20px; padding-top: var(--spacing-12,12px); padding-bottom: var(--spacing-12,12px); position: relative; border-bottom-right-radius: 16px; }
 .ch-안내-문구-e44a2b9124 { background-color: #fff3e3; align-content: stretch; display: flex; gap: 7px; height: 42px; align-items: center; padding-left: 12px; padding-right: 12px; position: relative; border-radius: 9px; flex-shrink: 0; width: 100%; }
-.ch-layer-d8ad563b6a { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 20px; min-width: 1px; font-style: normal; position: relative; color: #ed5000; font-size: 14px; letter-spacing: -0.5px; display: block; }
+.ch-layer-d8ad563b6a { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 20px; min-width: 1px; font-style: normal; position: relative; color: #ed5000; font-size: 14px; letter-spacing: -0.5px; display: block; margin-right: 0.5px; }
 .ch-layer-2323e10490 { align-content: stretch; display: flex; flex-direction: column; gap: 64px; align-items: flex-start; position: relative; flex-shrink: 0; width: 100%; }
 .ch-주차-선택-9a51d91e41 { align-content: stretch; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; overflow: clip; padding-bottom: var(--spacing-0,0px); padding-top: 28px; padding-left: var(--spacing-0,0px); padding-right: var(--spacing-0,0px); position: relative; flex-shrink: 0; width: 320px; }
 .ch-버튼-근처-다른-곳-비교하기-a217e74d84 { align-content: stretch; display: flex; gap: var(--spacing-0,0px); height: 56px; align-items: center; justify-content: center; padding: var(--spacing-16,16px); position: relative; border-radius: 12px; flex-shrink: 0; width: 320px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); }
@@ -65,3 +65,5 @@
 .ch-layer-390a8ec758 { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 0; min-width: 1px; font-style: normal; position: relative; font-size: 28px; color: var(--text-primary,#070e30); display: block; }
 .ch-layer-e2c4d895d9 { line-height: 36px; margin-bottom: 0; display: block; }
 .ch-layer-e6f53b2f0b { line-height: 36px; display: block; }
+/* 크기 다른 span이 줄 높이를 키우지 않게(Figma는 큰 글자 기준 한 줄) */
+.ch-layer-e255b7d5aa > .ch-layer-67b516f8a7 { line-height: 0; }

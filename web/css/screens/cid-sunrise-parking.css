@@ -102,3 +102,5 @@
 .ch-일출-안-볼래요-34d357d46f { align-content: stretch; display: flex; flex: 1 0 0; gap: var(--spacing-20,20px); height: 112px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; padding: var(--spacing-0,0px); position: relative; border-radius: var(--radius-28,28px); background-image: linear-gradient(to right, rgba(245,249,255,0.72), rgba(255,255,255,0.72)); outline: 2px solid var(--brand-primary,#0058ff); outline-offset: -2px; }
 .ch-refresh-cw-6a19151ee4 { position: relative; flex-shrink: 0; width: 48px; height: 48px; display: block; }
 .ch-layer-7b25a28ae4 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; height: 48px; line-height: var(--typography-line-48,48px); font-style: normal; position: relative; flex-shrink: 0; color: var(--text-primary,#070e30); font-size: var(--typography-size-36,36px); width: 204px; display: block; }
+/* 크기 다른 span이 줄 높이를 키우지 않게(Figma는 큰 글자 기준 한 줄) */
+.ch-layer-8f2b61cc62 > .ch-layer-1622623a62 { line-height: 0; }
