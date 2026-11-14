@@ -41,6 +41,7 @@
     "heating":17,"wake-time":372,"sleep-music":30,illuminance:12,
     "climate-mode":"sleep","power-mode":"standard",
     "doors-locked":true,"approach-detection":true,"fire-detection":true,"wake-enabled":true,"weather-contact-notifications":true,
+    "heating-enabled":true,"sleep-music-enabled":true,"illuminance-enabled":true,"climate-enabled":true,"power-saving-enabled":true,
     ...(fixed?{}:load("settings",{})), // ?qa는 저장된 상태 없이 Figma 기본값
   };
   const options={
@@ -51,6 +52,7 @@
   const defaults={
     "heating":17,"wake-time":372,"sleep-music":30,illuminance:12,"climate-mode":"sleep","power-mode":"standard",
     "doors-locked":true,"approach-detection":true,"fire-detection":true,"wake-enabled":true,"weather-contact-notifications":true,
+    "heating-enabled":true,"sleep-music-enabled":true,"illuminance-enabled":true,"climate-enabled":true,"power-saving-enabled":true,
   };
   const bindings=new Map();
   for (const node of root.querySelectorAll("[data-bind]")) {
@@ -276,6 +278,19 @@
         "fire-detection":["화재 감지","실내 온도가 갑자기 오르는 등 화재 위험이 감지되면 바로 알려드려요."],
       }[key];
       if(info)panel(info[0],info[1]);
+    },
+    "quick-menu"(button,key) {
+      if(key==="wake-time")return handlers["alarm-edit"]();
+      const [min,max,step]=ranges[key];
+      const label=button.getAttribute("aria-label").replace(/ 세부 설정$/,"");
+      const unit={heating:"°C","sleep-music":"분",illuminance:"lux"}[key];
+      const field=textField(label+" ("+unit+")",{type:"number",min,max,step,value:settings[key],required:true});
+      panel(label+" 설정",field.wrapper,[{label:"저장",run:async()=>{
+        if(!field.input.reportValidity())return false;
+        const value=Number(field.input.value);
+        const result=await request("vehicle.setting",{key,value});
+        setSetting(key,typeof result.value==="number"&&Number.isFinite(result.value)?result.value:value);
+      }}]);
     },
     "settings-open"() {
       const climate=selectField("공조 모드",options["climate-mode"],settings["climate-mode"]);

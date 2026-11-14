@@ -101,3 +101,4 @@
 .ch-voice-briefing:not([data-active]) > .ch-voice-button { position: relative; inset: auto; }
 .ch-voice-briefing:not([data-active]):not(:has(.ch-voice-button)) { display: none; }
 [data-bind="briefing-time"] { white-space: nowrap; } /* 상자 폭이 Figma "0:18" 기준이라 0:00 등에서 줄바꿈됨 */
+[data-action="v2l-details"] { z-index: 1; } /* 뒤에 오는 형제 「경보 내용」(투명 영역)이 버튼을 덮어 클릭이 막힘 */
