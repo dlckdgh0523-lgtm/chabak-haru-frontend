@@ -187,6 +187,9 @@
       if (event === "weather") return raise("HEAVY_RAIN", "CRITICAL", { warning: "호우경보", source: "DEMO" });
       if (event === "co2" || event === "co") {
         if (!config.carToken) throw new Error("CO₂·CO 시나리오는 차량 화면(carToken)에서만 보낼 수 있어요.");
+        // 서버는 진행 중인 수면 세션에서만 이 경보를 만든다(아니면 201이어도 경보 없음)
+        const session = await http("GET", `/sleep-sessions/${need("sessionId")}`);
+        if (session.status !== "ACTIVE") throw new Error("이산화탄소·일산화탄소 경보는 수면 모드 중에만 생겨요. 먼저 수면 모드를 시작해 주세요.");
         return http("POST", "/demo/scenarios", { vehicleId: need("vehicleId"), sessionId: need("sessionId"), scenario: event === "co" ? "CO_DETECTED" : "CO2_CRITICAL" }, { auth: "vehicle" });
       }
       return { mode: "local" };

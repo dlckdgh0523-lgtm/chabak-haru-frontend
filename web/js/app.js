@@ -242,6 +242,7 @@
   // 데모 이벤트(D1 데모 패널): 밤사이 모의 경보·기상으로 들어가는 진입점
   // live에서는 접근·호우·CO₂·CO 경보를 서버에 모의로 올려 실제 경보 경로(WS)로 화면이 바뀌게 한다
   const serverEvent=(event,title)=>make("button",{type:"button",onclick:async()=>{
+    document.querySelector("dialog[open]")?.close(); // 결과 안내가 보이게 데모 창은 닫는다
     try{await request("demo.event",{event});message("서버에 모의 경보를 보냈어요: "+title);}catch(error){message(error.message);}
   }},title+" (서버)");
   const demoEvents=()=>panel("데모 이벤트",[
