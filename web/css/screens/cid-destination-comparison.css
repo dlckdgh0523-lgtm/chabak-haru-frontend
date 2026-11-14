@@ -26,7 +26,7 @@
 .ch-layer-6d56660a12 { align-content: stretch; display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; position: relative; flex-shrink: 0; color: #070d2a; font-size: 28px; white-space: nowrap; }
 .ch-layer-11d330663d { font-family: Pretendard, sans-serif; font-weight: 700; position: relative; flex-shrink: 0; letter-spacing: -1px; display: block; }
 .ch-layer-efee06d8ba { font-family: Pretendard, sans-serif; font-weight: 800; position: relative; flex-shrink: 0; display: block; }
-.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: -1px; white-space: pre; display: block; }
+.ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: 0; white-space: pre; display: block; }
 .ch-layer-15e2ddbb8e { line-height: 1.35; }
 .ch-선호-조건-cac32d90bc { position: absolute; align-content: stretch; display: flex; gap: 12px; height: 84px; align-items: center; left: 24px; padding-left: 24px; padding-right: 24px; border-radius: 9999px; top: 178px; width: 1872px; }
 .ch-조건-선택-24916ce154 { align-content: stretch; display: flex; gap: 4px; height: 60px; align-items: center; justify-content: center; overflow: clip; padding-left: 24px; padding-right: 28px; position: relative; border-radius: 32px; box-shadow: 0px 4px 10px 0px rgba(86,131,213,0.13); flex-shrink: 0; background-image: linear-gradient(to bottom, #387bff, #1a57cf); }
@@ -140,3 +140,5 @@
 .ch-layer-a6a3e74ea6 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 800; line-height: 36px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: white; white-space: nowrap; display: block; }
 .ch-차박지-비교-및-전체-후기-dc02424f37 { position: absolute; bottom: 0; align-content: stretch; display: flex; gap: 16px; align-items: flex-start; left: 28px; overflow: clip; width: 1864px; }
 .ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); border-width: 2px; border-color: #1b54c2; border-style: solid; align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; }
+/* Figma: 안내문 기본 자간 0, '’취사 가능한 곳만…' 구간만 -1px (변환 때 span 자간이 합쳐져 문장 전체가 -1px였음) */
+[data-figma-node="2018:628"] > span:nth-child(n+3) { letter-spacing: -1px; }

@@ -61,9 +61,12 @@
   function display(key,value) {
     for(const node of bindings.get(key)||[]) {
       const spans=[...node.children];
-      if(spans.length&&spans.every(el=>el.tagName==="SPAN")&&spans.every(el=>el.className===spans[0].className)){
-        spans[0].textContent=value;
-        for(const span of spans.slice(1))span.textContent="";
+      // 부모 <p>가 font-size:0이라 span을 지우면 글자가 사라짐 → span 구조 유지, 스타일이 다른 꼬리(단위·"초 뒤…")는 남김
+      if(spans.length&&spans.every(el=>el.tagName==="SPAN")){
+        const last=spans.at(-1);
+        const tail=last!==spans[0]&&last.className!==spans[0].className&&value.endsWith(last.textContent)?last:null;
+        spans[0].textContent=tail?value.slice(0,value.length-tail.textContent.length):value;
+        for(const span of spans.slice(1))if(span!==tail)span.textContent="";
       } else node.textContent=value;
     }
   }

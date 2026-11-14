@@ -31,10 +31,10 @@
 .ch-layer-ae5551e3ee { align-content: stretch; display: flex; flex-direction: column; gap: 10px; height: 417px; align-items: flex-start; padding: 10px; position: relative; border-radius: 48px; width: 1188px; }
 .ch-layer-aab9e8a7b5 { position: absolute; height: 457px; left: 808px; overflow: clip; top: -30px; width: 480px; display: block; }
 .ch-layer-b99afb2909 { position: absolute; display: contents; left: -66px; top: -20px; }
-.ch-layer-ce0598d17e { position: absolute; display: flex; height: 479.644px; align-items: center; justify-content: center; left: 400px; mix-blend-mode: multiply; top: -20px; width: 466px; }
+.ch-layer-ce0598d17e { position: absolute; display: flex; height: 479.644px; align-items: center; justify-content: center; left: -66px; mix-blend-mode: multiply; top: -20px; width: 466px; }
 .ch-가가-1-6aec0ba2e9 { height: 479.644px; position: relative; width: 466px; display: block; }
 .ch-layer-4edc552e50 { position: absolute; inset: 0; max-width: none; object-fit: cover; pointer-events: none; width: 100%; height: 100%; }
-.ch-layer-7c0c575ca6 { position: absolute; display: flex; height: 479.644px; align-items: center; justify-content: center; left: 400px; top: -19.645px; width: 466px; }
+.ch-layer-7c0c575ca6 { position: absolute; display: flex; height: 479.644px; align-items: center; justify-content: center; left: -66px; top: -19.645px; width: 466px; }
 .ch-바바-1-6aec0ba2e9 { height: 479.644px; position: relative; width: 466px; display: block; }
 .ch-layer-edabe3c157 { position: absolute; display: contents; left: 499px; top: 88px; }
 .ch-캐릭터-말풍선-fee4be9955 { position: absolute; align-content: stretch; display: flex; flex-direction: column; gap: var(--test-space-0,0px); height: 161px; align-items: flex-start; justify-content: center; left: 499px; padding: var(--test-space-24,24px); border-radius: var(--test-radius-48,48px); top: 88px; width: 289px; }
@@ -78,3 +78,5 @@
 .ch-필수-동의-2-c1607402e9 { align-content: stretch; display: flex; gap: var(--test-space-0,0px); align-items: center; padding-bottom: 24px; padding-top: 10px; padding-left: var(--test-space-0,0px); padding-right: var(--test-space-0,0px); position: relative; flex-shrink: 0; width: 100%; }
 .ch-진행률-f0b9c791ac { position: absolute; background-color: var(--test-color-surface-chip,#d8e9ff); align-content: stretch; display: flex; gap: var(--test-space-0,0px); height: 12px; align-items: flex-start; left: 50%; padding: var(--test-space-0,0px); border-radius: var(--test-radius-8,8px); top: 124px; width: 1808px; translate: -50% 0; }
 .ch-진행된-단계-f8922bfd55 { height: 12px; position: relative; border-radius: var(--test-radius-8,8px); flex-shrink: 0; width: 904px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); display: block; }
+/* 좌우반전 그룹이 쌓임 맥락을 만들어 multiply 이미지의 흰 배경이 문구를 덮음 → 그룹째 multiply */
+.ch-layer-5ab7763d28 > .ch-layer-396df5ee00 { mix-blend-mode: multiply; }
