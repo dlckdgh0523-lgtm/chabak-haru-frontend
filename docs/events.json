@@ -294,6 +294,10 @@
     "pairing.paired": {},
     "map.updated": {
       "imageUrl": "same-origin image URL or PNG/JPEG/WebP data URL"
+    },
+    "voice.state": {
+      "active": "boolean (브리핑 알약 표시 여부)",
+      "status": "listening | speaking (선택)"
     }
   }
 }

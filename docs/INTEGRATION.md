@@ -32,7 +32,7 @@ ChabakIntegration.publish("ui.state", {
 });
 ```
 
-`ui.state`는 화면의 `data-bind`가 있는 문자열을 바꿉니다. `vehicle.settings`는 설정 키와 값을, `places.results`는 `placeIds`를, `contacts.updated`는 마스킹된 전화번호와 표시 이름을 받습니다. `map.updated`의 `imageUrl`에는 같은 origin의 PNG·JPEG·WebP 또는 3.5MB 이하 이미지 data URL을 전달할 수 있습니다. 운영 지도 SDK는 화면과 동일한 뷰포트에 연결할 수 있게 지도 영역을 표시했습니다.
+`voice.state`(`{active, status}`)는 브리핑 알약을 펼치거나 접습니다. 알약은 음성 인식·브리핑 중에만 보이며, 차량 스티어링 휠 음성 버튼처럼 앱 밖에서 시작된 음성도 이 이벤트로 알려 주세요. `ui.state`는 화면의 `data-bind`가 있는 문자열을 바꿉니다. `vehicle.settings`는 설정 키와 값을, `places.results`는 `placeIds`를, `contacts.updated`는 마스킹된 전화번호와 표시 이름을 받습니다. `map.updated`의 `imageUrl`에는 같은 origin의 PNG·JPEG·WebP 또는 3.5MB 이하 이미지 data URL을 전달할 수 있습니다. 운영 지도 SDK는 화면과 동일한 뷰포트에 연결할 수 있게 지도 영역을 표시했습니다.
 
 ## 약관·QR·연락처
 

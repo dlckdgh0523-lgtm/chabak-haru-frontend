@@ -41,7 +41,7 @@
     "heating":17,"wake-time":372,"sleep-music":30,illuminance:12,
     "climate-mode":"sleep","power-mode":"standard",
     "doors-locked":true,"approach-detection":true,"fire-detection":true,"wake-enabled":true,"weather-contact-notifications":true,
-    ...load("settings",{}),
+    ...(fixed?{}:load("settings",{})), // ?qa는 저장된 상태 없이 Figma 기본값
   };
   const options={
     "climate-mode":[["sleep","취침"],["airflow","환기"],["automatic","자동"]],
@@ -126,7 +126,7 @@
   const cards=[...root.querySelectorAll("[data-destination-card]")];
   let selectedPlace=type==="cid"?(cards.at(-1)?.dataset.destinationCard||"najeong"):"najeong";
   const filters=new Set([...root.querySelectorAll('[data-action="filter-toggle"][aria-pressed="true"]')].map(x=>x.dataset.value));
-  const bookmarks=new Set(load("bookmarks",[]));
+  const bookmarks=new Set(fixed?[]:load("bookmarks",[]));
 
   function keyOfPlace(value) {
     return Object.keys(cardNames).find(k=>k===value||cardNames[k]===value) || selectedPlace;
@@ -268,6 +268,32 @@
       if(integration.demo)save("destination",{id:placeId,name:cardNames[placeId]});
       if(result.next==="charging")goLocal("charging-detour");
       else goLocal("destination-briefing");
+    },
+    "setting-info"(button,key) {
+      const info={
+        "doors-locked":["문 잠금 및 창문","문과 창문이 모두 닫혀 있는지 확인해요. 열려 있으면 잠들기 전에 알려드려요."],
+        "approach-detection":["접근 감지","누군가 차량 주변에 10초 이상 머무르면 차량 화면과 휴대폰으로 알려드려요."],
+        "fire-detection":["화재 감지","실내 온도가 갑자기 오르는 등 화재 위험이 감지되면 바로 알려드려요."],
+      }[key];
+      if(info)panel(info[0],info[1]);
+    },
+    "settings-open"() {
+      const climate=selectField("공조 모드",options["climate-mode"],settings["climate-mode"]);
+      const power=selectField("절전 모드",options["power-mode"],settings["power-mode"]);
+      const checks=[["approach-detection","접근 감지"],["fire-detection","화재 감지"],["wake-enabled","기상 알람"]].map(([key,label])=>[key,checkField(label,settings[key])]);
+      panel("전체 설정",[climate.wrapper,power.wrapper,...checks.map(([,f])=>f.wrapper)],[{label:"적용",run:async()=>{
+        const next={"climate-mode":climate.input.value,"power-mode":power.input.value,...Object.fromEntries(checks.map(([key,f])=>[key,f.input.checked]))};
+        for(const [key,value] of Object.entries(next)){
+          if(settings[key]===value)continue;
+          const result=await request("vehicle.setting",{key,value});
+          setSetting(key,result.value??value);
+        }
+        previewMessage("설정을 적용했어요.");
+      }}]);
+    },
+    async "pair-qr"() {
+      if(!integration.demo){message("휴대폰의 차박하루 앱에서 ‘차량 연결’을 눌러 이 QR을 비춰 주세요.");return;}
+      panel("휴대폰 연결","미리보기에서는 휴대폰 스캔 없이 연결된 것으로 보고 다음 단계로 넘어갈 수 있어요.",[{label:"연결된 것으로 보기",run:()=>nextOnboarding()}]);
     },
     "utility-help":()=>panel("유틸리티 모드 안내","차량에 따라 유틸리티 모드를 켜는 방법이 달라요. 차량의 설정에서 유틸리티 모드 메뉴를 확인해 주세요."),
     async "toggle-setting"(button,key) {

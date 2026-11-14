@@ -1,8 +1,8 @@
 /* Interaction states layered on the original Figma geometry. */
-.ch-button, .ch-switch, .ch-checkbox, .ch-filter-chip, .ch-bookmark, .ch-stepper-button, .ch-voice-button {
+.ch-button, .ch-switch, .ch-checkbox, .ch-filter-chip, .ch-bookmark, .ch-stepper-button, .ch-voice-button, .ch-info-button {
   -webkit-tap-highlight-color: transparent;
 }
-.ch-design-frame :is(.ch-bookmark, .ch-stepper-button, .ch-voice-button, .ch-checkbox, .ch-switch)::after,
+.ch-design-frame :is(.ch-bookmark, .ch-stepper-button, .ch-voice-button, .ch-checkbox, .ch-switch, .ch-info-button)::after,
 .ch-design-frame [data-action="consent-details"]::after {
   content: "";
   position: absolute;
@@ -96,6 +96,8 @@
 [data-live-map][data-live="true"] ~ [data-figma-node="2005:56"] { visibility: hidden; }
 
 /* 브리핑 알약: 음성 인식·브리핑 중([data-active])에만 펼친다. 대기 중 CID는 파형 마이크 버튼만, 모바일 카드는 숨김 */
-.ch-voice-briefing:not([data-active]):has(.ch-voice-button) { padding: 16px; gap: 0; }
+.ch-voice-briefing:not([data-active]):has(.ch-voice-button) { padding: 16px; gap: 0; width: auto; height: auto; }
 .ch-voice-briefing:not([data-active]):has(.ch-voice-button) > :not(.ch-voice-button) { display: none; }
+.ch-voice-briefing:not([data-active]) > .ch-voice-button { position: relative; inset: auto; }
 .ch-voice-briefing:not([data-active]):not(:has(.ch-voice-button)) { display: none; }
+[data-bind="briefing-time"] { white-space: nowrap; } /* 상자 폭이 Figma "0:18" 기준이라 0:00 등에서 줄바꿈됨 */
