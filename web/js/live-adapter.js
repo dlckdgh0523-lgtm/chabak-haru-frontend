@@ -82,7 +82,10 @@
     if (!response.ok) {
       const messages = { VERSION_CONFLICT: "다른 곳에서 먼저 바뀌었어요. 다시 불러와 주세요.", RATE_LIMITED: "요청이 많아요. 잠시 뒤 다시 시도해 주세요.",
         PRECONDITION_FAILED: "지금 상태에서는 할 수 없어요.", ALREADY_EXISTS: "이미 등록했어요.", NOT_FOUND: "찾을 수 없어요." };
-      const error = new Error(messages[data.code] || data.message || `서버 오류 (${response.status})`);
+      // 422는 details.blockers에 이유가 온다 → 시연 중 원인을 바로 볼 수 있게 덧붙임
+      const blockers = data.code === "PRECONDITION_FAILED" && Array.isArray(data.details?.blockers)
+        ? data.details.blockers.map(item => typeof item === "string" ? item : item.message || item.code).filter(Boolean).join(", ") : "";
+      const error = new Error((messages[data.code] || data.message || `서버 오류 (${response.status})`) + (blockers ? ` (${blockers})` : ""));
       error.code = data.code; error.details = data.details;
       throw error;
     }
