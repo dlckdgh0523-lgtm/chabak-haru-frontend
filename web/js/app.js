@@ -115,9 +115,9 @@
       root.querySelector("[data-route-overlay]")?.setAttribute("hidden","");
       for(const timer of bindings.get("route-countdown")||[])timer.hidden=true;
     }
-    // 비교에서 바꾼 목적지를 브리핑에 반영(S1b → S1). 후기·사진은 Figma에 솔내 해변 노지만 있음
+    // 비교에서 바꾼 목적지를 이후 화면(브리핑·충전 도착지·기상 현재 위치 등)에 반영. 후기·사진은 Figma에 솔내 해변 노지만 있음
     const destination=load("destination",null);
-    if(screen.endsWith("destination-briefing")&&destination?.name&&destination.id!=="solnae"){
+    if(!screen.endsWith("destination-comparison")&&destination?.name&&destination.id!=="solnae"){
       const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
       for(let node=walker.nextNode();node;node=walker.nextNode())
         if(node.nodeValue.includes("솔내 해변 노지"))node.nodeValue=node.nodeValue.replace("솔내 해변 노지",destination.name);
@@ -126,7 +126,9 @@
     if(screen.endsWith("sunrise-alarm")&&load("sunrise",true)===false){
       const note=root.querySelector('[data-figma-node="29262:7562"]');
       if(note)note.innerHTML="일출 모드를 꺼 두었어요.<br>설정한 시각에 맞춰 깨워드려요.";
-      for(const timer of bindings.get("sunrise-remaining")||[])timer.parentElement.style.visibility="hidden";
+      // 카운트다운 숫자·아이콘·구분선만 숨긴다(대체 문구 29262:7562는 같은 묶음 안에 있음)
+      for(const timer of bindings.get("sunrise-remaining")||[])timer.style.visibility="hidden";
+      for(const id of ["29262:7555","29262:7561"])root.querySelector(`[data-figma-node="${id}"]`)?.style.setProperty("visibility","hidden");
       root.querySelector('[data-figma-node="29396:5498"]')?.parentElement?.parentElement?.style.setProperty("visibility","hidden");
     }
     // 휴대폰 연결을 건너뛰었으면 밤 화면에서 알린다(O4)
