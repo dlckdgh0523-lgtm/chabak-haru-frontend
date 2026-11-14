@@ -392,7 +392,7 @@
       await request("contacts.finish",{contactIds:contactRows().map(c=>contactIds[c.dataset.contactCard])});
       goLocal("route-confirmation");
     },
-    "voice-toggle":(button)=>toggleVoice(button),
+    "voice-toggle":()=>toggleVoice(),
   };
 
   function contactRows() {return [...root.querySelectorAll("[data-contact-card]")];}
@@ -516,34 +516,50 @@
     }).catch(error=>message(error.message));
   }
 
+  // 브리핑 알약(.ch-voice-briefing)은 음성 인식·브리핑 중(data-active)에만 펼친다. ?qa는 Figma 비교용으로 펼친 상태 고정
+  const briefingPills=[...root.querySelectorAll(".ch-voice-briefing")];
+  const briefingSeconds=30;
   let speechRunning=false;
   let speechUtterance;
-  function toggleVoice(button) {
+  let briefingTimer=0;
+  function setBriefing(active,label="브리핑 중") {
+    speechRunning=active;
+    clearInterval(briefingTimer);
+    for(const b of root.querySelectorAll('[data-action="voice-toggle"]'))b.setAttribute("aria-pressed",String(active));
+    for(const pill of briefingPills)pill.toggleAttribute("data-active",active);
+    if(!active||!integration.demo)return;
+    display("briefing-state",label);
+    const start=Date.now();
+    const tick=()=>{
+      const s=Math.min(briefingSeconds,Math.floor((Date.now()-start)/1000));
+      display("briefing-time","0:"+String(s).padStart(2,"0")+" / 0:"+briefingSeconds);
+      if(s>=briefingSeconds)stopSpeech();
+    };
+    tick();
+    briefingTimer=setInterval(tick,1000);
+  }
+  function stopSpeech() {
+    speechUtterance=null;
+    window.speechSynthesis?.cancel();
+    setBriefing(false);
+  }
+  if(fixed)for(const pill of briefingPills)pill.toggleAttribute("data-active",true);
+  window.addEventListener("pagehide",()=>clearInterval(briefingTimer));
+  function toggleVoice() {
     const opening=!speechRunning;
     if(!integration.demo)return request(opening?"voice.start":"voice.stop",{}).then(result=>{
-      speechRunning=opening;
-      button.setAttribute("aria-pressed",String(speechRunning));
-      display("briefing-state",result.status==="listening"?"듣는 중":speechRunning?"브리핑 중":"브리핑 정지");
+      setBriefing(opening);
+      if(opening)display("briefing-state",result.status==="listening"?"듣는 중":"브리핑 중");
     });
-    if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){message("이 브라우저의 음성 기능을 사용할 수 없어요.");return;}
-    speechUtterance=null;
+    if(!opening){stopSpeech();return;}
+    setBriefing(true);
+    // 음성 합성이 없는 브라우저에서도 알약·타이머는 동작, 소리만 생략
+    if(!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;
     speechSynthesis.cancel();
-    speechRunning=opening;
-    const render=()=>{
-      button.setAttribute("aria-pressed",String(speechRunning));
-      display("briefing-state",speechRunning?"브리핑 중":"브리핑 정지");
-    };
-    if(opening){
-      const spoken=new SpeechSynthesisUtterance(document.title.split(" · 차박하루")[0]+"을 안내해 드릴게요.");
-      spoken.lang="ko-KR";
-      speechUtterance=spoken;
-      spoken.onend=spoken.onerror=()=>{
-        if(speechUtterance!==spoken)return;
-        speechUtterance=null; speechRunning=false; render();
-      };
-      speechSynthesis.speak(spoken);
-    }
-    render();
+    const spoken=new SpeechSynthesisUtterance(document.title.split(" · 차박하루")[0]+"을 안내해 드릴게요.");
+    spoken.lang="ko-KR";
+    speechUtterance=spoken;
+    speechSynthesis.speak(spoken);
   }
 
   let overlayActive=false;
@@ -562,6 +578,10 @@
 
   root.addEventListener("click",async event=>{
     const button=event.target.closest("[data-action]");
+    if(!button&&event.target.closest(".ch-voice-briefing[data-active]")&&!fixed){
+      if(integration.demo)stopSpeech();else toggleVoice();
+      return;
+    }
     if(!button||!root.contains(button)||button.disabled)return;
     const name=button.dataset.action;
     const value=button.dataset.value;
@@ -651,6 +671,10 @@
         }
         layer.dataset.live = "true";
       }
+    }
+    if(event==="voice.state"&&typeof payload.active==="boolean") {
+      setBriefing(payload.active);
+      if(payload.active&&typeof payload.status==="string")display("briefing-state",payload.status==="listening"?"듣는 중":"브리핑 중");
     }
     if(event==="contacts.updated") applyContacts(payload.contacts);
     if(event==="pairing.paired"&&screen.endsWith("-pair")) nextOnboarding();

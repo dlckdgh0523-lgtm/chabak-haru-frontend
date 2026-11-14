@@ -94,3 +94,8 @@
 .ch-live-map-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 [data-live-map][data-live="true"] ~ [data-figma-node="2001:106"],
 [data-live-map][data-live="true"] ~ [data-figma-node="2005:56"] { visibility: hidden; }
+
+/* 브리핑 알약: 음성 인식·브리핑 중([data-active])에만 펼친다. 대기 중 CID는 파형 마이크 버튼만, 모바일 카드는 숨김 */
+.ch-voice-briefing:not([data-active]):has(.ch-voice-button) { padding: 16px; gap: 0; }
+.ch-voice-briefing:not([data-active]):has(.ch-voice-button) > :not(.ch-voice-button) { display: none; }
+.ch-voice-briefing:not([data-active]):not(:has(.ch-voice-button)) { display: none; }
