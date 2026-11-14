@@ -15,7 +15,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; }
-html { min-width: 0; color-scheme: light; -webkit-text-size-adjust: 100%; }
+html { min-width: 0; color-scheme: light; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body { margin: 0; font: 400 16px/1.5 var(--ch-font); color: var(--ch-text); }
 p, h1, h2, h3, ol, ul { margin: 0; padding: 0; }
 button, input, select { font: inherit; color: inherit; }
@@ -33,7 +33,7 @@ body[data-kind="card"] .ch-viewport { background: transparent; }
 body[data-native="android"] [data-system-bar] { visibility: hidden; }
 body[data-native="android"] [data-system-bar-gesture] { visibility: hidden; }
 
-:where(button, a, input, select, [tabindex]):focus-visible { outline: 3px solid var(--ch-focus); outline-offset: 3px; }
+:where(button, a, input, select, [tabindex]):focus-visible { outline: 3px solid var(--ch-focus) !important; outline-offset: 3px !important; } /* Figma 선을 outline으로 그려서 포커스 링이 덮이지 않게 !important */
 :where(button):disabled { cursor: default; }
 .ch-visually-hidden {
   position: absolute !important;

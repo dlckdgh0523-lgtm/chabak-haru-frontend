@@ -13,12 +13,12 @@
 .ch-layer-01e20454c0 { position: absolute; height: 50.3px; left: -3.98px; top: -2.52px; width: 68.676px; display: block; }
 .ch-layer-cda041d306 { position: absolute; display: block; inset: 0; max-width: none; width: 100%; height: 100%; }
 .ch-layer-bc9c206b3e { align-content: stretch; display: flex; gap: 20px; align-items: center; position: relative; flex-shrink: 0; }
-.ch-layer-7dd3c5bfee { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 1.35; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 40px; letter-spacing: -1px; white-space: nowrap; display: block; }
+.ch-layer-7dd3c5bfee { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 1.35; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 40px; letter-spacing: -1px; white-space: nowrap; display: block; margin-right: 1px; }
 .ch-구분선-789e080354 { background-color: #c8d8f3; height: 30px; position: relative; flex-shrink: 0; width: 2px; display: block; }
 .ch-layer-550e8f578c { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 0; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 32px; white-space: nowrap; display: block; }
 .ch-layer-c281c4ad2a { line-height: 44px; }
 .ch-layer-6351acd917 { font-family: Pretendard, sans-serif; font-weight: 700; line-height: 44px; color: #c92b08; }
-.ch-음성-브리핑-94fb480b97 { background-color: rgba(255,255,255,0.4); border-width: 2px; border-color: rgba(255,255,255,0.8); border-style: solid; align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; box-shadow: 0px 20px 40px 0px rgba(61,136,255,0.04); flex-shrink: 0; }
+.ch-음성-브리핑-94fb480b97 { background-color: rgba(255,255,255,0.4); align-content: stretch; display: flex; gap: 28px; align-items: center; justify-content: center; overflow: clip; padding-left: 40px; padding-right: 64px; padding-top: 20px; padding-bottom: 20px; position: relative; border-radius: 999px; box-shadow: 0px 20px 40px 0px rgba(61,136,255,0.04); flex-shrink: 0; outline: 2px solid rgba(255,255,255,0.8); outline-offset: -2px; }
 .ch-음성-파형-6e60c87c6a { align-content: stretch; display: flex; gap: 4px; height: 44px; align-items: center; overflow: clip; position: relative; flex-shrink: 0; }
 .ch-음성-막대-2cc8af3598 { background-color: #1992ff; height: 12px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
 .ch-음성-막대-49f3a05ad6 { background-color: #1992ff; height: 28px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
@@ -26,7 +26,7 @@
 .ch-음성-막대-c641287e6a { background-color: #1992ff; height: 29px; position: relative; border-radius: 3px; flex-shrink: 0; width: 5px; display: block; }
 .ch-브리핑-안내-19d2bb78d4 { word-break: break-word; align-content: stretch; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; font-style: normal; overflow: clip; position: relative; flex-shrink: 0; }
 .ch-layer-6d56660a12 { align-content: stretch; display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; position: relative; flex-shrink: 0; color: #070d2a; font-size: 28px; white-space: nowrap; }
-.ch-layer-11d330663d { font-family: Pretendard, sans-serif; font-weight: 700; position: relative; flex-shrink: 0; letter-spacing: -1px; display: block; }
+.ch-layer-11d330663d { font-family: Pretendard, sans-serif; font-weight: 700; position: relative; flex-shrink: 0; letter-spacing: -1px; display: block; margin-right: 1px; }
 .ch-layer-efee06d8ba { font-family: Pretendard, sans-serif; font-weight: 800; position: relative; flex-shrink: 0; display: block; }
 .ch-layer-3470ff1d77 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 0; position: relative; flex-shrink: 0; color: #4d668b; font-size: 24px; letter-spacing: 0; white-space: pre; display: block; }
 .ch-layer-15e2ddbb8e { line-height: 1.35; }
@@ -41,7 +41,7 @@
 .ch-layer-6e163f9b84 { position: absolute; background-color: rgba(206,235,255,0.6); inset: 0; display: block; }
 .ch-정면-전기차-블루-라이트닝-아이콘-1-63f684c6b5 { position: absolute; height: 120px; left: 50%; top: calc(50% + 8px); width: 180px; translate: -50% -50%; display: block; }
 .ch-layer-4edc552e50 { position: absolute; inset: 0; max-width: none; object-fit: cover; pointer-events: none; width: 100%; height: 100%; }
-.ch-배터리-상태-배지-696c205e84 { position: absolute; background-color: white; border-width: 2px; border-color: #c7deff; border-style: solid; align-content: stretch; display: flex; height: 60px; align-items: center; justify-content: center; left: 6px; overflow: clip; border-radius: 32px; box-shadow: 0px 4px 8px 0px rgba(69,137,223,0.14); top: 4px; width: 100px; }
+.ch-배터리-상태-배지-696c205e84 { position: absolute; background-color: white; align-content: stretch; display: flex; height: 60px; align-items: center; justify-content: center; left: 6px; overflow: clip; border-radius: 32px; box-shadow: 0px 4px 8px 0px rgba(69,137,223,0.14); top: 4px; width: 100px; outline: 2px solid #c7deff; outline-offset: -2px; }
 .ch-battery-charging-2722b3f6ed { position: relative; flex-shrink: 0; width: 58px; height: 58px; display: block; }
 .ch-상태-구분선-f030a9ea3e { background-color: rgba(210,225,249,0); height: 164px; position: relative; flex-shrink: 0; width: 2px; display: block; }
 .ch-배터리-상세-89ee05786e { align-content: stretch; display: flex; flex: 1 0 0; flex-direction: column; gap: 16px; align-items: flex-start; min-width: 1px; overflow: clip; position: relative; }
@@ -77,12 +77,12 @@
 .ch-layer-0aa135cf80 { position: absolute; display: flex; height: 90.939px; align-items: center; justify-content: center; left: 200.01px; top: -24px; width: 78.121px; }
 .ch-전력-항목-범례-c692aa1032 { align-content: stretch; display: flex; gap: 36px; align-items: center; overflow: clip; position: relative; flex-shrink: 0; width: 100%; }
 .ch-전력-항목-927e4b332b { align-content: stretch; display: flex; gap: 12px; align-items: center; overflow: clip; position: relative; flex-shrink: 0; }
-.ch-항목-색상-283e719327 { background-color: #42a7ff; border-width: 2px; border-color: #268ce6; border-style: solid; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; }
+.ch-항목-색상-283e719327 { background-color: #42a7ff; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; outline: 2px solid #268ce6; outline-offset: -2px; }
 .ch-layer-d7fc537d87 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 34px; font-style: normal; position: relative; flex-shrink: 0; color: #080e36; font-size: 26px; white-space: nowrap; display: block; }
-.ch-항목-색상-1f9a3c0f90 { background-color: #15d5f0; border-width: 2px; border-color: #17b7ce; border-style: solid; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; }
-.ch-항목-색상-a4ffc9dd46 { background-color: #b1e8fa; border-width: 2px; border-color: #7ac2d9; border-style: solid; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; }
+.ch-항목-색상-1f9a3c0f90 { background-color: #15d5f0; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; outline: 2px solid #17b7ce; outline-offset: -2px; }
+.ch-항목-색상-a4ffc9dd46 { background-color: #b1e8fa; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; outline: 2px solid #7ac2d9; outline-offset: -2px; }
 .ch-항목-색상-1086c094f1 { background-color: #080e36; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 4px; display: block; }
-.ch-항목-색상-1d07845497 { background-color: #fff1ce; border-width: 2px; border-color: #eac06f; border-style: solid; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; }
+.ch-항목-색상-1d07845497 { background-color: #fff1ce; height: 24px; position: relative; border-radius: 6px; flex-shrink: 0; width: 26px; display: block; outline: 2px solid #eac06f; outline-offset: -2px; }
 .ch-부족-전력-00df3e8fa5 { position: absolute; background-color: #ffd58c; align-content: stretch; display: flex; flex-direction: column; height: 20px; align-items: flex-start; left: calc(50% - 69.5px); overflow: clip; border-radius: 4px; top: 7px; width: 22px; translate: -50% 0; }
 .ch-layer-031e1f99fe { position: absolute; display: flex; height: 31.358px; align-items: center; justify-content: center; left: -62.24px; top: -8.28px; width: 26.938px; }
 .ch-부족량-사선-47b43fff5e { background-color: #fff1ce; height: 38.621px; position: relative; width: 2.759px; display: block; }
@@ -102,7 +102,7 @@
 .ch-layer-b8f9386990 { position: absolute; display: flex; height: 31.358px; align-items: center; justify-content: center; left: 43.97px; top: -8.28px; width: 26.938px; }
 .ch-전력-항목-81cd1f2e36 { word-break: break-word; align-content: stretch; display: flex; font-family: Pretendard, sans-serif; font-weight: 700; gap: 12px; align-items: center; line-height: 34px; font-style: normal; overflow: clip; position: relative; flex-shrink: 0; color: #c92b08; font-size: 26px; white-space: nowrap; }
 .ch-layer-fef77ff8e2 { position: relative; flex-shrink: 0; display: block; }
-.ch-추천-경유지-a1fd7036dc { background-color: rgba(255,255,255,0.6); border-width: 1px; border-color: #dae5f8; border-style: solid; align-content: stretch; display: flex; flex-direction: column; gap: 64px; align-items: flex-start; overflow: clip; padding-bottom: 56px; padding-top: 40px; padding-left: 44px; padding-right: 44px; position: relative; border-radius: 48px; flex-shrink: 0; width: 100%; }
+.ch-추천-경유지-a1fd7036dc { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex-direction: column; gap: 64px; align-items: flex-start; overflow: clip; padding-bottom: 56px; padding-top: 40px; padding-left: 44px; padding-right: 44px; position: relative; border-radius: 48px; flex-shrink: 0; width: 100%; outline: 1px solid #dae5f8; outline-offset: -1px; }
 .ch-경유지-제목-94a23eeea6 { align-content: stretch; display: flex; gap: 14px; height: 44px; align-items: center; position: relative; flex-shrink: 0; }
 .ch-map-pin-43ddcb6d26 { position: relative; flex-shrink: 0; width: 40px; height: 40px; display: block; }
 .ch-layer-a9b8320f0f { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 800; line-height: 46px; font-style: normal; position: relative; flex-shrink: 0; color: #080e36; font-size: 38px; white-space: nowrap; display: block; }
@@ -140,6 +140,6 @@
 .ch-car-front-34edc657f9 { position: relative; flex-shrink: 0; width: 32px; height: 32px; display: block; }
 .ch-layer-cdd988bbf0 { line-height: 34px; color: #5c52e5; }
 .ch-차박지-비교-및-전체-후기-dc02424f37 { position: absolute; bottom: 0; align-content: stretch; display: flex; gap: 16px; align-items: flex-start; left: 28px; overflow: clip; width: 1864px; }
-.ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); border-width: 2px; border-color: #1b54c2; border-style: solid; align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; }
+.ch-하단-버튼-0ed8a26056 { background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex: 1 0 0; gap: 24px; height: 120px; align-items: center; justify-content: center; min-width: 1px; overflow: clip; position: relative; border-radius: 24px; outline: 2px solid #1b54c2; outline-offset: -2px; }
 /* Figma: 안내문 기본 자간 0, '’ 처럼 말해도…' 구간만 -1px (변환 때 span 자간이 합쳐져 문장 전체가 -1px였음) */
 [data-figma-node="2018:1896"] > span:last-child { letter-spacing: -1px; }

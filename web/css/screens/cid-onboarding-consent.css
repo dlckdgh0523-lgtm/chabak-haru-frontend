@@ -13,7 +13,7 @@
 .ch-layer-22d513168b { position: absolute; height: 50.3px; left: -3.98px; top: -2.52px; width: 68.677px; display: block; }
 .ch-layer-cda041d306 { position: absolute; display: block; inset: 0; max-width: none; width: 100%; height: 100%; }
 .ch-layer-63e501e6de { align-content: stretch; display: flex; flex: 1 0 0; gap: 20px; align-items: center; min-width: 1px; position: relative; }
-.ch-layer-7dd3c5bfee { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 1.35; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 40px; letter-spacing: -1px; white-space: nowrap; display: block; }
+.ch-layer-7dd3c5bfee { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 1.35; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 40px; letter-spacing: -1px; white-space: nowrap; display: block; margin-right: 1px; }
 .ch-구분선-789e080354 { background-color: #c8d8f3; height: 30px; position: relative; flex-shrink: 0; width: 2px; display: block; }
 .ch-layer-9a28a54e05 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 44px; font-style: normal; position: relative; flex-shrink: 0; color: #070d2a; font-size: 32px; white-space: nowrap; display: block; }
 .ch-layer-fddc80431d { word-break: break-word; align-content: stretch; display: flex; flex: 1 0 0; gap: 8px; align-items: center; line-height: 40px; min-width: 1px; font-style: normal; padding-right: 28px; position: relative; font-size: 28px; text-align: right; }
@@ -23,7 +23,7 @@
 .ch-layer-662835f343 { word-break: break-word; align-content: stretch; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; font-style: normal; padding-left: 8px; position: relative; flex-shrink: 0; width: 100%; }
 .ch-온보딩-핵심-문구-225c263f56 { align-content: stretch; display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-weight: 800; gap: 4px; height: 176px; align-items: flex-start; line-height: 88px; padding: var(--spacing-0,0px); position: relative; flex-shrink: 0; font-size: 72px; width: 100%; white-space: nowrap; }
 .ch-layer-f2c7e3ae53 { position: relative; flex-shrink: 0; color: var(--text-primary,#070e30); display: block; }
-.ch-layer-9e31b5b888 { background-clip: text; -webkit-background-clip: text; position: relative; flex-shrink: 0; color: transparent; letter-spacing: -2px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); display: block; }
+.ch-layer-9e31b5b888 { background-clip: text; -webkit-background-clip: text; position: relative; flex-shrink: 0; color: transparent; letter-spacing: -2px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); display: block; margin-right: 2px; }
 .ch-layer-d0e155d2c1 { font-family: Pretendard, sans-serif; font-weight: 400; line-height: 40px; position: relative; flex-shrink: 0; font-size: 26px; color: rgba(7,14,48,0.8); width: 100%; display: block; }
 .ch-layer-1108da3c17 { align-content: stretch; display: flex; flex-direction: column; align-items: flex-start; position: relative; flex-shrink: 0; }
 .ch-layer-5ab7763d28 { display: flex; align-items: center; justify-content: center; margin-bottom: -15px; position: relative; flex-shrink: 0; }
@@ -48,7 +48,7 @@
 .ch-layer-a4a414392d { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 32px; font-style: normal; }
 .ch-layer-0a357d5cf1 { font-family: Pretendard, sans-serif; font-weight: 600; line-height: 32px; display: block; }
 .ch-layer-5dc81679b9 { align-content: stretch; display: flex; gap: 12px; align-items: flex-start; position: relative; flex-shrink: 0; }
-.ch-여기로-바꾸기-버튼-20680b4d4d { border-width: 1px; border-color: rgba(27,84,194,0.4); border-style: solid; align-content: stretch; display: flex; gap: 4px; height: 80px; align-items: center; justify-content: center; overflow: clip; position: relative; border-radius: 20px; flex-shrink: 0; width: 468px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); }
+.ch-여기로-바꾸기-버튼-20680b4d4d { align-content: stretch; display: flex; gap: 4px; height: 80px; align-items: center; justify-content: center; overflow: clip; position: relative; border-radius: 20px; flex-shrink: 0; width: 468px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); outline: 1px solid rgba(27,84,194,0.4); outline-offset: -1px; }
 .ch-layer-a6a3e74ea6 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 800; line-height: 36px; font-style: normal; position: relative; flex-shrink: 0; font-size: 28px; color: white; white-space: nowrap; display: block; }
 .ch-필수-및-선택-동의-7c7512217c { position: absolute; background-color: rgba(255,255,255,0.6); align-content: stretch; display: flex; flex-direction: column; gap: var(--test-space-0,0px); align-items: flex-start; padding: 28px; right: 28px; border-radius: var(--test-radius-28,28px); top: 184px; width: 1060px; }
 .ch-layer-507c33983a { align-content: stretch; display: flex; flex-direction: column; gap: 48px; align-items: flex-start; position: relative; flex-shrink: 0; width: 100%; }
