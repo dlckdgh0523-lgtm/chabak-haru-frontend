@@ -1,0 +1,50 @@
+[
+  {
+    "test": "Android 360 onboarding, required and optional consent",
+    "status": "passed"
+  },
+  {
+    "test": "Emergency contact reorder, edit and test request",
+    "status": "passed"
+  },
+  {
+    "test": "Mobile comparison carousel and bookmark",
+    "status": "passed"
+  },
+  {
+    "test": "Mobile settings toggles and stepper, persistence and sleep route",
+    "status": "passed"
+  },
+  {
+    "test": "Battery warning dismiss and V2L detail acknowledgement",
+    "status": "passed"
+  },
+  {
+    "test": "Alarm and emergency interactions stay in the mock path",
+    "status": "passed"
+  },
+  {
+    "test": "CID landscape navigation and dismissible route",
+    "status": "passed"
+  },
+  {
+    "test": "Live transport rejects missing adapter and accepts supplied implementation",
+    "status": "passed"
+  },
+  {
+    "test": "QR image software decoder and live pairing transition",
+    "status": "passed"
+  },
+  {
+    "test": "Responsive mobile, fit-to-screen landscape and static dimensions",
+    "status": "passed"
+  },
+  {
+    "test": "Component template library search and dynamic rendering",
+    "status": "passed"
+  },
+  {
+    "test": "No runtime exceptions",
+    "status": "passed"
+  }
+]

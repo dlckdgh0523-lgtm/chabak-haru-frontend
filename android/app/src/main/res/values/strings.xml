@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">차박하루</string>
+    <string name="webview_unavailable">Android System WebView를 업데이트해 주세요.</string>
+</resources>

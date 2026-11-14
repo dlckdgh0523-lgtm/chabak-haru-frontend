@@ -1,0 +1,30 @@
+.ch-catalog-page { min-height: 100vh; background: #f4f8ff; }
+.ch-catalog-header, .ch-catalog { width: min(1200px, calc(100% - 40px)); margin: auto; }
+.ch-catalog-header { padding: 28px 0 32px; border-bottom: 1px solid var(--ch-border); }
+.ch-catalog-header h1 { font-size: clamp(32px, 7vw, 56px); line-height: 1.15; margin: 18px 0 10px; letter-spacing: -1px; }
+.ch-catalog-header p, .ch-catalog li span { color: var(--ch-text-muted); }
+.ch-catalog-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.ch-catalog-nav a { color: var(--ch-brand-navy); text-decoration: none; padding: 8px 0; font-weight: 700; }
+.ch-catalog { padding: 25px 0 60px; }
+.ch-catalog-section { margin-bottom: 32px; }
+.ch-catalog-section h2 { margin: 0 0 14px; font-size: 23px; }
+.ch-catalog-section h2 span { color: var(--ch-text-muted); font-size: 17px; margin-left: 5px; }
+.ch-catalog-section ul { display: grid; list-style: none; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 265px), 1fr)); }
+.ch-catalog-section a { display: grid; gap: 4px; min-height: 64px; padding: 12px 16px; background: white; border: 1px solid var(--ch-border); border-radius: 14px; text-decoration: none; color: var(--ch-text); }
+.ch-catalog-section a:is(:hover,:focus-visible) { border-color: var(--ch-brand-blue); }
+.ch-catalog li span { font-size: 13px; }
+.ch-library-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,350px),1fr)); gap: 12px; margin: 18px 0; }
+.ch-library-item { min-width: 0; padding: 16px; border-radius: 16px; background: white; border: 1px solid var(--ch-border); }
+.ch-library-item h2 { font-size: 17px; overflow-wrap: anywhere; }
+.ch-library-item p { color: var(--ch-text-muted); margin-bottom: 10px; overflow-wrap: anywhere; }
+.ch-library-window { max-width: 100%; overflow: hidden; border-radius: 8px; background: #f4f8ff; }
+.ch-library-search input { width: min(250px, 100%); border: 1px solid var(--ch-border); border-radius: 8px; padding: 8px 12px; margin: 0 8px; }
+.ch-rolling { display: grid; grid-template-columns: 48px minmax(0, 896px) 48px; align-items: center; gap: 8px; justify-content: center; }
+.ch-rolling ul { display: flex; gap: 4px; overflow: auto; padding-bottom: 8px; list-style: none; scroll-snap-type: x mandatory; }
+.ch-rolling li { flex: 0 0 288px; scroll-snap-align: start; }
+.ch-rolling button { height: 48px; width: 48px; background: white; border-radius: 10px; color: var(--ch-brand-blue); font-size: 32px; text-align: center; }
+.ch-rolling iframe { border: 0; display: block; }
+@media (max-width: 420px) { .ch-rolling { grid-template-columns: 28px minmax(0,1fr) 28px; gap: 3px; } .ch-rolling button { width: 28px; } }
+
+.ch-rolling-source { display: flex; gap: 4px; width: max-content; max-width: 100%; height: 180px; overflow-x: auto; scrollbar-width: none; }
+.ch-rolling-source iframe { border: 0; display: block; flex-shrink: 0; }

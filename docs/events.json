@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "gatewayEndpoint": "Set by the integrating application",
+  "request": {
+    "id": "opaque request ID",
+    "screen": "name from frames.json",
+    "event": "request event name",
+    "payload": "object"
+  },
+  "success": {
+    "ok": true,
+    "id": "request ID",
+    "data": "object"
+  },
+  "error": {
+    "ok": false,
+    "id": "request ID",
+    "error": {
+      "code": "stable code",
+      "message": "safe display text"
+    }
+  },
+  "timeoutMilliseconds": 12000,
+  "types": {
+    "Settings": {
+      "heating": "integer °C, 16–30",
+      "wake-time": "integer minute in day, 0–1439",
+      "sleep-music": "integer minute, 0–90",
+      "illuminance": "integer lux, 0–50",
+      "climate-mode": "sleep | airflow | automatic",
+      "power-mode": "standard | balanced | saving",
+      "doors-locked": "boolean",
+      "approach-detection": "boolean",
+      "fire-detection": "boolean",
+      "wake-enabled": "boolean",
+      "weather-contact-notifications": "boolean"
+    },
+    "Contact": {
+      "id": "string",
+      "name": "string",
+      "maskedPhone": "string"
+    }
+  },
+  "events": {
+    "alarm.set": {
+      "payload": {
+        "hour": "integer 0–23",
+        "minute": "integer 0–59"
+      },
+      "response": {
+        "minutes": "integer minute in day"
+      }
+    },
+    "alarm.snooze": {
+      "payload": {
+        "minutes": "integer"
+      },
+      "response": {}
+    },
+    "alarm.stop": {
+      "payload": {},
+      "response": {}
+    },
+    "contacts.finish": {
+      "payload": {
+        "contactIds": "string[] in delivery order"
+      },
+      "response": {}
+    },
+    "contacts.list": {
+      "payload": {},
+      "response": {
+        "contacts": "Contact[]"
+      }
+    },
+    "contacts.reorder": {
+      "payload": {
+        "contactIds": "string[] in delivery order"
+      },
+      "response": {}
+    },
+    "contacts.test": {
+      "payload": {
+        "contactId": "string"
+      },
+      "response": {}
+    },
+    "contacts.update": {
+      "payload": {
+        "contacts": "{id: string, name: string, phone?: string}[]"
+      },
+      "response": {
+        "contacts": "Contact[]"
+      }
+    },
+    "pairing.begin": {
+      "payload": {},
+      "response": {
+        "sessionId": "string",
+        "qrImageUrl": "HTTPS URL or PNG data URL"
+      }
+    },
+    "pairing.confirm": {
+      "payload": {
+        "code": "string, up to 2048 characters"
+      },
+      "response": {
+        "status": "paired | expired | rejected"
+      }
+    },
+    "pairing.skip": {
+      "payload": {},
+      "response": {}
+    },
+    "pairing.status": {
+      "payload": {
+        "sessionId": "string"
+      },
+      "response": {
+        "status": "pending | paired | expired"
+      }
+    },
+    "parking.sunrise": {
+      "payload": {
+        "enabled": "boolean"
+      },
+      "response": {}
+    },
+    "place.phone": {
+      "payload": {
+        "placeId": "string"
+      },
+      "response": {
+        "phone": "string"
+      }
+    },
+    "place.reviews": {
+      "payload": {
+        "placeId": "string"
+      },
+      "response": {
+        "reviews": "string[]"
+      }
+    },
+    "places.bookmark": {
+      "payload": {
+        "placeId": "string",
+        "saved": "boolean"
+      },
+      "response": {}
+    },
+    "places.filters": {
+      "payload": {
+        "filters": "string[]"
+      },
+      "response": {
+        "placeIds": "string[]"
+      }
+    },
+    "route.accept": {
+      "payload": {},
+      "response": {}
+    },
+    "route.destination": {
+      "payload": {
+        "placeId": "string"
+      },
+      "response": {
+        "next": "charging | briefing"
+      }
+    },
+    "route.detour": {
+      "payload": {
+        "enabled": "boolean"
+      },
+      "response": {}
+    },
+    "route.dismiss": {
+      "payload": {},
+      "response": {}
+    },
+    "route.start": {
+      "payload": {},
+      "response": {}
+    },
+    "safety.acknowledge": {
+      "payload": {
+        "type": "weather | approach | v2l-overheat"
+      },
+      "response": {}
+    },
+    "safety.evacuation.route": {
+      "payload": {},
+      "response": {
+        "instructions": "string"
+      }
+    },
+    "safety.sos": {
+      "payload": {},
+      "response": {}
+    },
+    "safety.vehicleSignal": {
+      "payload": {
+        "hazardLights": "boolean",
+        "horn": "boolean"
+      },
+      "response": {}
+    },
+    "terms.accept": {
+      "payload": {
+        "agreed": "policy ID[]"
+      },
+      "response": {}
+    },
+    "terms.document": {
+      "payload": {
+        "id": "policy ID"
+      },
+      "response": {
+        "text": "string",
+        "version": "string"
+      }
+    },
+    "ui.ready": {
+      "payload": {},
+      "response": {
+        "state": "[{event, payload}] from push events below"
+      }
+    },
+    "vehicle.setting": {
+      "payload": {
+        "key": "setting key",
+        "value": "value matching setting key"
+      },
+      "response": {
+        "value": "applied setting value"
+      }
+    },
+    "vehicle.settings.save": {
+      "payload": {
+        "settings": "Settings"
+      },
+      "response": {}
+    },
+    "vehicle.sleep.start": {
+      "payload": {
+        "settings": "Settings"
+      },
+      "response": {}
+    },
+    "vehicle.sleep.stop": {
+      "payload": {},
+      "response": {}
+    },
+    "vehicle.utility.enable": {
+      "payload": {},
+      "response": {}
+    },
+    "vehicle.v2l.details": {
+      "payload": {
+        "normal": "boolean; UI variant hint"
+      },
+      "response": {
+        "label": "string",
+        "temperature": "number",
+        "observedAt": "string",
+        "status": "string"
+      }
+    },
+    "voice.start": {
+      "payload": {},
+      "response": {
+        "status": "listening | speaking"
+      }
+    },
+    "voice.stop": {
+      "payload": {},
+      "response": {}
+    }
+  },
+  "push": {
+    "ui.state": {
+      "values": "object keyed by data-bind name, string or number"
+    },
+    "vehicle.settings": {
+      "settings": "Partial<Settings>"
+    },
+    "places.results": {
+      "placeIds": "string[]"
+    },
+    "contacts.updated": {
+      "contacts": "Contact[]"
+    },
+    "pairing.paired": {},
+    "map.updated": {
+      "imageUrl": "same-origin image URL or PNG/JPEG/WebP data URL"
+    }
+  }
+}

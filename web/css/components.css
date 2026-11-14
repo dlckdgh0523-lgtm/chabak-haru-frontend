@@ -1,0 +1,96 @@
+/* Interaction states layered on the original Figma geometry. */
+.ch-button, .ch-switch, .ch-checkbox, .ch-filter-chip, .ch-bookmark, .ch-stepper-button, .ch-voice-button {
+  -webkit-tap-highlight-color: transparent;
+}
+.ch-design-frame :is(.ch-bookmark, .ch-stepper-button, .ch-voice-button, .ch-checkbox, .ch-switch)::after,
+.ch-design-frame [data-action="consent-details"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 48px);
+  height: max(100%, 48px);
+  transform: translate(-50%, -50%);
+}
+.ch-frame-slot .ch-checkbox::after, .ch-frame-slot [data-action="consent-details"]::after {
+  top: 50%;
+  height: max(100%, 40px);
+}
+.ch-checkbox[data-changed="true"][aria-checked="false"] {
+  background: #f4f8ff;
+  border: 1px solid #9db6e6;
+  box-shadow: none;
+}
+.ch-checkbox[data-changed="true"][aria-checked="false"] > * { opacity: 0; }
+.ch-checkbox[data-changed="true"][aria-checked="true"] {
+  background: linear-gradient(to bottom, #387bff, #1a57cf);
+  border-color: transparent;
+}
+.ch-checkbox[data-changed="true"][aria-checked="true"] > * { opacity: 1; filter: brightness(0) invert(1); }
+.ch-checkbox[data-changed="true"][aria-checked="mixed"] { background: #e9f2ff; border: 1px solid #9db6e6; }
+.ch-checkbox[data-changed="true"][aria-checked="mixed"] > * { opacity: 0; }
+.ch-checkbox[data-changed="true"][aria-checked="mixed"]::before {
+  position: absolute; left: 25%; top: 46%; width: 50%; height: 3px; border-radius: 2px;
+  content: ""; background: #1a57cf;
+}
+.ch-switch[aria-checked="false"] { filter: grayscale(1) brightness(.82); }
+.ch-switch[aria-checked="false"] > img { scale: -1 1; }
+.ch-filter-chip[data-changed="true"][aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--ch-brand-blue); }
+.ch-filter-chip[data-changed="true"][aria-pressed="false"] { opacity: .64; }
+.ch-bookmark[data-changed="true"][aria-pressed="true"] { filter: invert(29%) sepia(82%) saturate(3074%) hue-rotate(207deg); }
+.ch-design-frame button[aria-disabled="true"][data-touched="true"] { opacity: .54; }
+.ch-voice-button[aria-pressed="true"] { animation: ch-briefing-pulse 1.2s ease-in-out infinite alternate; }
+@keyframes ch-briefing-pulse { to { opacity: .45; } }
+
+.ch-overlay-panel {
+  width: min(400px, calc(100% - 32px));
+  max-height: min(720px, calc(100% - 40px));
+  margin: auto;
+  padding: 24px;
+  overflow: auto;
+  border: 1px solid var(--ch-border);
+  border-radius: var(--ch-radius-card);
+  background: #fff;
+  color: var(--ch-text);
+  box-shadow: 0 20px 48px #070e302e;
+}
+.ch-overlay-panel::backdrop { background: #070e3066; }
+.ch-overlay-panel h2 { margin: 0 0 12px; font-size: 21px; line-height: 28px; }
+.ch-overlay-panel p { color: var(--ch-text-muted); line-height: 24px; white-space: pre-line; }
+.ch-overlay-panel form, .ch-overlay-content { display: grid; gap: 14px; }
+.ch-overlay-panel label { display: grid; gap: 6px; font-weight: 600; }
+.ch-overlay-panel label:has(input[type="checkbox"]) { display: flex; align-items: center; }
+.ch-overlay-panel :is(input, select):not([type="checkbox"]) {
+  width: 100%; min-height: 48px; border: 1px solid var(--ch-border); border-radius: 10px; padding: 8px 12px;
+}
+.ch-overlay-panel input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--ch-brand-blue); }
+.ch-overlay-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+.ch-ui-button {
+  min-height: var(--ch-touch-min); padding: 10px 16px;
+  border-radius: var(--ch-radius-control); background: var(--ch-brand-blue); color: #fff; font-weight: 700;
+}
+.ch-ui-button--secondary { color: var(--ch-brand-navy); background: var(--ch-surface); box-shadow: inset 0 0 0 1px var(--ch-border); }
+
+.ch-toast {
+  position: fixed; z-index: 100; bottom: max(24px, env(safe-area-inset-bottom));
+  left: 50%; translate: -50% 0;
+  width: max-content; max-width: calc(100% - 32px); padding: 10px 16px;
+  border-radius: var(--ch-radius-control); background: #070e30; color: white; font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ch-voice-button[aria-pressed="true"] { animation: none; }
+}
+
+[data-carousel] { touch-action: pan-y; }
+[data-carousel]:focus-visible { outline: none; }
+[data-carousel]:focus-visible > [data-slide] { outline: 2px solid var(--ch-focus); outline-offset: -2px; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-carousel] { transition: translate .22s ease-out; }
+}
+.ch-sleep-screen-off {
+  position: fixed; inset: 0; z-index: 120; display: grid; place-content: center;
+  width: 100%; height: 100%; background: #000; color: #fff;
+}
+.ch-live-map-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+[data-live-map][data-live="true"] ~ [data-figma-node="2001:106"],
+[data-live-map][data-live="true"] ~ [data-figma-node="2005:56"] { visibility: hidden; }

@@ -1,0 +1,1971 @@
+[
+  {
+    "id": "2001:100",
+    "figmaFrame": "1",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-route-confirmation",
+    "title": "차박 경로 확인",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-route-confirmation.html",
+    "cssUrl": "css/screens/cid-route-confirmation.css",
+    "actions": [
+      {
+        "name": "menu-open",
+        "value": null,
+        "figmaNodeId": "2005:272",
+        "label": "차박 내비게이션"
+      },
+      {
+        "name": "route-accept",
+        "value": null,
+        "figmaNodeId": "2005:967",
+        "label": "예"
+      },
+      {
+        "name": "route-dismiss",
+        "value": null,
+        "figmaNodeId": "2005:969",
+        "label": "아니요"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2005:1086",
+    "figmaFrame": "2",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-destination-briefing",
+    "title": "오늘 밤 차박지와 방문자 후기",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-destination-briefing.html",
+    "cssUrl": "css/screens/cid-destination-briefing.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2005:1462",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "solnae",
+        "figmaNodeId": "2005:1535",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "place-comparison",
+        "value": null,
+        "figmaNodeId": "2011:1666",
+        "label": "근처 다른 곳 비교하기"
+      },
+      {
+        "name": "reviews-open",
+        "value": null,
+        "figmaNodeId": "2011:1670",
+        "label": "전체 후기 보기"
+      },
+      {
+        "name": "screen-close",
+        "value": null,
+        "figmaNodeId": "29325:14887",
+        "label": "닫기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2018:589",
+    "figmaFrame": "593",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-destination-comparison",
+    "title": "근처 차박지 비교",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-destination-comparison.html",
+    "cssUrl": "css/screens/cid-destination-comparison.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2018:618",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "거리순",
+        "figmaNodeId": "2018:1213",
+        "label": "거리순"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "20km 반경",
+        "figmaNodeId": "2018:1805",
+        "label": "20km 반경"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "조용함",
+        "figmaNodeId": "29253:1580",
+        "label": "조용함"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "추천순",
+        "figmaNodeId": "2018:1819",
+        "label": "추천순"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "일출 잘 보임",
+        "figmaNodeId": "2018:756",
+        "label": "일출 잘 보임"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "야영 가능",
+        "figmaNodeId": "2018:763",
+        "label": "야영 가능"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "취사 가능",
+        "figmaNodeId": "2018:767",
+        "label": "취사 가능"
+      },
+      {
+        "name": "filters-open",
+        "value": "조건 더보기",
+        "figmaNodeId": "2018:925",
+        "label": "조건 더보기"
+      },
+      {
+        "name": "place-select",
+        "value": "najeong",
+        "figmaNodeId": "2018:1492",
+        "label": "여기로 바꾸기"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "najeong",
+        "figmaNodeId": "2018:1504",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "place-select",
+        "value": "bukhang",
+        "figmaNodeId": "2018:1129",
+        "label": "여기로 바꾸기"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "bukhang",
+        "figmaNodeId": "2018:1140",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "place-select",
+        "value": "galma",
+        "figmaNodeId": "2018:1003",
+        "label": "여기로 바꾸기"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "galma",
+        "figmaNodeId": "2018:1007",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "map-open",
+        "value": null,
+        "figmaNodeId": "2018:1845",
+        "label": "지도 보기"
+      },
+      {
+        "name": "screen-close",
+        "value": null,
+        "figmaNodeId": "2018:1336",
+        "label": "닫기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2018:1857",
+    "figmaFrame": "594",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-charging-detour",
+    "title": "부족 전력과 충전 경유",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-charging-detour.html",
+    "cssUrl": "css/screens/cid-charging-detour.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2018:1886",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "detour-accept",
+        "value": null,
+        "figmaNodeId": "2018:2395",
+        "label": "경유하기"
+      },
+      {
+        "name": "detour-skip",
+        "value": null,
+        "figmaNodeId": "2018:2403",
+        "label": "그대로 가기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2025:2988",
+    "figmaFrame": "596",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-sunrise-parking",
+    "title": "일출 방향 주차와 기상 알람",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-sunrise-parking.html",
+    "cssUrl": "css/screens/cid-sunrise-parking.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2025:3017",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "sunrise-confirm",
+        "value": null,
+        "figmaNodeId": "2025:3495",
+        "label": "이대로 세울게요"
+      },
+      {
+        "name": "sunrise-skip",
+        "value": null,
+        "figmaNodeId": "2025:3496",
+        "label": "일출 안 볼래요"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "2025:3518",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "2025:3520",
+        "label": "기상 시각 증가"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2025:3849",
+    "figmaFrame": "597",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-utility-mode",
+    "title": "유틸리티 모드 안내",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-utility-mode.html",
+    "cssUrl": "css/screens/cid-utility-mode.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2025:3878",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "utility-enable",
+        "value": null,
+        "figmaNodeId": "2029:4222",
+        "label": "유틸리티 모드 켜기"
+      },
+      {
+        "name": "utility-help",
+        "value": null,
+        "figmaNodeId": "2029:4241",
+        "label": "켜는 방법 보기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "2029:5171",
+    "figmaFrame": "598",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-cabin-overheat",
+    "title": "차량 환경 설정 · V2L 과열",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-cabin-overheat.html",
+    "cssUrl": "css/screens/cid-cabin-overheat.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "2029:5200",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "step",
+        "value": "heating:1",
+        "figmaNodeId": "29236:1190",
+        "label": "난방 증가"
+      },
+      {
+        "name": "step",
+        "value": "heating:-1",
+        "figmaNodeId": "29236:1192",
+        "label": "난방 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29236:1308",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29236:1310",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "sleep-music:1",
+        "figmaNodeId": "29236:1322",
+        "label": "수면 음악 증가"
+      },
+      {
+        "name": "step",
+        "value": "sleep-music:-1",
+        "figmaNodeId": "29236:1324",
+        "label": "수면 음악 감소"
+      },
+      {
+        "name": "step",
+        "value": "illuminance:1",
+        "figmaNodeId": "29236:1348",
+        "label": "조도 증가"
+      },
+      {
+        "name": "step",
+        "value": "illuminance:-1",
+        "figmaNodeId": "29236:1350",
+        "label": "조도 감소"
+      },
+      {
+        "name": "cab-mode",
+        "value": "climate-mode",
+        "figmaNodeId": "29236:1376",
+        "label": "공조 모드 변경"
+      },
+      {
+        "name": "cab-mode",
+        "value": "power-mode",
+        "figmaNodeId": "29236:1360",
+        "label": "절전 모드 변경"
+      },
+      {
+        "name": "v2l-details",
+        "value": null,
+        "figmaNodeId": "29242:1557",
+        "label": "상세보기"
+      },
+      {
+        "name": "sleep-start",
+        "value": null,
+        "figmaNodeId": "29239:945",
+        "label": "잘게요, 화면 끄기"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "doors-locked",
+        "figmaNodeId": "29236:1107",
+        "label": "문 잠금 및 창문"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "approach-detection",
+        "figmaNodeId": "29236:1109",
+        "label": "접근 감지"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "fire-detection",
+        "figmaNodeId": "29236:1114",
+        "label": "화재 감지"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29378:4585",
+    "figmaFrame": "603",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-cabin-ready",
+    "title": "차량 환경 설정 · V2L 정상",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-cabin-ready.html",
+    "cssUrl": "css/screens/cid-cabin-ready.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29378:4610",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "step",
+        "value": "heating:1",
+        "figmaNodeId": "29378:4800",
+        "label": "난방 증가"
+      },
+      {
+        "name": "step",
+        "value": "heating:-1",
+        "figmaNodeId": "29378:4803",
+        "label": "난방 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29378:4815",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29378:4818",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "sleep-music:1",
+        "figmaNodeId": "29378:4830",
+        "label": "수면 음악 증가"
+      },
+      {
+        "name": "step",
+        "value": "sleep-music:-1",
+        "figmaNodeId": "29378:4833",
+        "label": "수면 음악 감소"
+      },
+      {
+        "name": "step",
+        "value": "illuminance:1",
+        "figmaNodeId": "29378:4871",
+        "label": "조도 증가"
+      },
+      {
+        "name": "step",
+        "value": "illuminance:-1",
+        "figmaNodeId": "29378:4874",
+        "label": "조도 감소"
+      },
+      {
+        "name": "cab-mode",
+        "value": "climate-mode",
+        "figmaNodeId": "29378:4881",
+        "label": "공조 모드 변경"
+      },
+      {
+        "name": "cab-mode",
+        "value": "power-mode",
+        "figmaNodeId": "29378:4896",
+        "label": "절전 모드 변경"
+      },
+      {
+        "name": "v2l-details",
+        "value": null,
+        "figmaNodeId": "29378:5081",
+        "label": "상세보기"
+      },
+      {
+        "name": "sleep-start",
+        "value": null,
+        "figmaNodeId": "29378:5136",
+        "label": "잘게요, 화면 끄기"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "doors-locked",
+        "figmaNodeId": "29378:4699",
+        "label": "문 잠금 및 창문"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "approach-detection",
+        "figmaNodeId": "29378:4727",
+        "label": "접근 감지"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "fire-detection",
+        "figmaNodeId": "29378:4749",
+        "label": "화재 감지"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29255:1598",
+    "figmaFrame": "599",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-sleep-mode",
+    "title": "수면 모드",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-sleep-mode.html",
+    "cssUrl": "css/screens/cid-sleep-mode.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29255:1632",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "alarm-edit",
+        "value": null,
+        "figmaNodeId": "29255:1762",
+        "label": "기상 시각 바꾸기"
+      },
+      {
+        "name": "sleep-stop",
+        "value": null,
+        "figmaNodeId": "29255:1769",
+        "label": "수면 모드 끝내기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29258:4396",
+    "figmaFrame": "600",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-weather-alert",
+    "title": "호우경보와 대피 안내",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-weather-alert.html",
+    "cssUrl": "css/screens/cid-weather-alert.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29258:4442",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "evacuation-route",
+        "value": null,
+        "figmaNodeId": "29258:5006",
+        "label": "대피 경로 안내하기"
+      },
+      {
+        "name": "alert-acknowledge",
+        "value": null,
+        "figmaNodeId": "29258:5013",
+        "label": "괜찮아요"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29260:5525",
+    "figmaFrame": "601",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-approach-alert",
+    "title": "차량 접근 경보",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-approach-alert.html",
+    "cssUrl": "css/screens/cid-approach-alert.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29260:5578",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "vehicle-alert",
+        "value": null,
+        "figmaNodeId": "29260:5742",
+        "label": "비상등과 경적으로 알리기"
+      },
+      {
+        "name": "alert-acknowledge",
+        "value": null,
+        "figmaNodeId": "29260:5752",
+        "label": "괜찮아요"
+      },
+      {
+        "name": "sos-open",
+        "value": null,
+        "figmaNodeId": "29260:5991",
+        "label": "SOS"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29262:7456",
+    "figmaFrame": "602",
+    "page": "ing",
+    "group": "CID",
+    "groupId": "2013:2161",
+    "kind": "cid",
+    "name": "cid-sunrise-alarm",
+    "title": "기상 알림",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-sunrise-alarm.html",
+    "cssUrl": "css/screens/cid-sunrise-alarm.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29262:7511",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "alarm-snooze",
+        "value": null,
+        "figmaNodeId": "29262:7675",
+        "label": "10분 더 잘게요"
+      },
+      {
+        "name": "alarm-stop",
+        "value": null,
+        "figmaNodeId": "29262:7685",
+        "label": "알람 끄기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29292:206",
+    "figmaFrame": "2",
+    "page": "ing",
+    "group": "CID_Intro",
+    "groupId": "29292:146",
+    "kind": "cid",
+    "name": "cid-onboarding-welcome",
+    "title": "차박하루 시작하기",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-onboarding-welcome.html",
+    "cssUrl": "css/screens/cid-onboarding-welcome.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29292:235",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "onboarding-start",
+        "value": null,
+        "figmaNodeId": "29292:3375",
+        "label": "차박하루 시작하기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29294:3484",
+    "figmaFrame": "594",
+    "page": "ing",
+    "group": "CID_Intro",
+    "groupId": "29292:146",
+    "kind": "cid",
+    "name": "cid-onboarding-vehicle",
+    "title": "차량 맞춤 설정",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-onboarding-vehicle.html",
+    "cssUrl": "css/screens/cid-onboarding-vehicle.css",
+    "actions": [
+      {
+        "name": "onboarding-next",
+        "value": null,
+        "figmaNodeId": "29294:3533",
+        "label": "다음"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29332:16923",
+    "figmaFrame": "595",
+    "page": "ing",
+    "group": "CID_Intro",
+    "groupId": "29292:146",
+    "kind": "cid",
+    "name": "cid-onboarding-consent",
+    "title": "약관 동의",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-onboarding-consent.html",
+    "cssUrl": "css/screens/cid-onboarding-consent.css",
+    "actions": [
+      {
+        "name": "onboarding-next",
+        "value": null,
+        "figmaNodeId": "29332:16983",
+        "label": "다음"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "service-terms",
+        "figmaNodeId": "29338:19373",
+        "label": "서비스 이용약관"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "privacy-collection",
+        "figmaNodeId": "29338:19466",
+        "label": "개인정보 수집 및 이용 동의"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "location-terms",
+        "figmaNodeId": "29338:19487",
+        "label": "위치정보 이용약관"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "vehicle-data",
+        "figmaNodeId": "29338:19527",
+        "label": "차량 정보 연동 및 배터리 정보 활용 동의"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "age-14",
+        "figmaNodeId": "29338:19507",
+        "label": "만 14세 이상 확인"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "marketing",
+        "figmaNodeId": "29338:19547",
+        "label": "알림 및 마케팅 정보 수신"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "recommendations",
+        "figmaNodeId": "29338:19607",
+        "label": "맞춤 차박지 추천을 위한 선호도 분석"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "safety-briefing",
+        "figmaNodeId": "29338:19627",
+        "label": "야간 안전 알림 및 아침 브리핑 강화"
+      },
+      {
+        "name": "consent-all",
+        "value": null,
+        "figmaNodeId": "29338:19380",
+        "label": "전체 동의"
+      },
+      {
+        "name": "consent-details",
+        "value": "service-terms",
+        "figmaNodeId": "29338:19305",
+        "label": "서비스 이용약관 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "privacy-collection",
+        "figmaNodeId": "29338:19477",
+        "label": "개인정보 수집 및 이용 동의 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "location-terms",
+        "figmaNodeId": "29338:19498",
+        "label": "위치정보 이용약관 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "vehicle-data",
+        "figmaNodeId": "29338:19538",
+        "label": "차량 정보 연동 및 배터리 정보 활용 동의 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "age-14",
+        "figmaNodeId": "29338:19518",
+        "label": "만 14세 이상 확인 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "marketing",
+        "figmaNodeId": "29338:19558",
+        "label": "알림 및 마케팅 정보 수신 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "recommendations",
+        "figmaNodeId": "29338:19618",
+        "label": "맞춤 차박지 추천을 위한 선호도 분석 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "safety-briefing",
+        "figmaNodeId": "29338:19638",
+        "label": "야간 안전 알림 및 아침 브리핑 강화 전문 보기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29338:20337",
+    "figmaFrame": "598",
+    "page": "ing",
+    "group": "CID_Intro",
+    "groupId": "29292:146",
+    "kind": "cid",
+    "name": "cid-onboarding-pair",
+    "title": "휴대폰 연결 · 차량 QR 표시",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-onboarding-pair.html",
+    "cssUrl": "css/screens/cid-onboarding-pair.css",
+    "actions": [
+      {
+        "name": "pair-skip",
+        "value": null,
+        "figmaNodeId": "29338:20736",
+        "label": "나중에 할게요"
+      },
+      {
+        "name": "pair-qr",
+        "value": null,
+        "figmaNodeId": "29338:20611",
+        "label": ""
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29342:1629",
+    "figmaFrame": "601",
+    "page": "ing",
+    "group": "CID_Intro",
+    "groupId": "29292:146",
+    "kind": "cid",
+    "name": "cid-onboarding-contacts",
+    "title": "비상연락처 설정",
+    "width": 1920,
+    "height": 1080,
+    "url": "screens/cid-onboarding-contacts.html",
+    "cssUrl": "css/screens/cid-onboarding-contacts.css",
+    "actions": [
+      {
+        "name": "contacts-edit",
+        "value": null,
+        "figmaNodeId": "29342:1695",
+        "label": "차에서 직접 입력"
+      },
+      {
+        "name": "contacts-done",
+        "value": null,
+        "figmaNodeId": "29342:1701",
+        "label": "완료"
+      },
+      {
+        "name": "contacts-test",
+        "value": "first",
+        "figmaNodeId": "29342:1785",
+        "label": "테스트 문자 발송하기"
+      },
+      {
+        "name": "contacts-test",
+        "value": "first",
+        "figmaNodeId": "29342:1818",
+        "label": "테스트 문자 발송하기"
+      },
+      {
+        "name": "contacts-reorder",
+        "value": null,
+        "figmaNodeId": "29342:1752",
+        "label": "연락처 순서 변경"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29316:10054",
+    "figmaFrame": "1",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-route-confirmation",
+    "title": "지도와 차박 경로 확인",
+    "width": 360,
+    "height": 800,
+    "url": "screens/mobile-route-confirmation.html",
+    "cssUrl": "css/screens/mobile-route-confirmation.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "place-call",
+        "value": null,
+        "figmaNodeId": "29316:10160",
+        "label": "전화하기"
+      },
+      {
+        "name": "place-briefing",
+        "value": null,
+        "figmaNodeId": "29316:10166",
+        "label": "후기보기"
+      },
+      {
+        "name": "route-start",
+        "value": null,
+        "figmaNodeId": "29316:10177",
+        "label": "길찾기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29316:10476",
+    "figmaFrame": "3",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-destination-briefing",
+    "title": "오늘 밤 차박지와 방문자 후기",
+    "width": 360,
+    "height": 1467,
+    "url": "screens/mobile-destination-briefing.html",
+    "cssUrl": "css/screens/mobile-destination-briefing.css",
+    "actions": [
+      {
+        "name": "place-comparison",
+        "value": null,
+        "figmaNodeId": "29316:10772",
+        "label": "근처 다른 곳 비교하기"
+      },
+      {
+        "name": "reviews-open",
+        "value": null,
+        "figmaNodeId": "29316:10773",
+        "label": "전체 후기 보기"
+      },
+      {
+        "name": "screen-close",
+        "value": null,
+        "figmaNodeId": "29325:14892",
+        "label": "닫기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29325:15060",
+    "figmaFrame": "4",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-destination-comparison",
+    "title": "근처 차박지 비교",
+    "width": 360,
+    "height": 1107,
+    "url": "screens/mobile-destination-comparison.html",
+    "cssUrl": "css/screens/mobile-destination-comparison.css",
+    "actions": [
+      {
+        "name": "filter-toggle",
+        "value": "거리순",
+        "figmaNodeId": "29325:15544",
+        "label": "거리순"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "20km 반경",
+        "figmaNodeId": "29325:15564",
+        "label": "20km 반경"
+      },
+      {
+        "name": "filter-toggle",
+        "value": "조용함",
+        "figmaNodeId": "29325:15567",
+        "label": "조용함"
+      },
+      {
+        "name": "filters-open",
+        "value": null,
+        "figmaNodeId": "29325:15553",
+        "label": "차박지 검색 조건"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "najeong",
+        "figmaNodeId": "29332:16222",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "bookmark-toggle",
+        "value": "najeong",
+        "figmaNodeId": "29332:16344",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "place-select",
+        "value": null,
+        "figmaNodeId": "29325:15207",
+        "label": "여기로 바꾸기"
+      },
+      {
+        "name": "map-open",
+        "value": null,
+        "figmaNodeId": "29325:15209",
+        "label": "지도 보기"
+      },
+      {
+        "name": "screen-close",
+        "value": null,
+        "figmaNodeId": "29325:15210",
+        "label": "닫기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29332:16460",
+    "figmaFrame": "5",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-charging-detour",
+    "title": "부족 전력과 충전 경유",
+    "width": 360,
+    "height": 1660,
+    "url": "screens/mobile-charging-detour.html",
+    "cssUrl": "css/screens/mobile-charging-detour.css",
+    "actions": [
+      {
+        "name": "detour-accept",
+        "value": null,
+        "figmaNodeId": "29336:17614",
+        "label": "경유하기"
+      },
+      {
+        "name": "detour-skip",
+        "value": null,
+        "figmaNodeId": "29336:17615",
+        "label": "그대로 가기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29336:17690",
+    "figmaFrame": "6",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-sunrise-parking",
+    "title": "일출 방향 주차와 기상 알람",
+    "width": 360,
+    "height": 1464,
+    "url": "screens/mobile-sunrise-parking.html",
+    "cssUrl": "css/screens/mobile-sunrise-parking.css",
+    "actions": [
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29336:18257",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29336:18260",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "sunrise-confirm",
+        "value": null,
+        "figmaNodeId": "29342:825",
+        "label": "이대로 세울게요"
+      },
+      {
+        "name": "sunrise-skip",
+        "value": null,
+        "figmaNodeId": "29342:828",
+        "label": "일출 안 볼래요"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29361:2812",
+    "figmaFrame": "8",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-utility-mode",
+    "title": "유틸리티 모드 안내",
+    "width": 360,
+    "height": 972,
+    "url": "screens/mobile-utility-mode.html",
+    "cssUrl": "css/screens/mobile-utility-mode.css",
+    "actions": [
+      {
+        "name": "utility-enable",
+        "value": null,
+        "figmaNodeId": "29369:3879",
+        "label": "유틸리티 모드 켜기"
+      },
+      {
+        "name": "utility-help",
+        "value": null,
+        "figmaNodeId": "29369:3880",
+        "label": "켜는 방법 보기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29369:4134",
+    "figmaFrame": "9",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-cabin-settings",
+    "title": "차량 환경 설정",
+    "width": 360,
+    "height": 1586,
+    "url": "screens/mobile-cabin-settings.html",
+    "cssUrl": "css/screens/mobile-cabin-settings.css",
+    "actions": [
+      {
+        "name": "toggle-setting",
+        "value": "doors-locked",
+        "figmaNodeId": "29386:266",
+        "label": "문 잠금 및 창문"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "approach-detection",
+        "figmaNodeId": "29386:277",
+        "label": "접근 감지"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "fire-detection",
+        "figmaNodeId": "29386:288",
+        "label": "화재 감지"
+      },
+      {
+        "name": "step",
+        "value": "heating:-1",
+        "figmaNodeId": "29386:352",
+        "label": "난방 감소"
+      },
+      {
+        "name": "step",
+        "value": "heating:1",
+        "figmaNodeId": "29386:354",
+        "label": "난방 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29386:416",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29386:419",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29390:3059",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29390:3062",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "settings-save",
+        "value": null,
+        "figmaNodeId": "29386:295",
+        "label": "설정 저장하기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29387:755",
+    "figmaFrame": "10",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-battery-warning",
+    "title": "설정 · 배터리 잔량 경고",
+    "width": 360,
+    "height": 800,
+    "url": "screens/mobile-battery-warning.html",
+    "cssUrl": "css/screens/mobile-battery-warning.css",
+    "actions": [
+      {
+        "name": "toggle-setting",
+        "value": "doors-locked",
+        "figmaNodeId": "29387:861",
+        "label": "문 잠금 및 창문"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "approach-detection",
+        "figmaNodeId": "29387:872",
+        "label": "접근 감지"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "fire-detection",
+        "figmaNodeId": "29387:883",
+        "label": "화재 감지"
+      },
+      {
+        "name": "step",
+        "value": "heating:-1",
+        "figmaNodeId": "29387:892",
+        "label": "난방 감소"
+      },
+      {
+        "name": "step",
+        "value": "heating:1",
+        "figmaNodeId": "29387:895",
+        "label": "난방 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29387:908",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29387:911",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29387:924",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29387:927",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "dismiss-warning",
+        "value": null,
+        "figmaNodeId": "29387:1375",
+        "label": "확인했어요"
+      },
+      {
+        "name": "settings-save",
+        "value": null,
+        "figmaNodeId": "29387:1009",
+        "label": "설정 저장하기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29389:1643",
+    "figmaFrame": "12",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-v2l-overheat",
+    "title": "설정 · V2L 과열 경고",
+    "width": 360,
+    "height": 800,
+    "url": "screens/mobile-v2l-overheat.html",
+    "cssUrl": "css/screens/mobile-v2l-overheat.css",
+    "actions": [
+      {
+        "name": "toggle-setting",
+        "value": "doors-locked",
+        "figmaNodeId": "29389:1749",
+        "label": "문 잠금 및 창문"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "approach-detection",
+        "figmaNodeId": "29389:1760",
+        "label": "접근 감지"
+      },
+      {
+        "name": "toggle-setting",
+        "value": "fire-detection",
+        "figmaNodeId": "29389:1771",
+        "label": "화재 감지"
+      },
+      {
+        "name": "step",
+        "value": "heating:-1",
+        "figmaNodeId": "29389:1780",
+        "label": "난방 감소"
+      },
+      {
+        "name": "step",
+        "value": "heating:1",
+        "figmaNodeId": "29389:1783",
+        "label": "난방 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29389:1796",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29389:1799",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:-1",
+        "figmaNodeId": "29389:1812",
+        "label": "기상 시각 감소"
+      },
+      {
+        "name": "step",
+        "value": "wake-time:1",
+        "figmaNodeId": "29389:1815",
+        "label": "기상 시각 증가"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "v2l-details",
+        "value": null,
+        "figmaNodeId": "29389:2084",
+        "label": "상세보기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29389:2091",
+    "figmaFrame": "13",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-sleep-mode",
+    "title": "수면 모드",
+    "width": 360,
+    "height": 999,
+    "url": "screens/mobile-sleep-mode.html",
+    "cssUrl": "css/screens/mobile-sleep-mode.css",
+    "actions": [
+      {
+        "name": "toggle-setting",
+        "value": "wake-enabled",
+        "figmaNodeId": "29390:3039",
+        "label": "기상 알람"
+      },
+      {
+        "name": "alarm-edit",
+        "value": null,
+        "figmaNodeId": "29389:2146",
+        "label": "기상 시각 바꾸기"
+      },
+      {
+        "name": "sleep-stop",
+        "value": null,
+        "figmaNodeId": "29389:2147",
+        "label": "수면 모드 끝내기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29390:3069",
+    "figmaFrame": "15",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-weather-alert",
+    "title": "호우경보와 대피 안내",
+    "width": 360,
+    "height": 1249,
+    "url": "screens/mobile-weather-alert.html",
+    "cssUrl": "css/screens/mobile-weather-alert.css",
+    "actions": [
+      {
+        "name": "toggle-setting",
+        "value": "weather-contact-notifications",
+        "figmaNodeId": "29391:4249",
+        "label": "비상연락처 문자 알림"
+      },
+      {
+        "name": "evacuation-route",
+        "value": null,
+        "figmaNodeId": "29390:3150",
+        "label": "대피 경로 안내하기"
+      },
+      {
+        "name": "alert-acknowledge",
+        "value": null,
+        "figmaNodeId": "29390:3151",
+        "label": "괜찮아요"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29392:4331",
+    "figmaFrame": "16",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-approach-alert",
+    "title": "차량 접근 경보",
+    "width": 360,
+    "height": 1233,
+    "url": "screens/mobile-approach-alert.html",
+    "cssUrl": "css/screens/mobile-approach-alert.css",
+    "actions": [
+      {
+        "name": "sos-open",
+        "value": null,
+        "figmaNodeId": "29396:4974",
+        "label": "SOS"
+      },
+      {
+        "name": "vehicle-alert",
+        "value": null,
+        "figmaNodeId": "29392:4447",
+        "label": "비상등과 경적으로 알리기"
+      },
+      {
+        "name": "alert-acknowledge",
+        "value": null,
+        "figmaNodeId": "29392:4448",
+        "label": "괜찮아요"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29396:4977",
+    "figmaFrame": "17",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29316:10718",
+    "kind": "mobile",
+    "name": "mobile-sunrise-alarm",
+    "title": "기상 알림",
+    "width": 360,
+    "height": 1102,
+    "url": "screens/mobile-sunrise-alarm.html",
+    "cssUrl": "css/screens/mobile-sunrise-alarm.css",
+    "actions": [
+      {
+        "name": "alarm-snooze",
+        "value": null,
+        "figmaNodeId": "29396:5058",
+        "label": "10분 더 잘게요"
+      },
+      {
+        "name": "alarm-stop",
+        "value": null,
+        "figmaNodeId": "29396:5059",
+        "label": "알람 끄기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29396:6320",
+    "figmaFrame": "4",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29396:5877",
+    "kind": "mobile",
+    "name": "mobile-onboarding-welcome",
+    "title": "차박하루 시작하기",
+    "width": 360,
+    "height": 840,
+    "url": "screens/mobile-onboarding-welcome.html",
+    "cssUrl": "css/screens/mobile-onboarding-welcome.css",
+    "actions": [
+      {
+        "name": "bookmark-toggle",
+        "value": null,
+        "figmaNodeId": "29396:6435",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "onboarding-start",
+        "value": null,
+        "figmaNodeId": "29396:6671",
+        "label": "차박하루 시작하기"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29398:9826",
+    "figmaFrame": "15",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29396:5877",
+    "kind": "mobile",
+    "name": "mobile-onboarding-vehicle",
+    "title": "차량 맞춤 설정",
+    "width": 360,
+    "height": 818,
+    "url": "screens/mobile-onboarding-vehicle.html",
+    "cssUrl": "css/screens/mobile-onboarding-vehicle.css",
+    "actions": [
+      {
+        "name": "bookmark-toggle",
+        "value": null,
+        "figmaNodeId": "29398:9954",
+        "label": "차박지 저장"
+      },
+      {
+        "name": "onboarding-next",
+        "value": null,
+        "figmaNodeId": "29398:10205",
+        "label": "다음"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29398:10304",
+    "figmaFrame": "16",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29396:5877",
+    "kind": "mobile",
+    "name": "mobile-onboarding-consent",
+    "title": "약관 동의",
+    "width": 360,
+    "height": 1043,
+    "url": "screens/mobile-onboarding-consent.html",
+    "cssUrl": "css/screens/mobile-onboarding-consent.css",
+    "actions": [
+      {
+        "name": "onboarding-next",
+        "value": null,
+        "figmaNodeId": "29398:10684",
+        "label": "다음"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "service-terms",
+        "figmaNodeId": "29398:11346",
+        "label": "서비스 이용약관"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "privacy-collection",
+        "figmaNodeId": "29398:11436",
+        "label": "개인정보 수집 및 이용 동의"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "location-terms",
+        "figmaNodeId": "29398:11461",
+        "label": "위치정보 이용약관"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "vehicle-data",
+        "figmaNodeId": "29398:11486",
+        "label": "차량 정보 연동 및 배터리 정보 활용 동의"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "age-14",
+        "figmaNodeId": "29398:11511",
+        "label": "만 14세 이상 확인"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "marketing",
+        "figmaNodeId": "29398:11536",
+        "label": "알림 및 마케팅 정보 수신"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "recommendations",
+        "figmaNodeId": "29398:11789",
+        "label": "맞춤 차박지 추천을 위한 선호도 분석"
+      },
+      {
+        "name": "consent-toggle",
+        "value": "safety-briefing",
+        "figmaNodeId": "29398:11860",
+        "label": "야간 안전 알림 및 아침 브리핑 강화"
+      },
+      {
+        "name": "consent-all",
+        "value": null,
+        "figmaNodeId": "29398:11408",
+        "label": "전체 동의"
+      },
+      {
+        "name": "consent-details",
+        "value": "service-terms",
+        "figmaNodeId": "29398:11421",
+        "label": "서비스 이용약관 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "privacy-collection",
+        "figmaNodeId": "29398:11445",
+        "label": "개인정보 수집 및 이용 동의 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "location-terms",
+        "figmaNodeId": "29398:11470",
+        "label": "위치정보 이용약관 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "vehicle-data",
+        "figmaNodeId": "29398:11495",
+        "label": "차량 정보 연동 및 배터리 정보 활용 동의 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "age-14",
+        "figmaNodeId": "29398:11520",
+        "label": "만 14세 이상 확인 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "marketing",
+        "figmaNodeId": "29398:11545",
+        "label": "알림 및 마케팅 정보 수신 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "recommendations",
+        "figmaNodeId": "29398:11798",
+        "label": "맞춤 차박지 추천을 위한 선호도 분석 전문 보기"
+      },
+      {
+        "name": "consent-details",
+        "value": "safety-briefing",
+        "figmaNodeId": "29398:11869",
+        "label": "야간 안전 알림 및 아침 브리핑 강화 전문 보기"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29400:1966",
+    "figmaFrame": "19",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29396:5877",
+    "kind": "mobile",
+    "name": "mobile-onboarding-scan",
+    "title": "휴대폰 연결 · QR 스캔",
+    "width": 360,
+    "height": 800,
+    "url": "screens/mobile-onboarding-scan.html",
+    "cssUrl": "css/screens/mobile-onboarding-scan.css",
+    "actions": [
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      },
+      {
+        "name": "scan-start",
+        "value": null,
+        "figmaNodeId": "29400:2024",
+        "label": "QR 카메라 시작"
+      },
+      {
+        "name": "onboarding-next",
+        "value": null,
+        "figmaNodeId": "29400:2055",
+        "label": "다음"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29402:2323",
+    "figmaFrame": "20",
+    "page": "ing",
+    "group": "MO",
+    "groupId": "29396:5877",
+    "kind": "mobile",
+    "name": "mobile-onboarding-contacts",
+    "title": "비상연락처 설정",
+    "width": 360,
+    "height": 800,
+    "url": "screens/mobile-onboarding-contacts.html",
+    "cssUrl": "css/screens/mobile-onboarding-contacts.css",
+    "actions": [
+      {
+        "name": "contacts-test",
+        "value": "first",
+        "figmaNodeId": "29402:2472",
+        "label": "테스트 문자 발송"
+      },
+      {
+        "name": "contacts-test",
+        "value": "second",
+        "figmaNodeId": "29402:3071",
+        "label": "테스트 문자 발송"
+      },
+      {
+        "name": "contacts-reorder",
+        "value": null,
+        "figmaNodeId": "29402:2914",
+        "label": "연락처 순서 변경"
+      },
+      {
+        "name": "contacts-edit",
+        "value": null,
+        "figmaNodeId": "29403:3116",
+        "label": "연락처 변경"
+      },
+      {
+        "name": "contacts-done",
+        "value": null,
+        "figmaNodeId": "29402:2703",
+        "label": "완료"
+      },
+      {
+        "name": "voice-toggle",
+        "value": null,
+        "figmaNodeId": "29274:201",
+        "label": "음성 브리핑"
+      }
+    ],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29396:9527",
+    "figmaFrame": "나정 모래 해변",
+    "page": "ing",
+    "group": "rolling",
+    "groupId": "29396:9475",
+    "kind": "card",
+    "name": "rolling-trip-briefing",
+    "title": "이동 브리핑 카드",
+    "width": 288,
+    "height": 180,
+    "url": "screens/rolling-trip-briefing.html",
+    "cssUrl": "css/screens/rolling-trip-briefing.css",
+    "actions": [],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29396:9776",
+    "figmaFrame": "나정 모래 해변",
+    "page": "ing",
+    "group": "rolling",
+    "groupId": "29396:9475",
+    "kind": "card",
+    "name": "rolling-night-protection",
+    "title": "야간 보호 카드",
+    "width": 288,
+    "height": 180,
+    "url": "screens/rolling-night-protection.html",
+    "cssUrl": "css/screens/rolling-night-protection.css",
+    "actions": [],
+    "prototypeActionCount": 0
+  },
+  {
+    "id": "29396:9767",
+    "figmaFrame": "나정 모래 해변",
+    "page": "ing",
+    "group": "rolling",
+    "groupId": "29396:9475",
+    "kind": "card",
+    "name": "rolling-sunrise-wakeup",
+    "title": "일출 기상 카드",
+    "width": 288,
+    "height": 180,
+    "url": "screens/rolling-sunrise-wakeup.html",
+    "cssUrl": "css/screens/rolling-sunrise-wakeup.css",
+    "actions": [],
+    "prototypeActionCount": 0
+  }
+]

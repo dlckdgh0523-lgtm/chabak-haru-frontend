@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="audio-lines">
+<path id="Vector" d="M2 12.5556V16.2222M7.2 7.66667V21.1111M12.4 4V26M17.6 10.1111V18.6667M22.8 6.44444V22.3333M28 12.5556V16.2222" stroke-width="2" stroke-linecap="round" stroke="url(#paint0_linear_0_4)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="15" y1="4" x2="15" y2="26" gradientUnits="userSpaceOnUse">
+<stop stop-color="#387BFF"/>
+<stop offset="1" stop-color="#1A57CF"/>
+</linearGradient>
+</defs>
+</svg>

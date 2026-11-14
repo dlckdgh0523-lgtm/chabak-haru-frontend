@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#237;&#153;&#149;&#236;&#157;&#184;">
+<g id="car-front" clip-path="url(#clip0_0_102)">
+<mask id="stroke0_0_102" fill="white">
+<path d="M37.6877 5.7538C40.7463 4.72422 43.7316 7.70959 42.702 10.7682L32.6205 40.7172C31.516 43.9983 26.9496 44.1794 25.4281 41.0024L20.4337 28.4032L7.4534 23.0277C4.27644 21.5062 4.45756 16.9399 7.73868 15.8354L37.6877 5.7538Z"/>
+</mask>
+<path id="Polygon 1" d="M20.4337 28.4032L25.4281 41.0024C26.9496 44.1794 31.516 43.9983 32.6205 40.7172L42.702 10.7682C43.7316 7.70959 40.7463 4.72422 37.6877 5.7538L7.73868 15.8354C4.45756 16.9399 4.27644 21.5062 7.4534 23.0277L20.4337 28.4032Z" stroke-width="10" stroke="white" mask="url(#stroke0_0_102)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_102">
+<rect width="44" height="44" fill="white" transform="translate(2 2)"/>
+</clipPath>
+</defs>
+</svg>

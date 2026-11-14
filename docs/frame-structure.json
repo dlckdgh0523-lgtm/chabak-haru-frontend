@@ -1,0 +1,306 @@
+[
+  {
+    "screen": "cid-route-confirmation",
+    "figmaNode": "2001:100",
+    "figmaMetadataVisibleLayers": 57,
+    "domNodeIds": 57,
+    "metadataIdsMatchingDom": 57,
+    "actions": 3
+  },
+  {
+    "screen": "cid-destination-briefing",
+    "figmaNode": "2005:1086",
+    "figmaMetadataVisibleLayers": 118,
+    "domNodeIds": 117,
+    "metadataIdsMatchingDom": 116,
+    "actions": 5
+  },
+  {
+    "screen": "cid-destination-comparison",
+    "figmaNode": "2018:589",
+    "figmaMetadataVisibleLayers": 260,
+    "domNodeIds": 258,
+    "metadataIdsMatchingDom": 252,
+    "actions": 17
+  },
+  {
+    "screen": "cid-charging-detour",
+    "figmaNode": "2018:1857",
+    "figmaMetadataVisibleLayers": 152,
+    "domNodeIds": 154,
+    "metadataIdsMatchingDom": 152,
+    "actions": 3
+  },
+  {
+    "screen": "cid-sunrise-parking",
+    "figmaNode": "2025:2988",
+    "figmaMetadataVisibleLayers": 75,
+    "domNodeIds": 79,
+    "metadataIdsMatchingDom": 73,
+    "actions": 5
+  },
+  {
+    "screen": "cid-utility-mode",
+    "figmaNode": "2025:3849",
+    "figmaMetadataVisibleLayers": 63,
+    "domNodeIds": 66,
+    "metadataIdsMatchingDom": 61,
+    "actions": 3
+  },
+  {
+    "screen": "cid-cabin-overheat",
+    "figmaNode": "2029:5171",
+    "figmaMetadataVisibleLayers": 215,
+    "domNodeIds": 210,
+    "metadataIdsMatchingDom": 205,
+    "actions": 16
+  },
+  {
+    "screen": "cid-cabin-ready",
+    "figmaNode": "29378:4585",
+    "figmaMetadataVisibleLayers": 214,
+    "domNodeIds": 210,
+    "metadataIdsMatchingDom": 204,
+    "actions": 16
+  },
+  {
+    "screen": "cid-sleep-mode",
+    "figmaNode": "29255:1598",
+    "figmaMetadataVisibleLayers": 87,
+    "domNodeIds": 84,
+    "metadataIdsMatchingDom": 83,
+    "actions": 3
+  },
+  {
+    "screen": "cid-weather-alert",
+    "figmaNode": "29258:4396",
+    "figmaMetadataVisibleLayers": 79,
+    "domNodeIds": 77,
+    "metadataIdsMatchingDom": 76,
+    "actions": 3
+  },
+  {
+    "screen": "cid-approach-alert",
+    "figmaNode": "29260:5525",
+    "figmaMetadataVisibleLayers": 79,
+    "domNodeIds": 79,
+    "metadataIdsMatchingDom": 78,
+    "actions": 4
+  },
+  {
+    "screen": "cid-sunrise-alarm",
+    "figmaNode": "29262:7456",
+    "figmaMetadataVisibleLayers": 90,
+    "domNodeIds": 88,
+    "metadataIdsMatchingDom": 87,
+    "actions": 3
+  },
+  {
+    "screen": "cid-onboarding-welcome",
+    "figmaNode": "29292:206",
+    "figmaMetadataVisibleLayers": 67,
+    "domNodeIds": 72,
+    "metadataIdsMatchingDom": 67,
+    "actions": 2
+  },
+  {
+    "screen": "cid-onboarding-vehicle",
+    "figmaNode": "29294:3484",
+    "figmaMetadataVisibleLayers": 65,
+    "domNodeIds": 69,
+    "metadataIdsMatchingDom": 64,
+    "actions": 1
+  },
+  {
+    "screen": "cid-onboarding-consent",
+    "figmaNode": "29332:16923",
+    "figmaMetadataVisibleLayers": 161,
+    "domNodeIds": 155,
+    "metadataIdsMatchingDom": 151,
+    "actions": 18
+  },
+  {
+    "screen": "cid-onboarding-pair",
+    "figmaNode": "29338:20337",
+    "figmaMetadataVisibleLayers": 98,
+    "domNodeIds": 101,
+    "metadataIdsMatchingDom": 97,
+    "actions": 2
+  },
+  {
+    "screen": "cid-onboarding-contacts",
+    "figmaNode": "29342:1629",
+    "figmaMetadataVisibleLayers": 66,
+    "domNodeIds": 70,
+    "metadataIdsMatchingDom": 66,
+    "actions": 5
+  },
+  {
+    "screen": "mobile-route-confirmation",
+    "figmaNode": "29316:10054",
+    "figmaMetadataVisibleLayers": 79,
+    "domNodeIds": 76,
+    "metadataIdsMatchingDom": 72,
+    "actions": 4
+  },
+  {
+    "screen": "mobile-destination-briefing",
+    "figmaNode": "29316:10476",
+    "figmaMetadataVisibleLayers": 96,
+    "domNodeIds": 99,
+    "metadataIdsMatchingDom": 93,
+    "actions": 4
+  },
+  {
+    "screen": "mobile-destination-comparison",
+    "figmaNode": "29325:15060",
+    "figmaMetadataVisibleLayers": 157,
+    "domNodeIds": 157,
+    "metadataIdsMatchingDom": 150,
+    "actions": 10
+  },
+  {
+    "screen": "mobile-charging-detour",
+    "figmaNode": "29332:16460",
+    "figmaMetadataVisibleLayers": 126,
+    "domNodeIds": 120,
+    "metadataIdsMatchingDom": 116,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-sunrise-parking",
+    "figmaNode": "29336:17690",
+    "figmaMetadataVisibleLayers": 75,
+    "domNodeIds": 78,
+    "metadataIdsMatchingDom": 74,
+    "actions": 5
+  },
+  {
+    "screen": "mobile-utility-mode",
+    "figmaNode": "29361:2812",
+    "figmaMetadataVisibleLayers": 55,
+    "domNodeIds": 57,
+    "metadataIdsMatchingDom": 54,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-cabin-settings",
+    "figmaNode": "29369:4134",
+    "figmaMetadataVisibleLayers": 147,
+    "domNodeIds": 144,
+    "metadataIdsMatchingDom": 142,
+    "actions": 11
+  },
+  {
+    "screen": "mobile-battery-warning",
+    "figmaNode": "29387:755",
+    "figmaMetadataVisibleLayers": 158,
+    "domNodeIds": 155,
+    "metadataIdsMatchingDom": 153,
+    "actions": 12
+  },
+  {
+    "screen": "mobile-v2l-overheat",
+    "figmaNode": "29389:1643",
+    "figmaMetadataVisibleLayers": 181,
+    "domNodeIds": 177,
+    "metadataIdsMatchingDom": 176,
+    "actions": 11
+  },
+  {
+    "screen": "mobile-sleep-mode",
+    "figmaNode": "29389:2091",
+    "figmaMetadataVisibleLayers": 75,
+    "domNodeIds": 77,
+    "metadataIdsMatchingDom": 74,
+    "actions": 4
+  },
+  {
+    "screen": "mobile-weather-alert",
+    "figmaNode": "29390:3069",
+    "figmaMetadataVisibleLayers": 99,
+    "domNodeIds": 100,
+    "metadataIdsMatchingDom": 97,
+    "actions": 4
+  },
+  {
+    "screen": "mobile-approach-alert",
+    "figmaNode": "29392:4331",
+    "figmaMetadataVisibleLayers": 112,
+    "domNodeIds": 112,
+    "metadataIdsMatchingDom": 109,
+    "actions": 4
+  },
+  {
+    "screen": "mobile-sunrise-alarm",
+    "figmaNode": "29396:4977",
+    "figmaMetadataVisibleLayers": 95,
+    "domNodeIds": 96,
+    "metadataIdsMatchingDom": 93,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-onboarding-welcome",
+    "figmaNode": "29396:6320",
+    "figmaMetadataVisibleLayers": 98,
+    "domNodeIds": 97,
+    "metadataIdsMatchingDom": 93,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-onboarding-vehicle",
+    "figmaNode": "29398:9826",
+    "figmaMetadataVisibleLayers": 103,
+    "domNodeIds": 102,
+    "metadataIdsMatchingDom": 98,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-onboarding-consent",
+    "figmaNode": "29398:10304",
+    "figmaMetadataVisibleLayers": 141,
+    "domNodeIds": 136,
+    "metadataIdsMatchingDom": 132,
+    "actions": 19
+  },
+  {
+    "screen": "mobile-onboarding-scan",
+    "figmaNode": "29400:1966",
+    "figmaMetadataVisibleLayers": 48,
+    "domNodeIds": 49,
+    "metadataIdsMatchingDom": 47,
+    "actions": 3
+  },
+  {
+    "screen": "mobile-onboarding-contacts",
+    "figmaNode": "29402:2323",
+    "figmaMetadataVisibleLayers": 73,
+    "domNodeIds": 77,
+    "metadataIdsMatchingDom": 72,
+    "actions": 6
+  },
+  {
+    "screen": "rolling-trip-briefing",
+    "figmaNode": "29396:9527",
+    "figmaMetadataVisibleLayers": 7,
+    "domNodeIds": 7,
+    "metadataIdsMatchingDom": 7,
+    "actions": 0
+  },
+  {
+    "screen": "rolling-night-protection",
+    "figmaNode": "29396:9776",
+    "figmaMetadataVisibleLayers": 7,
+    "domNodeIds": 7,
+    "metadataIdsMatchingDom": 7,
+    "actions": 0
+  },
+  {
+    "screen": "rolling-sunrise-wakeup",
+    "figmaNode": "29396:9767",
+    "figmaMetadataVisibleLayers": 5,
+    "domNodeIds": 5,
+    "metadataIdsMatchingDom": 5,
+    "actions": 0
+  }
+]

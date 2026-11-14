@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="44" height="32" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="SwapGrid &#236;&#139;&#172;&#235;&#178;&#140;" d="M0 23.4965L9.46237 3.35664C11.9857 -1.11888 14.509 -1.11888 17.0323 3.35664L22.7097 14.5455L28.3871 3.35664C30.9104 -1.11888 33.4337 -1.11888 35.957 3.35664L43.5269 23.4965C44.7885 27.972 43.5269 30.2098 39.7419 30.2098C38.4803 30.2098 37.2186 28.7179 35.957 25.7343L32.172 16.7832L26.4946 27.972C23.9713 32.4476 21.448 32.4476 18.9247 27.972L13.2473 16.7832L7.56989 27.972C5.0466 32.4476 2.5233 33.1935 0 30.2098V23.4965Z" fill="url(#paint0_linear_0_6)"/>
+<defs>
+<linearGradient id="paint0_linear_0_6" x1="0" y1="2.98023e-08" x2="44" y2="2.98023e-08" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4E8DFF"/>
+<stop offset="1" stop-color="#314BFF"/>
+</linearGradient>
+</defs>
+</svg>

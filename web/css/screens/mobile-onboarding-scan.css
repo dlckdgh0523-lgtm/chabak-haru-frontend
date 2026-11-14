@@ -1,0 +1,53 @@
+/* 휴대폰 연결 · QR 스캔 · Figma 29400:1966 · 360 × 800 */
+.ch-layer-2585d21063 { background-color: #171d39; align-content: stretch; display: flex; flex-direction: column; gap: var(--space-0,0px); align-items: center; padding: var(--space-0,0px); position: relative; width: 360px; height: 800px; overflow: clip; }
+.ch-main-mobile-container-max-480px-for-desktop--52ba1ff482 { height: 800px; max-width: 443.0769348144531px; min-height: 800px; overflow: clip; position: relative; flex-shrink: 0; width: 100%; display: block; }
+.ch-floating-search-bar-813150e502 { position: absolute; background-color: #171d39; align-content: stretch; display: flex; align-items: flex-start; justify-content: center; left: 50%; padding: var(--space-0,0px); top: 0; translate: -50% 0; }
+.ch-layer-d393b98c12 { align-content: stretch; display: flex; flex-direction: column; gap: var(--space-0,0px); align-items: center; padding: var(--space-0,0px); position: relative; align-self: stretch; flex-shrink: 0; width: 360px; }
+.ch-swapgrid-system-status-bar-e4c43f9faa { background-color: #171d39; height: 44px; position: relative; flex-shrink: 0; width: 360px; display: block; }
+.ch-layer-58a323234f { position: absolute; align-content: stretch; display: flex; height: 44.308px; align-items: center; left: 0; padding-left: 29.538px; padding-right: 25.846px; top: 0; width: 360px; }
+.ch-clock-db70733bc8 { align-content: stretch; display: flex; flex: 1 0 0; gap: 1.846px; align-items: center; min-width: 1px; position: relative; }
+.ch-layer-2d1e2b3267 { word-break: break-word; display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-weight: 600; justify-content: center; line-height: 0; font-style: normal; position: relative; flex-shrink: 0; font-size: 15.692px; text-align: center; color: white; white-space: nowrap; font-feature-settings: "ss03" 1; }
+.ch-layer-b522d980f0 { line-height: 15.692px; display: block; }
+.ch-indicators-group-d33877c109 { align-content: stretch; display: flex; flex: 1 0 0; gap: 6px; align-items: center; justify-content: flex-end; min-width: 1px; position: relative; }
+.ch-signal-bc747e54c8 { height: 11.077px; position: relative; flex-shrink: 0; width: 18.434px; display: block; }
+.ch-layer-cda041d306 { position: absolute; display: block; inset: 0; max-width: none; width: 100%; height: 100%; }
+.ch-connection-cdb3f6fbb4 { height: 11.538px; position: relative; flex-shrink: 0; width: 15.692px; display: block; }
+.ch-battery-6c8e1b43d0 { height: 12px; position: relative; flex-shrink: 0; width: 25.228px; display: block; }
+.ch-input-9b70218c84 { border-color: rgba(0,0,0,0.2); border-style: solid; border-top-width: 1px; align-content: stretch; display: flex; flex-direction: column; align-items: flex-start; overflow: clip; position: relative; flex-shrink: 0; width: 100%; }
+.ch-브랜드-헤더-c0f3484f57 { align-content: stretch; display: flex; gap: var(--spacing-16,16px); height: 56px; align-items: center; overflow: clip; padding-left: 20px; padding-right: 20px; padding-top: var(--spacing-0,0px); padding-bottom: var(--spacing-0,0px); position: relative; flex-shrink: 0; width: 360px; }
+.ch-layer-fc035c5bdc { align-content: stretch; display: flex; flex: 1 0 0; gap: 8px; align-items: center; min-width: 1px; position: relative; }
+.ch-mobile-icon-brand-15e3cca393 { position: relative; flex-shrink: 0; width: 36px; height: 36px; display: block; }
+.ch-아이콘-패스-그룹-37fbb72a97 { position: absolute; height: 28px; left: 50%; top: calc(50% - 0.31px); width: 32px; translate: -50% -50%; display: block; }
+.ch-layer-7a304e9002 { position: absolute; inset: 0 -3.13% 0 0; display: block; }
+.ch-layer-e8afd95f2f { display: block; max-width: none; width: 100%; height: 100%; }
+.ch-layer-222331fca9 { align-content: stretch; display: flex; flex: 1 0 0; gap: 6px; align-items: center; min-width: 1px; position: relative; }
+.ch-layer-99fb184dd7 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 28px; font-style: normal; position: relative; flex-shrink: 0; font-size: 20px; color: white; white-space: nowrap; display: block; }
+.ch-mobile-icon-audio-b07faa0add { position: relative; flex-shrink: 0; width: 24px; height: 24px; display: block; }
+.ch-progress-bar-section-3041bd77d7 { position: absolute; align-content: stretch; display: flex; flex-direction: column; gap: var(--space-8,8px); align-items: flex-start; left: 0; padding-bottom: var(--space-8,8px); padding-top: 12px; padding-left: var(--space-20,20px); padding-right: var(--space-20,20px); top: 100px; width: 360px; }
+.ch-layer-8534359bce { align-content: stretch; display: flex; gap: var(--space-48,48px); align-items: center; justify-content: space-between; padding: var(--space-0,0px); position: relative; flex-shrink: 0; width: 100%; }
+.ch-layer-0a924ef80e { align-content: stretch; display: flex; flex-direction: column; gap: var(--space-0,0px); align-items: flex-start; padding: var(--space-0,0px); position: relative; flex-shrink: 0; }
+.ch-layer-5f266beab1 { word-break: break-word; display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-weight: 500; justify-content: center; line-height: 0; font-style: normal; position: relative; flex-shrink: 0; font-size: 13px; color: white; letter-spacing: -0.26px; white-space: nowrap; }
+.ch-layer-4dddab34e2 { line-height: 1.5; display: block; }
+.ch-layer-9260f7b229 { word-break: break-word; align-content: stretch; display: flex; gap: var(--space-2,2px); align-items: center; line-height: 0; font-style: normal; padding: var(--space-0,0px); position: relative; flex-shrink: 0; font-size: 12px; }
+.ch-layer-c377f63eb6 { display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-weight: 700; justify-content: center; position: relative; flex-shrink: 0; color: white; width: 8px; }
+.ch-layer-8e70e8eba3 { display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-weight: 500; justify-content: center; position: relative; flex-shrink: 0; color: rgba(255,255,255,0.6); white-space: nowrap; }
+.ch-background-f106b58b9d { background-color: #232944; height: 6px; overflow: clip; position: relative; border-radius: var(--sg-radius-all-20,20px); flex-shrink: 0; width: 320px; display: block; }
+.ch-background-5083a093e8 { position: absolute; bottom: 0; left: 0; right: 25%; border-radius: var(--radius-800,800px); top: 0; background-image: linear-gradient(to bottom, #387bff, #1a57cf); display: block; }
+.ch-layer-51cd36cb9b { position: absolute; align-content: stretch; display: flex; flex-direction: column; gap: var(--space-10,10px); height: 280px; align-items: center; left: 0; padding-left: var(--space-20,20px); padding-right: var(--space-20,20px); padding-top: var(--space-0,0px); padding-bottom: var(--space-0,0px); top: calc(50% - 6px); width: 360px; translate: 0 -50%; }
+.ch-layer-fd83c2c779 { align-content: stretch; display: flex; flex: 1 0 0; flex-direction: column; gap: var(--space-10,10px); align-items: center; min-height: 1px; padding-left: var(--space-16,16px); padding-right: var(--space-16,16px); padding-top: var(--space-0,0px); padding-bottom: var(--space-0,0px); position: relative; width: 100%; }
+.ch-layer-036b14603f { align-content: stretch; display: flex; flex: 1 0 0; gap: var(--space-8,8px); align-items: flex-start; justify-content: center; min-height: 1px; padding: var(--space-0,0px); position: relative; }
+.ch-layer-f306db498e { align-content: stretch; display: flex; gap: var(--space-10,10px); align-items: center; padding: var(--space-0,0px); position: relative; flex-shrink: 0; }
+.ch-corners-902d7a19c0 { border-color: var(--color-border-preserved-096,#0059b9); border-left-width: 4px; border-style: solid; border-top-width: 4px; position: relative; border-top-left-radius: var(--radius-16,16px); flex-shrink: 0; width: 40px; height: 40px; display: block; }
+.ch-scanning-line-3fb2e0803c { height: 2px; position: relative; flex-shrink: 0; width: 200px; background-image: linear-gradient(to right, rgba(0,89,185,0), #0059b9 50%, rgba(0,89,185,0)); display: block; }
+.ch-border-6158c38957 { border-color: var(--color-border-preserved-096,#0059b9); border-right-width: 4px; border-style: solid; border-top-width: 4px; position: relative; border-top-right-radius: var(--radius-16,16px); flex-shrink: 0; width: 40px; height: 40px; display: block; }
+.ch-layer-a1ba448c90 { align-content: stretch; display: flex; flex: 1 0 0; gap: var(--space-8,8px); align-items: flex-end; justify-content: center; min-height: 1px; padding: var(--space-0,0px); position: relative; }
+.ch-layer-c058dce44f { display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+.ch-layer-96646ff303 { flex: none; scale: 1 -1; display: block; }
+.ch-layer-4fb2d39cce { align-content: stretch; display: flex; gap: var(--space-10,10px); align-items: center; padding: var(--space-0,0px); position: relative; }
+.ch-scanning-line-607eb5e17c { height: 2px; position: relative; width: 200px; background-image: linear-gradient(to right, rgba(0,89,185,0), #0059b9 50%, rgba(0,89,185,0)); display: block; }
+.ch-layer-754f91d69f { position: absolute; align-content: stretch; filter: drop-shadow(0px 1px 10px rgba(29,32,35,0.4)); display: flex; flex-direction: column; gap: var(--space-16,16px); align-items: center; left: calc(50% + 0.5px); padding: var(--space-0,0px); top: 50%; translate: -50% -50%; }
+.ch-layer-feaccd9653 { word-break: break-word; font-family: Pretendard, sans-serif; font-weight: 600; line-height: 0; font-style: normal; position: relative; flex-shrink: 0; font-size: 16px; text-align: center; color: white; white-space: nowrap; display: block; }
+.ch-layer-68859c2c09 { line-height: 1.5; margin-bottom: 0; display: block; }
+.ch-비교-및-전체-후기-b7e223e054 { position: absolute; align-content: stretch; display: flex; flex-direction: column; gap: var(--spacing-12,12px); align-items: flex-start; left: 20px; overflow: clip; padding-bottom: var(--spacing-0,0px); padding-top: 8px; padding-left: var(--spacing-0,0px); padding-right: var(--spacing-0,0px); top: 672px; width: 320px; }
+.ch-버튼-근처-다른-곳-비교하기-a217e74d84 { align-content: stretch; display: flex; gap: var(--spacing-0,0px); height: 56px; align-items: center; justify-content: center; padding: var(--spacing-16,16px); position: relative; border-radius: 12px; flex-shrink: 0; width: 320px; background-image: linear-gradient(to bottom, #387bff, #1a57cf); }
+.ch-layer-1aca235e28 { word-break: break-word; flex: 1 0 0; font-family: Pretendard, sans-serif; font-weight: 700; line-height: 24px; min-width: 1px; font-style: normal; position: relative; font-size: 16px; color: var(--surface-white,white); text-align: center; display: block; }

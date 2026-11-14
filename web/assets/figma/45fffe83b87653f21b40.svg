@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="lightbulb">
+<path id="Vector" d="M38 28C38.4667 26 39.6333 24.6 41.5 23C43.8333 21.2 45 17.6 45 15C45 13.2653 44.5618 11.5693 43.7379 9.93979C42.2802 7.05662 39.7872 5.08927 36.8454 3.75388C33.2736 2.13257 28.7264 2.13257 25.1546 3.75388C22.2128 5.08927 19.7198 7.05662 18.2621 9.93979C17.4382 11.5693 17 13.2653 17 15C17 17 17.4667 20.4 20.5 23C22.1333 24.4 23.5333 26 24 28M24 34H38M26.3333 39.5H35.6667" stroke-width="4" stroke-linecap="round" stroke="url(#paint0_linear_0_183)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_183" x1="31" y1="2" x2="31" y2="39.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#387BFF"/>
+<stop offset="1" stop-color="#1A57CF"/>
+</linearGradient>
+</defs>
+</svg>

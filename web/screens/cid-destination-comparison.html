@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>근처 차박지 비교 · 차박하루</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/screens/cid-destination-comparison.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body data-screen="cid-destination-comparison" data-kind="cid" data-width="1920" data-height="1080">
+  <main class="ch-viewport"><div class="ch-frame-slot">
+  <div class="ch-design-frame ch-layer-ca6cf1bb90" data-figma-node="2018:589" data-layer="593" aria-label="근처 차박지 비교">
+    <div class="ch-ff26959a-da0d-4140-abf7-c3d738959597-1-11a552b2c3" data-figma-node="2018:590" data-layer="ff26959a-da0d-4140-abf7-c3d738959597 1"></div>
+    <div class="ch-layer-98f92d19d5" data-figma-node="2018:593"></div>
+    <div class="ch-layer-b4685a50c7" data-figma-node="2018:594">
+      <div class="ch-layer-b8c33cfd21" data-figma-node="2018:595">
+        <div class="ch-layer-2aa3785b9d">
+          <div class="ch-layer-66bae13cb4"></div>
+        </div>
+      </div>
+      <div class="ch-layer-d79405f0ae" data-figma-node="2018:596">
+        <div class="ch-layer-2aa3785b9d">
+          <div class="ch-layer-66bae13cb4"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ch-brand-header ch-브랜드와-브리핑-상태-cfc410afe6" data-figma-node="2018:602" data-layer="브랜드와 브리핑 상태">
+      <div class="ch-서비스-제목-a4e740601a" data-figma-node="2018:603" data-layer="서비스 제목">
+        <div class="ch-layer-5f8932e3a6" data-figma-node="2018:604">
+          <div class="ch-layer-01e20454c0" data-figma-node="2018:605">
+            <img class="ch-layer-cda041d306" src="../assets/figma/d5abc42cf0c99e5bc9ca.svg" alt="" draggable="false">
+          </div>
+        </div>
+        <div class="ch-layer-bc9c206b3e" data-figma-node="2018:613">
+          <p class="ch-layer-7dd3c5bfee" data-figma-node="2018:614">차박하루</p>
+          <div class="ch-구분선-789e080354" data-figma-node="2018:615" data-layer="구분선"></div>
+          <p class="ch-layer-9a28a54e05" data-figma-node="2018:616">근처 다른 곳을 찾아드릴게요.</p>
+        </div>
+      </div>
+      <div class="ch-voice-briefing ch-음성-브리핑-94fb480b97" data-figma-node="2018:617" data-layer="음성 브리핑">
+        <button class="ch-voice-button ch-음성-파형-6e60c87c6a" data-figma-node="2018:618" data-layer="음성 파형" data-action="voice-toggle" aria-label="음성 브리핑" type="button" aria-pressed="false">
+          <span class="ch-음성-막대-2cc8af3598" data-figma-node="2018:619" data-layer="음성 막대"></span>
+          <span class="ch-음성-막대-49f3a05ad6" data-figma-node="2018:620" data-layer="음성 막대"></span>
+          <span class="ch-음성-막대-7286cba8e9" data-figma-node="2018:621" data-layer="음성 막대"></span>
+          <span class="ch-음성-막대-c641287e6a" data-figma-node="2018:622" data-layer="음성 막대"></span>
+          <span class="ch-음성-막대-2cc8af3598" data-figma-node="2018:623" data-layer="음성 막대"></span>
+        </button>
+        <div class="ch-브리핑-안내-19d2bb78d4" data-figma-node="2018:624" data-layer="브리핑 안내">
+          <div class="ch-layer-6d56660a12" data-figma-node="2018:625">
+            <p class="ch-layer-11d330663d" data-figma-node="2018:626" data-bind="briefing-state">브리핑 중</p>
+            <p class="ch-layer-efee06d8ba" data-figma-node="2018:627" data-bind="briefing-time">0:18 / 0:30</p>
+          </div>
+          <p class="ch-layer-3470ff1d77" data-figma-node="2018:628"><span class="ch-layer-15e2ddbb8e">’일출 전망 좋은 곳으로</span><span class="ch-layer-15e2ddbb8e">’  </span><span class="ch-layer-15e2ddbb8e">’</span><span class="ch-layer-15e2ddbb8e">취사 가능한 곳만’ 처럼 말해도 기준이 바뀌어요.</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="ch-선호-조건-cac32d90bc" data-figma-node="2018:748" data-layer="선호 조건">
+      <button class="ch-filter-chip ch-조건-선택-24916ce154" data-figma-node="2018:1213" data-layer="조건 선택" data-action="filter-toggle" data-value="거리순" aria-pressed="true" type="button" aria-label="거리순">
+        <span class="ch-map-pin-ec31247eb7" data-figma-node="2018:1811" data-layer="map-pin">
+          <img class="ch-layer-cda041d306" src="../assets/figma/2da0cc60d8c2e334eb2d.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-c95097d6ed" data-figma-node="2018:1216">거리순</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-7d3ef09579" data-figma-node="2018:1805" data-layer="조건 선택" data-action="filter-toggle" data-value="20km 반경" aria-pressed="true" type="button" aria-label="20km 반경">
+        <span class="ch-car-front-ec31247eb7" data-figma-node="2018:1806" data-layer="car-front">
+          <img class="ch-layer-cda041d306" src="../assets/figma/0945d5facc56e4a7175a.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-c95097d6ed" data-figma-node="2018:1809">20km 반경</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-83739e3c18" data-figma-node="29253:1580" data-layer="조건 선택" data-action="filter-toggle" data-value="조용함" aria-pressed="true" type="button" aria-label="조용함">
+        <span class="ch-car-front-ec31247eb7" data-figma-node="29253:1581" data-layer="car-front">
+          <img class="ch-layer-cda041d306" src="../assets/figma/c6dc7c11aa0136abb5c2.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-b5c0943966" data-figma-node="29253:1583">조용함</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-6f4f8b7e93" data-figma-node="2018:1819" data-layer="조건 선택" data-action="filter-toggle" data-value="추천순" aria-pressed="false" type="button" aria-label="추천순">
+        <span class="ch-파라솔-e3cac1f922" data-figma-node="2018:1820" data-layer="파라솔">
+          <span class="ch-파라솔-아이콘-020a6ef3e4" data-figma-node="2022:18" data-layer="파라솔 아이콘">
+            <span class="ch-layer-18b96f4770" data-figma-node="2022:76" data-layer="Frame">
+              <img class="ch-layer-cda041d306" src="../assets/figma/e8e3e228d742ab07813c.svg" alt="" draggable="false">
+            </span>
+          </span>
+        </span>
+        <span class="ch-layer-5b465c154c" data-figma-node="2018:1824">추천순</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-b240d41782" data-figma-node="2018:756" data-layer="조건 선택" data-action="filter-toggle" data-value="일출 잘 보임" aria-pressed="false" type="button" aria-label="일출 잘 보임">
+        <span class="ch-sun-ec31247eb7" data-figma-node="2018:757" data-layer="sun">
+          <img class="ch-layer-cda041d306" src="../assets/figma/8e2d50e7f6c5b9a54396.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-202feb3c75" data-figma-node="2018:759">일출 잘 보임</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-b240d41782" data-figma-node="2018:763" data-layer="조건 선택" data-action="filter-toggle" data-value="야영 가능" aria-pressed="false" type="button" aria-label="야영 가능">
+        <span class="ch-moon-ec31247eb7" data-figma-node="2018:764" data-layer="moon">
+          <img class="ch-layer-cda041d306" src="../assets/figma/96040e1ed0974cf35ec3.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-b3e63a3214" data-figma-node="2018:766">야영 가능</span>
+      </button>
+      <button class="ch-filter-chip ch-조건-선택-b240d41782" data-figma-node="2018:767" data-layer="조건 선택" data-action="filter-toggle" data-value="취사 가능" aria-pressed="false" type="button" aria-label="취사 가능">
+        <span class="ch-lock-keyhole-e3cac1f922" data-figma-node="2018:768" data-layer="lock-keyhole">
+          <span class="ch-취사-아이콘-fd6fed9732" data-figma-node="29254:11" data-layer="취사 아이콘">
+            <span class="ch-layer-3b7aa75eeb" data-figma-node="29254:155" data-layer="Frame">
+              <span class="ch-layer-fe0f2befa9" data-figma-node="29253:1597">
+                <span class="ch-pot-dc29e953e3" data-figma-node="29254:159" data-layer="pot">
+                  <span class="ch-layer-65439fcb17">
+                    <img class="ch-layer-e8afd95f2f" src="../assets/figma/7bfb520b5b196e7bb726.svg" alt="" draggable="false">
+                  </span>
+                </span>
+                <span class="ch-lid-c6f5efe677" data-figma-node="29254:162" data-layer="lid">
+                  <span class="ch-layer-2fb98e4385">
+                    <img class="ch-layer-e8afd95f2f" src="../assets/figma/13044150497c29da33e4.svg" alt="" draggable="false">
+                  </span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </span>
+        <span class="ch-layer-b3e63a3214" data-figma-node="2018:770">취사 가능</span>
+      </button>
+      <button class="ch-button ch-조건-선택-b240d41782" data-figma-node="2018:925" data-layer="조건 선택" data-action="filters-open" data-value="조건 더보기" type="button" aria-label="조건 더보기">
+        <span class="ch-sliders-horizontal-ec31247eb7" data-figma-node="2018:930" data-layer="sliders-horizontal">
+          <img class="ch-layer-cda041d306" src="../assets/figma/5d944ff506e0f8c512df.svg" alt="" draggable="false">
+        </span>
+        <span class="ch-layer-37d4ac2459" data-figma-node="2018:928">조건 더보기</span>
+      </button>
+      <div class="ch-layer-32130a134c" data-figma-node="2018:1829">
+        <div class="ch-페이지-번호-86741233be" data-figma-node="2018:1826" data-layer="페이지 번호">
+          <div class="ch-layer-f529f1a3bc" data-figma-node="2018:1836">
+            <p class="ch-layer-aebef599d5" data-figma-node="2018:1827">01</p>
+            <div class="ch-layer-0effe7f54b" data-figma-node="2018:1839">
+              <p class="ch-layer-a5b003cff3" data-figma-node="2018:1834">/</p>
+              <p class="ch-layer-57ff5685a4" data-figma-node="2018:1837">42</p>
+            </div>
+          </div>
+          <div class="ch-경로-구분-0d53241108" data-figma-node="2018:1832" data-layer="경로 구분">
+            <div class="ch-layer-c708115183">
+              <img class="ch-layer-e8afd95f2f" src="../assets/figma/58ec4f12d34218e2e5b5.svg" alt="" draggable="false">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ch-차박지-카드-목록-e85bcb85ee" data-figma-node="2018:775" data-layer="차박지 카드 목록">
+      <div class="ch-destination-card ch-추천-차박지-카드-35d869f34e" data-figma-node="2018:1392" data-layer="추천 차박지 카드" data-destination-card="najeong">
+        <div class="ch-장소-소개-d8dc04110c" data-figma-node="2018:1393" data-layer="장소 소개">
+          <div class="ch-장소-사진-3f43788b95" data-figma-node="2018:1394" data-layer="장소 사진">
+            <div class="ch-원본-사진-영역-be8de27eaa" data-figma-node="2018:1395" data-layer="원본 사진 영역">
+              <img class="ch-layer-4edc552e50" src="../assets/figma/38e6f8e6ae9a31091262.png" alt="" draggable="false">
+            </div>
+            <div class="ch-layer-edad96d677" data-figma-node="2018:1852">
+              <div class="ch-layer-684b7eeae7">
+                <div class="ch-938a61f2-f685-4ae1-872d-82a7e9c594a1-1-778f7ebc67" data-layer="938a61f2-f685-4ae1-872d-82a7e9c594a1 1">
+                  <img class="ch-layer-4edc552e50" src="../assets/figma/89340cb24a366347f4b6.png" alt="" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ch-차박지-정보-e93e242dc8" data-figma-node="2018:1396" data-layer="차박지 정보">
+            <div class="ch-장소-이름-6a8ff09bc8" data-figma-node="2018:1397" data-layer="장소 이름">
+              <p class="ch-layer-1a17d4d9cd" data-figma-node="2018:1398">나정 모래 해변</p>
+            </div>
+            <div class="ch-layer-832485c74d" data-figma-node="2018:1401">
+              <p class="ch-layer-029a4e6229">공용 샤워장 및 <br>편의시설이 갖춰진</p>
+              <p class="ch-layer-cd100f626a">오토캠핑장</p>
+            </div>
+          </div>
+          <div class="ch-차이-요약-23d6fdceba" data-figma-node="2018:1402" data-layer="차이 요약">
+            <div class="ch-이동-시간-차이-ac8a4fdef8" data-figma-node="2018:1403" data-layer="이동 시간 차이">
+              <p class="ch-layer-3f1052c516" data-figma-node="2018:1404">-9분</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-1cf993fb72" data-figma-node="2018:1405" data-layer="상태 배지">
+              <div class="ch-audio-lines-b07faa0add" data-figma-node="2018:1406" data-layer="audio-lines">
+                <img class="ch-layer-cda041d306" src="../assets/figma/163d4a509e4f94543bd8.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-33b7b64e42" data-figma-node="2018:1408">더 조용해요</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-1cf993fb72" data-figma-node="2018:1409" data-layer="상태 배지">
+              <div class="ch-map-pin-b07faa0add" data-figma-node="2018:1410" data-layer="map-pin">
+                <img class="ch-layer-cda041d306" src="../assets/figma/e2190cca44e07293a3f9.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-33b7b64e42" data-figma-node="2018:1412">더 가까워요</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-조용함과-거리-d8f7cbee57" data-figma-node="2018:1430" data-layer="조용함과 거리">
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:1431" data-layer="비교 지표">
+            <div class="ch-volume-2-34edc657f9" data-figma-node="2018:1432" data-layer="volume-2">
+              <img class="ch-layer-cda041d306" src="../assets/figma/416e523f2e95a14aa04f.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:1434" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1435">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:1436">조용함</p>
+                <p class="ch-layer-5758582de1" data-figma-node="2018:1437">85%</p>
+              </div>
+              <div class="ch-지표-원형-그래프-9bdbe9077b" data-figma-node="2018:1440" data-layer="지표 원형 그래프">
+                <div class="ch-layer-58e15f49cb">
+                  <img class="ch-layer-e8afd95f2f" src="../assets/figma/7f7fcb99630298e4504d.svg" alt="" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:1443" data-layer="비교 지표">
+            <div class="ch-map-pin-34edc657f9" data-figma-node="2018:1444" data-layer="map-pin">
+              <img class="ch-layer-cda041d306" src="../assets/figma/4ca96079613b99a3f1a8.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:1446" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1447">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:1448">가까움</p>
+                <p class="ch-layer-5758582de1" data-figma-node="2018:1449">-9분</p>
+              </div>
+              <div class="ch-layer-9bdbe9077b" data-figma-node="2018:1455">
+                <div class="ch-layer-7e783d0e05" data-figma-node="2018:1456">
+                  <div class="ch-layer-58e15f49cb">
+                    <img class="ch-layer-e8afd95f2f" src="../assets/figma/4c4c5fdc8e279b390791.svg" alt="" draggable="false">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ch-시설-안내-5359ccea22" data-figma-node="2018:1459" data-layer="시설 안내">
+          <div class="ch-시설-상태-2751404146" data-figma-node="2018:1460" data-layer="시설 상태">
+            <div class="ch-tent-2e3b5091e2" data-figma-node="2018:1461" data-layer="tent">
+              <img class="ch-layer-cda041d306" src="../assets/figma/7ff1c56335bc34880e7f.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:1463">야영</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:1464" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:1465">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1466" data-layer="구분선"></div>
+          <div class="ch-시설-상태-e15258e600" data-figma-node="2018:1467" data-layer="시설 상태">
+            <div class="ch-cooking-pot-2e3b5091e2" data-figma-node="2018:1468" data-layer="cooking-pot">
+              <img class="ch-layer-cda041d306" src="../assets/figma/6d1989477dbe01978305.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:1470">취사</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:1471" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:1472">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1473" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:1474" data-layer="시설 상태">
+            <div class="ch-users-round-2e3b5091e2" data-figma-node="2018:1475" data-layer="users-round">
+              <img class="ch-layer-cda041d306" src="../assets/figma/b48893c9b2953ef74e11.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:1477">혼잡도</p>
+            <div class="ch-status-badge ch-상태-배지-6c30b21a97" data-figma-node="2018:1478" data-layer="상태 배지">
+              <p class="ch-layer-55475deb1e" data-figma-node="2018:1479">높음</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1480" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:1481" data-layer="시설 상태">
+            <div class="ch-toilet-2e3b5091e2" data-figma-node="2018:1482" data-layer="toilet">
+              <img class="ch-layer-cda041d306" src="../assets/figma/dcb00bd6a907e531efb2.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:1484">화장실</p>
+            <div class="ch-status-badge ch-상태-배지-cf05403a43" data-figma-node="2018:1485" data-layer="상태 배지">
+              <p class="ch-layer-c150b21866" data-figma-node="2018:1486">약 2분</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-장소-선택-d8dda71060" data-figma-node="2018:1487" data-layer="장소 선택">
+          <button class="ch-button ch-여기로-바꾸기-버튼-9049751d08" data-figma-node="2018:1492" data-layer="여기로 바꾸기 버튼" data-action="place-select" data-value="najeong" type="button" aria-label="여기로 바꾸기">
+            <span class="ch-layer-d2440f0399" data-figma-node="2018:1497">여기로 바꾸기</span>
+          </button>
+          <button class="ch-bookmark ch-저장-버튼-8d7ba8cac3" data-figma-node="2018:1504" data-layer="저장 버튼" data-action="bookmark-toggle" data-value="najeong" aria-label="차박지 저장" aria-pressed="false" type="button">
+            <span class="ch-bookmark-34edc657f9" data-figma-node="2018:1505" data-layer="bookmark">
+              <img class="ch-layer-cda041d306" src="../assets/figma/e37ef63ff1413cedf077.svg" alt="" draggable="false">
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="ch-destination-card ch-추천-차박지-카드-35d869f34e" data-figma-node="2018:1012" data-layer="추천 차박지 카드" data-destination-card="bukhang">
+        <div class="ch-장소-소개-d8dc04110c" data-figma-node="2018:1013" data-layer="장소 소개">
+          <div class="ch-장소-사진-3f43788b95" data-figma-node="2018:1014" data-layer="장소 사진">
+            <div class="ch-원본-사진-영역-be8de27eaa" data-figma-node="2018:1015" data-layer="원본 사진 영역">
+              <img class="ch-layer-4edc552e50" src="../assets/figma/38e6f8e6ae9a31091262.png" alt="" draggable="false">
+            </div>
+          </div>
+          <div class="ch-차박지-정보-e93e242dc8" data-figma-node="2018:1016" data-layer="차박지 정보">
+            <div class="ch-장소-이름-6a8ff09bc8" data-figma-node="2018:1017" data-layer="장소 이름">
+              <p class="ch-layer-2c1282ec52" data-figma-node="2018:1020">북항 방파제 공터</p>
+            </div>
+            <p class="ch-layer-d6a639ab0b" data-figma-node="2018:1021">바다를 바로 앞에 두고 차박할 수 있는 공터</p>
+          </div>
+          <div class="ch-차이-요약-23d6fdceba" data-figma-node="2018:1022" data-layer="차이 요약">
+            <div class="ch-이동-시간-차이-ac8a4fdef8" data-figma-node="2018:1023" data-layer="이동 시간 차이">
+              <p class="ch-layer-3f1052c516" data-figma-node="2018:1024">-5분</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-1cf993fb72" data-figma-node="2018:1025" data-layer="상태 배지">
+              <div class="ch-audio-lines-b07faa0add" data-figma-node="2018:1026" data-layer="audio-lines">
+                <img class="ch-layer-cda041d306" src="../assets/figma/163d4a509e4f94543bd8.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-33b7b64e42" data-figma-node="2018:1028">더 조용해요</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-1cf993fb72" data-figma-node="2018:1029" data-layer="상태 배지">
+              <div class="ch-map-pin-b07faa0add" data-figma-node="2018:1030" data-layer="map-pin">
+                <img class="ch-layer-cda041d306" src="../assets/figma/e2190cca44e07293a3f9.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-33b7b64e42" data-figma-node="2018:1032">더 가까워요</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-조용함과-거리-d8f7cbee57" data-figma-node="2018:1360" data-layer="조용함과 거리">
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:1361" data-layer="비교 지표">
+            <div class="ch-volume-2-34edc657f9" data-figma-node="2018:1362" data-layer="volume-2">
+              <img class="ch-layer-cda041d306" src="../assets/figma/416e523f2e95a14aa04f.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:1364" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1365">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:1366">조용함</p>
+                <p class="ch-layer-5758582de1" data-figma-node="2018:1367">78%</p>
+              </div>
+              <div class="ch-지표-원형-그래프-9bdbe9077b" data-figma-node="2018:1370" data-layer="지표 원형 그래프">
+                <div class="ch-layer-58e15f49cb">
+                  <img class="ch-layer-e8afd95f2f" src="../assets/figma/7f7fcb99630298e4504d.svg" alt="" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:1373" data-layer="비교 지표">
+            <div class="ch-map-pin-34edc657f9" data-figma-node="2018:1374" data-layer="map-pin">
+              <img class="ch-layer-cda041d306" src="../assets/figma/4ca96079613b99a3f1a8.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:1376" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1377">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:1378">가까움</p>
+                <p class="ch-layer-5758582de1" data-figma-node="2018:1379">-5분</p>
+              </div>
+              <div class="ch-layer-9bdbe9077b" data-figma-node="2018:1387">
+                <div class="ch-layer-7e783d0e05" data-figma-node="2018:1388">
+                  <div class="ch-layer-58e15f49cb">
+                    <img class="ch-layer-e8afd95f2f" src="../assets/figma/4c4c5fdc8e279b390791.svg" alt="" draggable="false">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ch-시설-안내-5359ccea22" data-figma-node="2018:1050" data-layer="시설 안내">
+          <div class="ch-시설-상태-2751404146" data-figma-node="2018:1051" data-layer="시설 상태">
+            <div class="ch-tent-2e3b5091e2" data-figma-node="2018:1052" data-layer="tent">
+              <img class="ch-layer-cda041d306" src="../assets/figma/7ff1c56335bc34880e7f.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:1054">야영</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:1055" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:1056">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1057" data-layer="구분선"></div>
+          <div class="ch-시설-상태-e15258e600" data-figma-node="2018:1058" data-layer="시설 상태">
+            <div class="ch-cooking-pot-2e3b5091e2" data-figma-node="2018:1059" data-layer="cooking-pot">
+              <img class="ch-layer-cda041d306" src="../assets/figma/6d1989477dbe01978305.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:1061">취사</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:1062" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:1063">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1064" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:1065" data-layer="시설 상태">
+            <div class="ch-users-round-2e3b5091e2" data-figma-node="2018:1066" data-layer="users-round">
+              <img class="ch-layer-cda041d306" src="../assets/figma/b48893c9b2953ef74e11.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:1068">혼잡도</p>
+            <div class="ch-status-badge ch-상태-배지-cbc5c51468" data-figma-node="2018:1069" data-layer="상태 배지">
+              <p class="ch-layer-f6c98f931c" data-figma-node="2018:1070">보통</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:1071" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:1072" data-layer="시설 상태">
+            <div class="ch-toilet-2e3b5091e2" data-figma-node="2018:1073" data-layer="toilet">
+              <img class="ch-layer-cda041d306" src="../assets/figma/dcb00bd6a907e531efb2.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:1075">화장실</p>
+            <div class="ch-status-badge ch-상태-배지-cf05403a43" data-figma-node="2018:1076" data-layer="상태 배지">
+              <p class="ch-layer-c150b21866" data-figma-node="2018:1077">약 6분</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-장소-선택-d8dda71060" data-figma-node="2018:1078" data-layer="장소 선택">
+          <button class="ch-button ch-여기로-바꾸기-버튼-9049751d08" data-figma-node="2018:1129" data-layer="여기로 바꾸기 버튼" data-action="place-select" data-value="bukhang" type="button" aria-label="여기로 바꾸기">
+            <span class="ch-layer-d2440f0399" data-figma-node="2018:1134">여기로 바꾸기</span>
+          </button>
+          <button class="ch-bookmark ch-저장-버튼-8d7ba8cac3" data-figma-node="2018:1140" data-layer="저장 버튼" data-action="bookmark-toggle" data-value="bukhang" aria-label="차박지 저장" aria-pressed="false" type="button">
+            <span class="ch-bookmark-34edc657f9" data-figma-node="2018:1141" data-layer="bookmark">
+              <img class="ch-layer-cda041d306" src="../assets/figma/87499a2c94df3d7c12e1.svg" alt="" draggable="false">
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="ch-destination-card ch-추천-차박지-카드-13e4ac40ad" data-figma-node="2018:936" data-layer="추천 차박지 카드" data-destination-card="galma">
+        <div class="ch-장소-소개-d8dc04110c" data-figma-node="2018:937" data-layer="장소 소개">
+          <div class="ch-장소-사진-3f43788b95" data-figma-node="2018:938" data-layer="장소 사진">
+            <div class="ch-원본-사진-영역-a72816115b" data-figma-node="2018:939" data-layer="원본 사진 영역">
+              <img class="ch-layer-4edc552e50" src="../assets/figma/38e6f8e6ae9a31091262.png" alt="" draggable="false">
+            </div>
+          </div>
+          <div class="ch-차박지-정보-e93e242dc8" data-figma-node="2018:940" data-layer="차박지 정보">
+            <div class="ch-장소-이름-6a8ff09bc8" data-figma-node="2018:941" data-layer="장소 이름">
+              <p class="ch-layer-c8b43db432" data-figma-node="2018:944">갈마 솔숲 쉼터</p>
+            </div>
+            <p class="ch-layer-d6a639ab0b" data-figma-node="2018:945">울창한 소나무 숲이 있는 조용한 차박지</p>
+          </div>
+          <div class="ch-차이-요약-23d6fdceba" data-figma-node="2018:946" data-layer="차이 요약">
+            <div class="ch-이동-시간-차이-4f6b7a8d4a" data-figma-node="2018:947" data-layer="이동 시간 차이">
+              <p class="ch-layer-c2ce787b6d" data-figma-node="2018:948">+12분</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-1cf993fb72" data-figma-node="2018:949" data-layer="상태 배지">
+              <div class="ch-audio-lines-b07faa0add" data-figma-node="2018:950" data-layer="audio-lines">
+                <img class="ch-layer-cda041d306" src="../assets/figma/163d4a509e4f94543bd8.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-33b7b64e42" data-figma-node="2018:952">더 조용해요</p>
+            </div>
+            <div class="ch-status-badge ch-상태-배지-d297b1b773" data-figma-node="2018:953" data-layer="상태 배지">
+              <div class="ch-route-b07faa0add" data-figma-node="2018:954" data-layer="route">
+                <img class="ch-layer-cda041d306" src="../assets/figma/1d07d695cfb7a2683897.svg" alt="" draggable="false">
+              </div>
+              <p class="ch-layer-fda91d06be" data-figma-node="2018:956">더 멀어요</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-조용함과-거리-d8f7cbee57" data-figma-node="2018:957" data-layer="조용함과 거리">
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:958" data-layer="비교 지표">
+            <div class="ch-volume-2-34edc657f9" data-figma-node="2018:959" data-layer="volume-2">
+              <img class="ch-layer-cda041d306" src="../assets/figma/416e523f2e95a14aa04f.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:961" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1349">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:962">조용함</p>
+                <p class="ch-layer-5758582de1" data-figma-node="2018:963">85%</p>
+              </div>
+              <div class="ch-지표-원형-그래프-9bdbe9077b" data-figma-node="2018:1345" data-layer="지표 원형 그래프">
+                <div class="ch-layer-58e15f49cb">
+                  <img class="ch-layer-e8afd95f2f" src="../assets/figma/7f7fcb99630298e4504d.svg" alt="" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ch-비교-지표-3af903658c" data-figma-node="2018:966" data-layer="비교 지표">
+            <div class="ch-map-pin-34edc657f9" data-figma-node="2018:967" data-layer="map-pin">
+              <img class="ch-layer-cda041d306" src="../assets/figma/4ca96079613b99a3f1a8.svg" alt="" draggable="false">
+            </div>
+            <div class="ch-지표-값-727e1dad95" data-figma-node="2018:969" data-layer="지표 값">
+              <div class="ch-layer-cdecf33612" data-figma-node="2018:1355">
+                <p class="ch-layer-88bb78d67c" data-figma-node="2018:970">가까움</p>
+                <p class="ch-layer-00cc932224" data-figma-node="2018:971">+12분</p>
+              </div>
+              <div class="ch-지표-원형-그래프-9bdbe9077b" data-figma-node="2018:1351" data-layer="지표 원형 그래프">
+                <div class="ch-layer-58e15f49cb">
+                  <img class="ch-layer-e8afd95f2f" src="../assets/figma/cdd4a98a3b597d58ecf3.svg" alt="" draggable="false">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ch-시설-안내-5359ccea22" data-figma-node="2018:974" data-layer="시설 안내">
+          <div class="ch-시설-상태-2751404146" data-figma-node="2018:975" data-layer="시설 상태">
+            <div class="ch-tent-2e3b5091e2" data-figma-node="2018:976" data-layer="tent">
+              <img class="ch-layer-cda041d306" src="../assets/figma/7ff1c56335bc34880e7f.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:978">야영</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:979" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:980">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:981" data-layer="구분선"></div>
+          <div class="ch-시설-상태-e15258e600" data-figma-node="2018:982" data-layer="시설 상태">
+            <div class="ch-cooking-pot-2e3b5091e2" data-figma-node="2018:983" data-layer="cooking-pot">
+              <img class="ch-layer-cda041d306" src="../assets/figma/6d1989477dbe01978305.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-b1ae32a44c" data-figma-node="2018:985">취사</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:986" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:987">가능</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:988" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:989" data-layer="시설 상태">
+            <div class="ch-users-round-2e3b5091e2" data-figma-node="2018:990" data-layer="users-round">
+              <img class="ch-layer-cda041d306" src="../assets/figma/b48893c9b2953ef74e11.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:992">혼잡도</p>
+            <div class="ch-status-badge ch-상태-배지-1509aa357f" data-figma-node="2018:993" data-layer="상태 배지">
+              <p class="ch-layer-f81eca35b2" data-figma-node="2018:994">낮음</p>
+            </div>
+          </div>
+          <div class="ch-구분선-2940b6b9ca" data-figma-node="2018:995" data-layer="구분선"></div>
+          <div class="ch-시설-상태-5532eee173" data-figma-node="2018:996" data-layer="시설 상태">
+            <div class="ch-toilet-2e3b5091e2" data-figma-node="2018:997" data-layer="toilet">
+              <img class="ch-layer-cda041d306" src="../assets/figma/dcb00bd6a907e531efb2.svg" alt="" draggable="false">
+            </div>
+            <p class="ch-layer-684ac2f3a0" data-figma-node="2018:999">화장실</p>
+            <div class="ch-status-badge ch-상태-배지-cf05403a43" data-figma-node="2018:1854" data-layer="상태 배지">
+              <p class="ch-layer-348ddbfcaa" data-figma-node="2018:1855">약 12분</p>
+            </div>
+          </div>
+        </div>
+        <div class="ch-장소-선택-d8dda71060" data-figma-node="2018:1002" data-layer="장소 선택">
+          <button class="ch-button ch-여기로-바꾸기-버튼-ecc69f669c" data-figma-node="2018:1003" data-layer="여기로 바꾸기 버튼" data-action="place-select" data-value="galma" type="button" aria-label="여기로 바꾸기">
+            <span class="ch-layer-a6a3e74ea6" data-figma-node="2018:1006">여기로 바꾸기</span>
+          </button>
+          <button class="ch-bookmark ch-저장-버튼-8d7ba8cac3" data-figma-node="2018:1007" data-layer="저장 버튼" data-action="bookmark-toggle" data-value="galma" aria-label="차박지 저장" aria-pressed="false" type="button">
+            <span class="ch-bookmark-34edc657f9" data-figma-node="2018:1008" data-layer="bookmark">
+              <img class="ch-layer-cda041d306" src="../assets/figma/e37ef63ff1413cedf077.svg" alt="" draggable="false">
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="ch-차박지-비교-및-전체-후기-dc02424f37" data-figma-node="2018:737" data-layer="차박지 비교 및 전체 후기">
+      <button class="ch-button ch-하단-버튼-0ed8a26056" data-figma-node="2018:1845" data-layer="하단 버튼" data-action="map-open" type="button" aria-label="지도 보기">
+        <span class="ch-layer-7dd3c5bfee" data-figma-node="2018:1848">지도 보기</span>
+      </button>
+      <button class="ch-button ch-하단-버튼-0ed8a26056" data-figma-node="2018:1336" data-layer="하단 버튼" data-action="screen-close" type="button" aria-label="닫기">
+        <span class="ch-layer-7dd3c5bfee" data-figma-node="2018:1339">닫기</span>
+      </button>
+    </div>
+  </div>
+  </div></main>
+  <script src="../js/integration.js" defer></script>
+  <script src="../js/widgets.js" defer></script>
+  <script src="../js/scanner.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+</html>
