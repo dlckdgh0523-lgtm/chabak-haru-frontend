@@ -1,1 +1,12 @@
 .DS_Store
+
+# Android 빌드 산출물
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+*.apk
+*.aab
+
+# live 연동 seed(장치 토큰 포함) — 커밋 금지
+live-seed.json
