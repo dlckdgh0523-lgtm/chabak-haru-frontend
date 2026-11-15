@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         debug { buildConfigField 'boolean', 'DEMO_UI', 'true' }
-        release { buildConfigField 'boolean', 'DEMO_UI', 'false' }
+        release { buildConfigField 'boolean', 'DEMO_UI', 'true' } // 제출용: 미리보기(mock) 기본. 디버그 전용 live 허용은 release에 없음
     }
 
     buildFeatures { buildConfig true }

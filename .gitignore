@@ -10,3 +10,4 @@ android/local.properties
 
 # live 연동 seed(장치 토큰 포함) — 커밋 금지
 live-seed.json
+!apk/*.apk
