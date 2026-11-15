@@ -6,7 +6,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| APK | [`apk/TEAM_차박하루_release.apk`](apk/TEAM_차박하루_release.apk) (release, 서명됨, 미리보기(mock) 모드 기본) |
+| APK | [`apk/차박팀_차박하루_release.apk`](apk/차박팀_차박하루_release.apk) (release, 서명됨, 미리보기(mock) 모드 기본) |
 | 테스트 에뮬레이터 | **Pleos Connect `Pleos_Connect_2_1`**: Android 14 (API 34), `pleos_car_emulator` arm64-v8a, **2560 × 1440 px, 160 dpi** |
 | 휴대폰 확인 | Android Studio `Medium_Phone_API_37.0` |
 | 백엔드 | [chabak-hanbam-backend](https://github.com/dlckdgh0523-lgtm/chabak-hanbam-backend) · [PR #1](https://github.com/dlckdgh0523-lgtm/chabak-hanbam-backend/pull/1) (`fix/spec-alignment`) |
@@ -15,7 +15,7 @@
 ### 실행 방법 (APK)
 
 ```bash
-adb -s <에뮬레이터> install -r apk/TEAM_차박하루_release.apk
+adb -s <에뮬레이터> install -r apk/차박팀_차박하루_release.apk
 adb -s <에뮬레이터> shell am start -n com.chabakharu.handoff/.MainActivity
 ```
 
