@@ -14,14 +14,16 @@
   const {make,message,panel,textField,selectField,checkField}=window.ChabakWidgets;
   const params=query.get("mode")==="live"?"?mode=live":"";
   const host=window.ChabakNative?.postMessage;
-  if (host) document.body.dataset.native="android";
+  // Android 앱 안(네이티브 브리지 또는 디버그 live처럼 브리지 없는 WebView). 실제 상태 막대가 있으니 시안의 9:41 막대를 숨기고 폭에 맞춰 확대
+  const inApp=!!host||/; wv\)/.test(navigator.userAgent);
+  if (inApp) document.body.dataset.native="android";
 
   function fitFrame() {
     const scale=type==="cid"?Math.min(innerWidth/width,innerHeight/height):
-      type==="mobile"?Math.min(1,innerWidth/width):1;
+      type==="mobile"?(inApp?innerWidth/width:Math.min(1,innerWidth/width)):1;
     const size=fixed?1:scale;
     slot.style.width=(width*size)+"px";
-    const mockBar=host&&type==="mobile"?root.querySelector("[data-system-bar]"):null;
+    const mockBar=inApp&&type==="mobile"?root.querySelector("[data-system-bar]"):null;
     const inset=mockBar?mockBar.offsetHeight:0;
     slot.style.height=((height-inset)*size)+"px";
     root.style.setProperty("--ch-frame-scale",size);

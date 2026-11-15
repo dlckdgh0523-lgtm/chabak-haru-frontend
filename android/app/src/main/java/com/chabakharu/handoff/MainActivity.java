@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -78,6 +79,8 @@ public class MainActivity extends Activity {
     private boolean automotive;
     /** 디버그 빌드에서 --es mode live 로 실행하면 웹 live 어댑터(REST·WS)를 쓴다. 릴리스는 항상 false */
     private boolean devLive;
+    /** 인텐트로 다시 만들 때는 이전 페이지를 복원하지 않고 인텐트의 시작 화면을 연다 */
+    private boolean reloadFromIntent;
 
     protected BackendGateway createGateway() {
         return BackendGateway.unavailable();
@@ -90,6 +93,8 @@ public class MainActivity extends Activity {
         automotive = getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
         devLive = BuildConfig.DEBUG && "live".equals(getIntent().getStringExtra("mode"));
         if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
+        // 첫 페이지가 뜨기 전 흰 화면 대신 프레임 바탕색(CID 남색, 모바일 밝은 회청색)
+        getWindow().setBackgroundDrawable(new ColorDrawable(startBackground()));
         if (!WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
             TextView unavailable = new TextView(this);
             unavailable.setText(R.string.webview_unavailable);
@@ -99,8 +104,10 @@ public class MainActivity extends Activity {
         }
 
         FrameLayout layout = new FrameLayout(this);
-        layout.setBackgroundColor(Color.rgb(250, 252, 255));
+        layout.setBackgroundColor(startBackground());
         web = new WebView(this);
+        web.setBackgroundColor(startBackground());
+        web.setVisibility(View.INVISIBLE); // 첫 페이지가 그려질 때(onPageCommitVisible)까지 바탕색만 보인다
         layout.addView(web, new FrameLayout.LayoutParams(-1, -1));
         setContentView(layout);
         // 인셋 컨트롤러는 DecorView가 생긴 뒤(setContentView 뒤)에만 쓸 수 있다
@@ -147,6 +154,25 @@ public class MainActivity extends Activity {
         return url.build().toString();
     }
 
+    private int startBackground() {
+        return automotive ? Color.rgb(7, 14, 48) : Color.rgb(248, 248, 252);
+    }
+
+    /** 이미 떠 있는 앱에 am start --es screen/mode … 를 보내도 반영한다(실행 아이콘으로 다시 열면 그대로) */
+    @Override protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (!BuildConfig.DEBUG || (intent.getStringExtra("screen") == null && intent.getStringExtra("mode") == null)) return;
+        setIntent(intent);
+        boolean wantLive = "live".equals(intent.getStringExtra("mode"));
+        if (wantLive != devLive || web == null) {
+            // 네이티브 브리지 등록 여부가 바뀌므로 화면을 다시 만든다
+            reloadFromIntent = true;
+            recreate();
+            return;
+        }
+        web.loadUrl(startUrl());
+    }
+
     private static boolean devBackend(Uri uri) {
         return DEV_BACKEND_HOST.equals(uri.getHost()) && uri.getPort() == 3000
             && ("http".equals(uri.getScheme()) || "ws".equals(uri.getScheme()));
@@ -181,6 +207,7 @@ public class MainActivity extends Activity {
 
             @Override public void onPageCommitVisible(WebView view, String url) {
                 if (url != null) updateSystemBars(Uri.parse(url).getPath());
+                view.setVisibility(View.VISIBLE);
             }
 
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -339,7 +366,7 @@ public class MainActivity extends Activity {
     }
 
     @Override protected void onSaveInstanceState(Bundle state) {
-        if (web != null) web.saveState(state);
+        if (web != null && !reloadFromIntent) web.saveState(state);
         super.onSaveInstanceState(state);
     }
 
