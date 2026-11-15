@@ -44,7 +44,10 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends Activity {
     private static final String ORIGIN = "https://appassets.androidplatform.net";
     private static final String ASSET_PREFIX = "/assets/";
-    private static final String START = ORIGIN + ASSET_PREFIX + "screens/mobile-onboarding-welcome.html";
+    private static final String SCREENS = ORIGIN + ASSET_PREFIX + "screens/";
+    /** 디버그 live 모드에서만 허용하는 로컬 백엔드(에뮬레이터 → 호스트 localhost:3000) */
+    private static final String DEV_BACKEND_HOST = "10.0.2.2";
+    private static final String[] LIVE_EXTRAS = {"api", "user", "vehicleId", "sessionId", "tripId", "linkId", "carToken"};
     private static final int CAMERA_REQUEST = 101;
     private static final Set<String> ALLOWED_EVENTS = eventSet(
         "route.accept", "route.dismiss", "route.start", "route.detour", "route.destination",
@@ -72,6 +75,9 @@ public class MainActivity extends Activity {
     private WebView web;
     private PermissionRequest cameraRequest;
     private boolean alive;
+    private boolean automotive;
+    /** 디버그 빌드에서 --es mode live 로 실행하면 웹 live 어댑터(REST·WS)를 쓴다. 릴리스는 항상 false */
+    private boolean devLive;
 
     protected BackendGateway createGateway() {
         return BackendGateway.unavailable();
@@ -81,15 +87,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         alive = true;
         gateway = createGateway();
-        if (Build.VERSION.SDK_INT >= 30) {
-            getWindow().setDecorFitsSystemWindows(false);
-            WindowInsetsController controller = getWindow().getInsetsController();
-            if (controller != null) {
-                int mask = WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                    | WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
-                controller.setSystemBarsAppearance(mask, mask);
-            }
-        }
+        automotive = getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
+        devLive = BuildConfig.DEBUG && "live".equals(getIntent().getStringExtra("mode"));
+        if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
         if (!WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
             TextView unavailable = new TextView(this);
             unavailable.setText(R.string.webview_unavailable);
@@ -103,6 +103,8 @@ public class MainActivity extends Activity {
         web = new WebView(this);
         layout.addView(web, new FrameLayout.LayoutParams(-1, -1));
         setContentView(layout);
+        // 인셋 컨트롤러는 DecorView가 생긴 뒤(setContentView 뒤)에만 쓸 수 있다
+        updateSystemBars(automotive ? "/cid-start.html" : "/mobile-start.html");
 
         View.OnApplyWindowInsetsListener insetsListener = (view, insets) -> {
             if (Build.VERSION.SDK_INT >= 30) {
@@ -122,8 +124,32 @@ public class MainActivity extends Activity {
             );
         }
         if (savedInstanceState == null || web.restoreState(savedInstanceState) == null) {
-            web.loadUrl(START + (BuildConfig.DEMO_UI ? "" : "?mode=live"));
+            web.loadUrl(startUrl());
         }
+    }
+
+    /** 차량(FEATURE_AUTOMOTIVE)은 CID 화면, 폰은 모바일 화면으로 시작. 디버그에서는 --es screen 으로 시작 화면 지정 가능 */
+    private String startUrl() {
+        String screen = (automotive ? "cid-" : "mobile-") + "onboarding-welcome";
+        String requested = BuildConfig.DEBUG ? getIntent().getStringExtra("screen") : null;
+        if (requested != null && requested.matches("(cid|mobile|rolling)-[a-z-]{2,40}")) screen = requested;
+        Uri.Builder url = Uri.parse(SCREENS + screen + ".html").buildUpon();
+        if (devLive) {
+            url.appendQueryParameter("mode", "live");
+            // 값은 실행 인텐트로만 받는다(앱·저장소에 넣지 않음). 형식이 맞는 값만 넘긴다
+            for (String key : LIVE_EXTRAS) {
+                String value = getIntent().getStringExtra(key);
+                if (value != null && value.matches("[A-Za-z0-9_.:/-]{1,200}")) url.appendQueryParameter(key, value);
+            }
+        } else if (!BuildConfig.DEMO_UI) {
+            url.appendQueryParameter("mode", "live");
+        }
+        return url.build().toString();
+    }
+
+    private static boolean devBackend(Uri uri) {
+        return DEV_BACKEND_HOST.equals(uri.getHost()) && uri.getPort() == 3000
+            && ("http".equals(uri.getScheme()) || "ws".equals(uri.getScheme()));
     }
 
     private void configureWebView() {
@@ -136,7 +162,8 @@ public class MainActivity extends Activity {
         settings.setDomStorageEnabled(true);
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
-        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        // 디버그 live만 https 자산 페이지에서 http://10.0.2.2:3000(REST·WS) 호출을 허용
+        settings.setMixedContentMode(devLive ? WebSettings.MIXED_CONTENT_ALWAYS_ALLOW : WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         settings.setJavaScriptCanOpenWindowsAutomatically(false);
         settings.setSupportMultipleWindows(false);
         settings.setSafeBrowsingEnabled(true);
@@ -147,6 +174,7 @@ public class MainActivity extends Activity {
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
                 if (trusted(uri)) return loader.shouldInterceptRequest(uri);
+                if (devLive && devBackend(uri)) return null; // 네트워크로 그대로 보냄
                 return new WebResourceResponse("text/plain", "UTF-8", 403, "Forbidden",
                     Collections.emptyMap(), new ByteArrayInputStream(new byte[0]));
             }
@@ -182,16 +210,21 @@ public class MainActivity extends Activity {
             }
         });
 
-        WebViewCompat.addWebMessageListener(web, "ChabakNative", Collections.singleton(ORIGIN),
-            (view, message, source, main, reply) -> {
-                if (main && originMatches(source)) processMessage(message.getData(), reply);
-            }
-        );
+        // 디버그 live는 네이티브 브리지 없이 웹 live 어댑터가 서버와 직접 통신한다
+        if (!devLive) {
+            WebViewCompat.addWebMessageListener(web, "ChabakNative", Collections.singleton(ORIGIN),
+                (view, message, source, main, reply) -> {
+                    if (main && originMatches(source)) processMessage(message.getData(), reply);
+                }
+            );
+        }
     }
 
     private void updateSystemBars(String page) {
         if (page == null) return;
-        boolean dark = page.matches(".*/mobile-(sleep-mode|weather-alert|approach-alert|sunrise-alarm|onboarding-scan)\\.html");
+        // CID 화면은 바탕이 어두운 남색이라 항상 어두운 막대, 모바일은 어두운 화면만
+        boolean dark = page.matches(".*/cid-[a-z-]+\\.html")
+            || page.matches(".*/mobile-(sleep-mode|weather-alert|approach-alert|sunrise-alarm|onboarding-scan)\\.html");
         if (Build.VERSION.SDK_INT >= 30) {
             WindowInsetsController controller = getWindow().getInsetsController();
             if (controller != null) {
